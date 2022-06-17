@@ -1,0 +1,38 @@
+//
+//Written by GowinSynthesis
+//Product Version "GowinSynthesis V1.9.8 Education"
+//Fri Jun 17 01:53:12 2022
+
+//Source file index table:
+//file0 "\D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v"
+//file1 "\D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/num_of_ones.v"
+`pragma protect begin_protected
+`pragma protect version="2.0"
+`pragma protect author="default"
+`pragma protect author_info="default"
+`pragma protect encrypt_agent="GOWIN"
+`pragma protect encrypt_agent_info="GOWIN Encrypt Version 2.0"
+
+`pragma protect encoding=(enctype="base64", line_length=76, bytes=256)
+`pragma protect key_keyowner="GOWIN",key_keyname="GWK2021-01",key_method="rsa"
+`pragma protect key_block
+a8jR0WFsPL8P+Ev4U9rCAItyGdL9GplP8epV5aoP5cCmbAzov5FnIqFxjK8JZCs7PC2xh6+kjO5I
+qCboXGbnIUqaLAPI1nypAiCT5+ZrTOjGj26UJmGUEh0RWUtFRpUcL9cWsckwk+LUE5Lx21/ckIui
+24q2OGuMjdGL6oVgiZWGALtq4tF6t8+I7mOcHABsM3fowDEvqWrSYWAv+ExvOXq1Ly4kHtOgxvC9
+Y7vJW5tKp75DllVDvR1NWSlXYMoyStInPztNRa0LLXosRTH54CJY1no8f5XIaCjX5LxtzzLJfuhz
+b++JXmVhBjikillF2j81QTkdkU3ZPg5RDa64wQ==
+
+`pragma protect encoding=(enctype="base64", line_length=76, bytes=448)
+`pragma protect data_keyowner="default-ip-vendor"
+`pragma protect data_keyname="default-ip-key"
+`pragma protect data_method="aes128-cbc"
+`pragma protect data_block
+5gqWuPGWK5LW0frl3+83opAA3SU/sMfLj/T51GrI5id++afpeYdFlcmc1Es4PQtsNqB//g+Sjggg
+nlp7LV/uDN8+ygodKPuUoq3XY3EGYhXKC+mq04Xzjlc7WZDzLW1+QPkvrAFZ3xcnqpq11P6TWVvB
+s4SRMsoihC9pQaow2QxErizTsFnXJ1NUWE9xYz6jD7pxHU5uHQGhaRnCWF5W7Z8oeGr+8zK0aNmf
+3dF1YIcAYdAWOgn53tfn9lGtbE7v3XnFTLgcZNEEG9NBDrQKTShA1EZT1OQiU4sNNs98QJkrRPOz
+eMDr3QRUUJAt75dIUtAmpP5KDUMHpYXR+7fnjf/T7rQSeNPkWqcUpmAsFIKDi3dtPc8ypkn07m+a
+ZHJ/i4i/7IwHQuXrnic7PyWnd2NSIh0zwrt23H5uekuWlW1faSvlePqNU3caAw9/ai/muX3KcRc7
+T2l027GwGuiu7LLdpgNd95mYXvinjWeekbx8QFNrDZYmBXPW5Tk09S9dkkUNTDZVKjz1sGrzdyvd
+kPqB1vgnh1b6UiPpo/QjSvb6zVKLxKPzl5otEb4EitOL7IhvGWkVen/EfuT/XKyypw==
+`pragma protect end_protected
