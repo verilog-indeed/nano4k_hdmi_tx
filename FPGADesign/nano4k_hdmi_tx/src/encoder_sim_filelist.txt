@@ -1,0 +1,3 @@
+encoder_serializer.v
+num_of_ones.v
+encoder_serializer_tb.v

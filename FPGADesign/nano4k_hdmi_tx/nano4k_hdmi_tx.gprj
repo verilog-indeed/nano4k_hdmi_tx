@@ -8,5 +8,6 @@
         <File path="src/encoder_serializer.v" type="file.verilog" enable="1"/>
         <File path="src/hdmi_tx_top.v" type="file.verilog" enable="0"/>
         <File path="src/num_of_ones.v" type="file.verilog" enable="1"/>
+        <File path="src/nano4k_hdmi_tx.sdc" type="file.sdc" enable="1"/>
     </FileList>
 </Project>

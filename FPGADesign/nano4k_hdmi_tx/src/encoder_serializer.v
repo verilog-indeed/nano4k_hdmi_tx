@@ -5,11 +5,13 @@ module encoder_serializer(//D[7:0] in the DVI standard
                //Display Enable (1 for active display period, 0 for blanking period)
                           input wire DE,
                 //TMDS serialization clock, must be 10x the pixel clock
-                          input serialClk,
+                          input wire serialClk,
                //Serial 10-bit TMDS encoded, DC balanced output
-                          output wire tmdsOut);
+                          output reg tmdsSerialOut
+						  );
 
     reg[9:0] tmdsCharacterBuff;
+    reg[9:0] tmdsCharacterOut;
     reg[7:0] disparityCounter;
     
     wire[3:0] onesInPixelComponent;
@@ -25,7 +27,11 @@ module encoder_serializer(//D[7:0] in the DVI standard
     );
 
     initial begin
+        //tmdsCharacterOut_xfer_pipe <= 0;
+        tmdsCharacterOut <= 0;
+        tmdsCharacterBuff <= 0;
         disparityCounter <= 0;
+        serialCycleCount <=0;
     end
 
     integer tmdsBitIndex;
@@ -85,6 +91,22 @@ module encoder_serializer(//D[7:0] in the DVI standard
                 2'b10: tmdsCharacterBuff[9:0] <= 10'b0101010100;
                 2'b11: tmdsCharacterBuff[9:0] <= 10'b1010101011;
             endcase;
+        end
+    end
+
+    //reg[9:0] tmdsCharacterOut_xfer_pipe;
+    reg[3:0] serialCycleCount;
+    always@(posedge serialClk) begin
+		//Shift the next TMDS character bit into the serial output
+        {tmdsCharacterOut, tmdsSerialOut} = {tmdsCharacterOut, tmdsSerialOut} >> 1;
+        if (serialCycleCount == 9) begin
+			//10-bit transfer finish, load new TMDS character
+            //CDC from combinational to serialClk, 10 clock cycles delay on the serial output OK?
+            //{tmdsCharacterOut, tmdsCharacterOut_xfer_pipe} = {tmdsCharacterOut_xfer_pipe, tmdsCharacterBuff};
+            serialCycleCount = 0;
+			tmdsCharacterOut = tmdsCharacterBuff;
+        end else begin
+            serialCycleCount <= serialCycleCount + 1;
         end
     end
 endmodule

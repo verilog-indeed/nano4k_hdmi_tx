@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="encoder_serializer"/>
+<Module name="encoder_serializer" Register="16" Alu="42" Lut="82">
+    <SubModule name="ones_in_pixel" Alu="3" Lut="8"/>
+    <SubModule name="ones_in_tmds_buffer" Alu="3" Lut="8"/>
+</Module>
