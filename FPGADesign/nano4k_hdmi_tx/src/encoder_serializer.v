@@ -1,12 +1,17 @@
-module encoder_serializer(//D[7:0] in the DVI standard
+`include "num_of_ones.v"
+
+module encoder_serializer(
+                //unique identifier for each channel, determines value of island guardbands (HDMI)
+                          input wire[1:0] tmdsChannelNumber,
+                //D[7:0] in the DVI standard
                           input wire[7:0] pixelComponent, 
-               //{C1,C0} in the DVI standard, can either be VSYNC,HSYNC or bits from the CTL[3:0] preamble signal
+                //{C1,C0} in the DVI standard, can either be VSYNC,HSYNC or bits from the CTL[3:0] preamble signal
                           input wire[1:0] controlBus,
-               //Display Enable (1 for active display period, 0 for blanking period)
+                //Display Enable (1 for active display period, 0 for blanking period)
                           input wire DE,
                 //TMDS serialization clock, must be 10x the pixel clock
-                          input wire serialClk,
-               //Serial 10-bit TMDS encoded, DC balanced output
+                          input wire encoderSerialClock,
+                //Serial 10-bit TMDS encoded, DC balanced output
                           output reg tmdsSerialOut
 						  );
 
@@ -96,15 +101,15 @@ module encoder_serializer(//D[7:0] in the DVI standard
 
     //reg[9:0] tmdsCharacterOut_xfer_pipe;
     reg[3:0] serialCycleCount;
-    always@(posedge serialClk) begin
+    always@(posedge encoderSerialClock) begin
 		//Shift the next TMDS character bit into the serial output
-        {tmdsCharacterOut, tmdsSerialOut} = {tmdsCharacterOut, tmdsSerialOut} >> 1;
+        {tmdsCharacterOut, tmdsSerialOut} <= {tmdsCharacterOut, tmdsSerialOut} >> 1;
         if (serialCycleCount == 9) begin
 			//10-bit transfer finish, load new TMDS character
-            //CDC from combinational to serialClk, 10 clock cycles delay on the serial output OK?
+            //CDC from combinational to encoderSerialClock, 10 clock cycles delay on the serial output OK?
             //{tmdsCharacterOut, tmdsCharacterOut_xfer_pipe} = {tmdsCharacterOut_xfer_pipe, tmdsCharacterBuff};
-            serialCycleCount = 0;
-			tmdsCharacterOut = tmdsCharacterBuff;
+            serialCycleCount <= 0;
+			tmdsCharacterOut <= tmdsCharacterBuff;
         end else begin
             serialCycleCount <= serialCycleCount + 1;
         end

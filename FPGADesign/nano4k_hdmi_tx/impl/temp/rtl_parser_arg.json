@@ -5,6 +5,10 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/hdmi_tx_top.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/num_of_ones.v",
    "Type" : "verilog"
   }

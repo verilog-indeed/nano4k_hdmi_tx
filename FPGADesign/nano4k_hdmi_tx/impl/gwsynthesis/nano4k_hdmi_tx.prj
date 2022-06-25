@@ -5,6 +5,7 @@
     <Device id="GW1NSR-4C" package="QFN48P" speed="6" partNumber="GW1NSR-LV4CQN48PC6/I5"/>
     <FileList>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v" type="verilog"/>
+        <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v" type="verilog"/>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v" type="verilog"/>
     </FileList>
     <OptionList>
