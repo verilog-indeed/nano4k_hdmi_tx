@@ -1,17 +1,255 @@
 GowinSynthesis start
 Running parser ...
 Analyzing Verilog file 'D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v'
-WARN  (EX3012) : Empty statement in sequential block("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":94)
-Analyzing Verilog file 'D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v'
-ERROR (EX3863) : Syntax error near 'always'("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v":37)
-ERROR (EX2656) : Verilog 2001 keyword 'always' used in incorrect context("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v":37)
-ERROR (EX3863) : Syntax error near '<='("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v":41)
-ERROR (EX3863) : Syntax error near '<='("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v":43)
-ERROR (EX3812) : 'vPosCounter' is not a constant("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v":40)
-ERROR (EX3719) : 'vPosCounter' is not a type("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v":41)
-ERROR (EX3719) : 'vPosCounter' is not a type("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v":43)
-ERROR (EX3719) : 'hPosCounter' is not a type("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v":46)
-ERROR (EX3928) : Module 'hdmi_tx_top' is ignored due to previous errors("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v":49)
-Verilog file 'D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx_top.v' ignored due to errors
+WARN  (EX3012) : Empty statement in sequential block("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
 Analyzing Verilog file 'D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v'
+Analyzing Verilog file 'D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v'
+Compiling module 'hdmi_tx'("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":7)
+WARN  (EX2664) : Variable 'disparityCounter' is used before it is assigned in an always_comb or always @* block, synthesis - simulation differences may occur("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":73)
+WARN  (EX2664) : Variable 'disparityCounter' is used before it is assigned in an always_comb or always @* block, synthesis - simulation differences may occur("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":75)
+WARN  (EX2664) : Variable 'disparityCounter' is used before it is assigned in an always_comb or always @* block, synthesis - simulation differences may occur("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":85)
+WARN  (EX2664) : Variable 'disparityCounter' is used before it is assigned in an always_comb or always @* block, synthesis - simulation differences may occur("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+Compiling module 'encoder_serializer'("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":3)
+Compiling module 'num_of_ones'("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v":1)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":114)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":73)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":76)
+WARN  (EX1998) : Net 'CTL[3]' does not have a driver("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":36)
+NOTE  (EX0101) : Current top module is "hdmi_tx"
+WARN  (EX0211) : The output port "tmds_clk_n" of module "hdmi_tx" has no driver("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":16)
+WARN  (EX0211) : The output port "tmds_data_n[2]" of module "hdmi_tx" has no driver("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":19)
+WARN  (EX0211) : The output port "tmds_data_n[1]" of module "hdmi_tx" has no driver("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":19)
+WARN  (EX0211) : The output port "tmds_data_n[0]" of module "hdmi_tx" has no driver("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":19)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n38_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":67)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n41_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":67)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n194_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/disparityCounter_1_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n38_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":67)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n178_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n194_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/disparityCounter_1_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n178_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n177_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n193_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/disparityCounter_2_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n177_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n176_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n192_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/disparityCounter_3_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n176_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n175_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n191_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/disparityCounter_4_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n175_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n174_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n190_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/disparityCounter_5_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n174_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n173_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n189_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/disparityCounter_6_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n173_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n172_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n188_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/disparityCounter_7_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n172_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n105_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n171_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n187_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/tmdsCharacterBuff_0_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/ones_in_tmds_buffer/nibbleSum1_3_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v":7)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/ones_in_tmds_buffer/add_9_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v":11)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n103_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n104_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0100) : Find logical loop signal : "blue_tmds/n105_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n38_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":67)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n41_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":67)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n194_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/disparityCounter_1_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n38_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":67)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n178_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n194_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/disparityCounter_1_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n178_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n177_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n193_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/disparityCounter_2_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n177_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n176_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n192_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/disparityCounter_3_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n176_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n175_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n191_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/disparityCounter_4_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n175_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n174_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n190_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/disparityCounter_5_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n174_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n173_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n189_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/disparityCounter_6_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n173_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n172_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n188_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/disparityCounter_7_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n172_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n105_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n171_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n187_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/tmdsCharacterBuff_0_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/ones_in_tmds_buffer/nibbleSum1_3_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v":7)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/ones_in_tmds_buffer/add_9_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v":11)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n103_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n104_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0100) : Find logical loop signal : "green_tmds/n105_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n38_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":67)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n41_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":67)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n194_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/disparityCounter_1_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n38_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":67)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n178_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n194_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/disparityCounter_1_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n178_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n177_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n193_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/disparityCounter_2_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n177_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n176_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n192_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/disparityCounter_3_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n176_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n175_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n191_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/disparityCounter_4_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n175_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n174_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n190_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/disparityCounter_5_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n174_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n173_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n189_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/disparityCounter_6_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n173_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n172_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n188_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/disparityCounter_7_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_89_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_90_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/add_91_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":88)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n172_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n105_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n171_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":89)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n187_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":90)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/tmdsCharacterBuff_0_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":99)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/ones_in_tmds_buffer/nibbleSum1_3_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v":7)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/ones_in_tmds_buffer/add_9_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v":11)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n103_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n104_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0100) : Find logical loop signal : "red_tmds/n105_s"("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\encoder_serializer.v":80)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+[5%] Running netlist conversion ...
+WARN  (CV0003) : Output "tmds_clk_n" has undriven bits, assigning undriven bits to Z, simulation mismatch possible("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":16)
+WARN  (CV0003) : Output "tmds_data_n[0]" has undriven bits, assigning undriven bits to Z, simulation mismatch possible("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":19)
+WARN  (CV0003) : Output "tmds_data_n[1]" has undriven bits, assigning undriven bits to Z, simulation mismatch possible("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":19)
+WARN  (CV0003) : Output "tmds_data_n[2]" has undriven bits, assigning undriven bits to Z, simulation mismatch possible("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":19)
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\gwsynthesis\nano4k_hdmi_tx.vg" completed
+[100%] Generate report file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\gwsynthesis\nano4k_hdmi_tx_syn.rpt.html" completed
 GowinSynthesis finish

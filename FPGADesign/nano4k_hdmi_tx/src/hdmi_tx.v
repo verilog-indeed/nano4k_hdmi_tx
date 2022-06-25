@@ -11,16 +11,16 @@ module hdmi_tx(
                    input [7:0] greenByte,
                    input [7:0] blueByte,
                    input [15:0] pcmSample, //TODO format to be determined??
-
+                   output inActiveDisplay,
+                   output reg[9:0] hPosCounter,
+                   output reg[9:0] vPosCounter,
                    output tmds_clk_p,
-                   output tmds_clk_n,
 //Three transition-minimized (8b10b) differential signaling data channels
-                   output [2:0] tmds_data_p, 
-                   output [2:0] tmds_data_n
+                   output [2:0] tmds_data_p 
               );
 
-    reg[9:0] hPosCounter;
-    reg[9:0] vPosCounter;
+    /*reg[9:0] hPosCounter;
+    reg[9:0] vPosCounter;*/
     wire inActiveDisplay = (hPosCounter < 720) && (vPosCounter < 480);
     
     //horizontal front porch lasts 16 pixel cycles after active display row is finished,

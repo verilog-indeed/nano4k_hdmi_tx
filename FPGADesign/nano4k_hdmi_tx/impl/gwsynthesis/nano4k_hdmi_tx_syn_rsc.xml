@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="encoder_serializer" Register="16" Alu="42" Lut="82">
-    <SubModule name="ones_in_pixel" Alu="3" Lut="8"/>
-    <SubModule name="ones_in_tmds_buffer" Alu="3" Lut="8"/>
+<Module name="hdmi_tx" Register="20" Alu="18" Lut="9">
+    <SubModule name="blue_tmds" Register="16" Alu="42" Lut="93">
+        <SubModule name="ones_in_pixel" Alu="3" Lut="8"/>
+        <SubModule name="ones_in_tmds_buffer" Alu="3" Lut="12"/>
+    </SubModule>
+    <SubModule name="green_tmds" Register="16" Alu="42" Lut="78">
+        <SubModule name="ones_in_pixel" Alu="3" Lut="8"/>
+        <SubModule name="ones_in_tmds_buffer" Alu="3" Lut="12"/>
+    </SubModule>
+    <SubModule name="red_tmds" Register="16" Alu="42" Lut="78">
+        <SubModule name="ones_in_pixel" Alu="3" Lut="8"/>
+        <SubModule name="ones_in_tmds_buffer" Alu="3" Lut="12"/>
+    </SubModule>
 </Module>
