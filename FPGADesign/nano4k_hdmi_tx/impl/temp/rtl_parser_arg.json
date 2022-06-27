@@ -5,6 +5,10 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/gowin_pllvr/gowin_pllvr.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/hdmi_tx.v",
    "Type" : "verilog"
   },
@@ -15,10 +19,6 @@
   {
    "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/pattern_generator_top.v",
    "Type" : "verilog"
-  },
-  {
-   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/gowin_pllvr/gowin_pllvr.v",
-   "Type" : "verilog"
   }
  ],
  "IncludePath" : [
@@ -26,7 +26,7 @@
  ],
  "LoopLimit" : 2000,
  "ResultFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/impl/temp/rtl_parser.result",
- "Top" : "hdmi_tx",
+ "Top" : "",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"
 }

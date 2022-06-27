@@ -1,0 +1,11 @@
+-d D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\gwsynthesis\nano4k_hdmi_tx.vg
+-p GW1NSR-4C-QFN48P-6
+-pn GW1NSR-LV4CQN48PC6/I5
+-cst D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\nano4k_hdmi_tx.cst
+-cfg D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\device.cfg
+-sdc D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\nano4k_hdmi_tx.sdc
+-bit
+-tr
+-ph
+-timing
+-cst_error

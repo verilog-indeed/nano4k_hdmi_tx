@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="hdmi_tx" Register="20" Alu="18" Lut="9">
-    <SubModule name="blue_tmds" Register="16" Alu="42" Lut="93">
-        <SubModule name="ones_in_pixel" Alu="3" Lut="8"/>
-        <SubModule name="ones_in_tmds_buffer" Alu="3" Lut="12"/>
-    </SubModule>
-    <SubModule name="green_tmds" Register="16" Alu="42" Lut="78">
-        <SubModule name="ones_in_pixel" Alu="3" Lut="8"/>
-        <SubModule name="ones_in_tmds_buffer" Alu="3" Lut="12"/>
-    </SubModule>
-    <SubModule name="red_tmds" Register="16" Alu="42" Lut="78">
-        <SubModule name="ones_in_pixel" Alu="3" Lut="8"/>
-        <SubModule name="ones_in_tmds_buffer" Alu="3" Lut="12"/>
+<Module name="pattern_generator_top" Register="3" Lut="12">
+    <SubModule name="clock_5x"/>
+    <SubModule name="video_transmitter" Register="20" Alu="18" Lut="13">
+        <SubModule name="blue_tmds" Register="11" Lut="29">
+            <SubModule name="ones_in_tmds_buffer" Alu="3" Lut="1"/>
+        </SubModule>
+        <SubModule name="green_tmds" Register="11" Lut="17">
+            <SubModule name="ones_in_tmds_buffer" Alu="3" Lut="1"/>
+        </SubModule>
+        <SubModule name="red_tmds" Register="11" Lut="17">
+            <SubModule name="ones_in_tmds_buffer" Alu="3" Lut="2"/>
+        </SubModule>
     </SubModule>
 </Module>

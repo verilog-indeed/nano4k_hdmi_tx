@@ -1,0 +1,34 @@
+Reading netlist file: "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\gwsynthesis\nano4k_hdmi_tx.vg"
+Parsing netlist file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\gwsynthesis\nano4k_hdmi_tx.vg" completed
+Processing netlist completed
+Reading constraint file: "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\nano4k_hdmi_tx.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+WARN  (TA1117) : Can't calculate clocks' relationship between: "vertical_pixel_clock" and "crystal_oscillator"
+WARN  (TA1117) : Can't calculate clocks' relationship between: "vertical_pixel_clock" and "video_transmitter/blue_tmds/n217_5"
+WARN  (TA1117) : Can't calculate clocks' relationship between: "vertical_pixel_clock" and "video_transmitter/green_tmds/n217_5"
+WARN  (TA1117) : Can't calculate clocks' relationship between: "vertical_pixel_clock" and "video_transmitter/red_tmds/n217_5"
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+WARN  (PR1014) : Generic routing resource will be used to clock signal 'crystalCLK_d' by the specified constraint. And then it may lead to the excessive delay or skew
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Running power analysis......
+[100%] Power analysis completed
+Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.power.html" completed
+Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.pin.html" completed
+Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.rpt.html" completed
+Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.rpt.txt" completed
+Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.tr.html" completed
+Sun Jun 26 22:20:43 2022
+

@@ -1,12 +1,12 @@
-`include "hdmi_tx.v"
-`include "gowin_pllvr\gowin_pllvr.v"
+//`include "hdmi_tx.v"
+//`include "gowin_pllvr\gowin_pllvr.v"
 
 module pattern_generator_top  (
                                 input crystalCLK,
-                                output tmdsChannel0_p,
-                                output tmdsChannel1_p,
-                                output tmdsChannel2_p,
-                                output tmdsClockChannel_p
+                                output [2:0] tmdsChannel_p,
+                                output tmdsClockChannel_p,
+                                output [2:0] tmdsChannel_n,
+                                output tmdsClockChannel_n
                               );
 
     localparam	WHITE	= {8'd255 , 8'd255 , 8'd255 };//{R,G,B}
@@ -23,12 +23,12 @@ module pattern_generator_top  (
     wire[8:0] horizontalPix;
     wire displayEnable;
     wire multiplierClkOut;
-
-    Gowin_PLLVR clock_10x(
+	
+    Gowin_PLLVR clock_5x(
         .clkout(multiplierClkOut), //output clkout
         .clkin(crystalCLK) //input clkin
     );
-
+	
     hdmi_tx video_transmitter(
         .pixelClock(crystalCLK),
         .serialClock(multiplierClkOut),
@@ -40,15 +40,20 @@ module pattern_generator_top  (
         .hPosCounter(horizontalPix),
         .vPosCounter(verticalPix),
         .tmds_clk_p(tmdsClockChannel_p),
-        .tmds_data_p({tmdsChannel2_p,
-                      tmdsChannel1_p,
-                      tmdsChannel0_p})
+        .tmds_clk_n(tmdsClockChannel_n),
+        .tmds_data_p(tmdsChannel_p),
+        .tmds_data_n(tmdsChannel_n)
     );
 
+    initial begin
+        currentPixel <= BLACK;
+    end
+
+    reg[6:0] colorSelect;
     always@(posedge crystalCLK) begin
         if (displayEnable == 1) begin
             //PAL color bar pattern, kind of
-            if (horizontalPix < 102)
+            /*if (horizontalPix < 102)
                 currentPixel <= WHITE;
             else if(horizontalPix < 102 * 2)
                 currentPixel <= YELLOW;
@@ -62,8 +67,33 @@ module pattern_generator_top  (
                 currentPixel <= RED;
             else
                 currentPixel <= BLUE;
+*/
+            if (horizontalPix < 102 * 4) begin
+                if (horizontalPix < 102 * 2) begin
+                    if (horizontalPix < 102) begin
+                        currentPixel <= WHITE;
+                    end else begin
+                        currentPixel <= YELLOW;
+                    end
+                end else if(horizontalPix < 102 * 3) begin
+                    currentPixel <= CYAN;
+                end else begin
+                	currentPixel <= GREEN;
+				end
+            end else begin
+				if (horizontalPix < 102 * 6) begin
+					if (horizontalPix < 102 * 5) begin
+                		currentPixel <= MAGENTA;
+					end else begin
+                		currentPixel <= RED;
+					end
+				end else begin
+                	currentPixel <= BLUE;
+				end
+			end
+
         end else begin
-            currentPixel <= 24'b0;
+            currentPixel <= BLACK;
         end
     end
 endmodule

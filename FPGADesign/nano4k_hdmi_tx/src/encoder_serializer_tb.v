@@ -2,18 +2,21 @@
 
 module encoder_serializer_tb;
 	reg clock;
+	reg pClock;
 	reg[7:0] colorByte;
 	reg[1:0] C_bus;
 	reg display_active;
 	wire hdmiOUT;
 	
 	always #185 clock <= ~clock; //approx 270MHz clock
+	always #1850 pClock <= ~pClock;
 	encoder_serializer DUT (
 							.pixelComponent(colorByte),
 							.controlBus(C_bus),
 							.DE(display_active),
-							.serialClk(clock),
-							.tmdsSerialOut(hdmiOUT)
+							.encoderSerialClock(pClock),
+							.tmdsSerialOut(hdmiOUT),
+							.pixelClock(clock)
 							);
 	initial begin
 		$dumpfile("sim_result.vcd");
