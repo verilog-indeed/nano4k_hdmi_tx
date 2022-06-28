@@ -10,6 +10,7 @@
         <File path="src/hdmi_tx.v" type="file.verilog" enable="1"/>
         <File path="src/num_of_ones.v" type="file.verilog" enable="1"/>
         <File path="src/pattern_generator_top.v" type="file.verilog" enable="1"/>
+        <File path="src/synchronous_encoder_serializer.v" type="file.verilog" enable="1"/>
         <File path="src/nano4k_hdmi_tx.cst" type="file.cst" enable="1"/>
         <File path="src/nano4k_hdmi_tx.sdc" type="file.sdc" enable="1"/>
     </FileList>

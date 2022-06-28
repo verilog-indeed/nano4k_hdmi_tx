@@ -8,9 +8,7 @@ Running placement......
 [20%] Placement Phase 1 completed
 [30%] Placement Phase 2 completed
 WARN  (TA1117) : Can't calculate clocks' relationship between: "vertical_pixel_clock" and "crystal_oscillator"
-WARN  (TA1117) : Can't calculate clocks' relationship between: "vertical_pixel_clock" and "video_transmitter/blue_tmds/n217_5"
-WARN  (TA1117) : Can't calculate clocks' relationship between: "vertical_pixel_clock" and "video_transmitter/green_tmds/n217_5"
-WARN  (TA1117) : Can't calculate clocks' relationship between: "vertical_pixel_clock" and "video_transmitter/red_tmds/n217_5"
+WARN  (TA1117) : Can't calculate clocks' relationship between: "vertical_pixel_clock" and "clock_5x/pllvr_inst/CLKOUT.default_gen_clk"
 [50%] Placement Phase 3 completed
 Running routing......
 [60%] Routing Phase 0 completed
@@ -26,9 +24,11 @@ Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
 Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.power.html" completed
+Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.sdf" completed
 Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.pin.html" completed
 Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.rpt.html" completed
 Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.rpt.txt" completed
+Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.vo" completed
 Generate file "D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\nano4k_hdmi_tx.tr.html" completed
-Sun Jun 26 22:20:43 2022
+Tue Jun 28 01:06:46 2022
 

@@ -39,7 +39,7 @@ module hdmi_tx(
 
     wire [2:0] tmds_buff;
 
-    encoder_serializer blue_tmds(
+    synchronous_encoder_serializer blue_tmds(
         .tmdsChannelNumber(2'd0),
         .pixelComponent(blueByte),
         .controlBus({vSync, hSync}),
@@ -49,7 +49,7 @@ module hdmi_tx(
         .tmdsSerialOut(tmds_buff[0])
     );
 
-    encoder_serializer green_tmds(
+    synchronous_encoder_serializer green_tmds(
         .tmdsChannelNumber(2'd1),
         .pixelComponent(greenByte),
         .controlBus(CTL[1:0]),
@@ -59,7 +59,7 @@ module hdmi_tx(
         .tmdsSerialOut(tmds_buff[1])
     );
 
-    encoder_serializer red_tmds(
+    synchronous_encoder_serializer red_tmds(
         .tmdsChannelNumber(2'd2),
         .pixelComponent(redByte),
         .controlBus(CTL[3:2]),
@@ -68,29 +68,32 @@ module hdmi_tx(
         .encoderSerialClock(serialClock),
         .tmdsSerialOut(tmds_buff[2])
     );
-/*
+
+	//rederive pixel clock from serial clock by recreating the waveform
+	//this helps resynchronize the tmds data stream and tmds clock channel?
 	wire pClock;
 	OSER10 pclock_serializer(
         .Q(pClock),
-        .D0(1),
-        .D1(1),
-        .D2(1),
-        .D3(1),
-        .D4(1),
-        .D5(0),
-        .D6(0),
-        .D7(0),
-        .D8(0),
-        .D9(0),
+        .D0(1'b1),
+        .D1(1'b1),
+        .D2(1'b1),
+        .D3(1'b1),
+        .D4(1'b1),
+        .D5(1'b0),
+        .D6(1'b0),
+        .D7(1'b0),
+        .D8(1'b0),
+        .D9(1'b0),
         .PCLK(pixelClock),
         .FCLK(serialClock)
     );
     defparam pclock_serializer.GSREN = "false";
     defparam pclock_serializer.LSREN = "false";
-*/
+
+
     TLVDS_OBUF clockLVDS(
-        .I(pixelClock),
-		//.I(serialClock),
+        .I(pClock),
+		//.I(pixelClock),
         .O(tmds_clk_p),
         .OB(tmds_clk_n)
     );
@@ -125,13 +128,7 @@ module hdmi_tx(
 
     always@(posedge pixelClock) begin
         if (hPosCounter == 858) begin
-        //if (vPixelClk == 1) begin
             hPosCounter <= 0;
-            /*if (vPosCounter == 525) begin
-                vPosCounter <= 0;
-            end else begin
-                vPosCounter <= vPosCounter + 1;
-            end*/
         end else begin
             hPosCounter <= hPosCounter + 1;
         end

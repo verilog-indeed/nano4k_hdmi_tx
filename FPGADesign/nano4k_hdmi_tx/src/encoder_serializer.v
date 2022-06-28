@@ -10,7 +10,7 @@ module encoder_serializer(
                 //Display Enable (1 for active display period, 0 for blanking period)
                           input wire DE,
                           input pixelClock,
-                //TMDS serialization clock, must be 10x the pixel clock
+                //TMDS serialization clock, must be 5x the pixel clock
                           input wire encoderSerialClock,
                 //Serial 10-bit TMDS encoded, DC balanced output
                           output tmdsSerialOut
@@ -18,7 +18,7 @@ module encoder_serializer(
 
     reg[9:0] tmdsCharacterBuff;
     reg[9:0] tmdsCharacterOut;
-    reg[7:0] disparityCounter;
+    reg[4:0] disparityCounter;
     
     wire[3:0] onesInPixelComponent;
     num_of_ones ones_in_pixel(
@@ -95,8 +95,8 @@ module encoder_serializer(
                 end
             end else begin
                 //Previous DC bias exists and current data isn't balacned
-                if (($signed(disparityCounter) > 0 && ((onesInTmdsBuffer_2x) > 8'd8)) ||
-                    ($signed(disparityCounter) < 0 && ((onesInTmdsBuffer_2x) < 8'd8))) begin
+                if (($signed(disparityCounter) > 0 && ((onesInTmdsBuffer_2x) > 5'd8)) ||
+                    ($signed(disparityCounter) < 0 && ((onesInTmdsBuffer_2x) < 5'd8))) begin
                     //If we have positive DC bias AND We are still sending more ones than zeroes
                     //OR if we have negative DC bias AND we are still sending more zeroes (negatives) than ones
                     tmdsCharacterBuff[9] = 1;
@@ -118,10 +118,10 @@ module encoder_serializer(
         end
     end
 	
-	wire onesInTmdsBuffer_2x = onesInTmdsBuffer << 1;
-	wire onesInTmdsBuffer_2x_minus_8 = onesInTmdsBuffer_2x - 8'd8;
-	wire tmdsCharacterBuff_bit_8_2x = tmdsCharacterBuff[8] << 1;
-	wire disparityCounterCompensation = onesInTmdsBuffer_2x_minus_8 - tmdsCharacterBuff_bit_8_2x;
+	wire[4:0] onesInTmdsBuffer_2x = onesInTmdsBuffer << 1;
+	wire[4:0] onesInTmdsBuffer_2x_minus_8 = onesInTmdsBuffer_2x - 5'd8;
+	wire[4:0] tmdsCharacterBuff_bit_8_2x = tmdsCharacterBuff[8] << 1;
+	wire[4:0] disparityCounterCompensation = onesInTmdsBuffer_2x_minus_8 - tmdsCharacterBuff_bit_8_2x;
 
     reg[9:0] tmdsCharacterOut_xfer_pipe;
     always@(posedge pixelClock) begin

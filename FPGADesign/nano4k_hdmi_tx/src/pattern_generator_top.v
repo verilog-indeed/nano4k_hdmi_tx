@@ -20,7 +20,7 @@ module pattern_generator_top  (
 
     reg[23:0] currentPixel; //{R8, G8, B8}
     wire[9:0] verticalPix;
-    wire[8:0] horizontalPix;
+    wire[9:0] horizontalPix;
     wire displayEnable;
     wire multiplierClkOut;
 	
@@ -47,10 +47,12 @@ module pattern_generator_top  (
 
     initial begin
         currentPixel <= BLACK;
+		currentPixel_xfer <= BLACK;
     end
 
-    reg[6:0] colorSelect;
+	reg[23:0] currentPixel_xfer;
     always@(posedge crystalCLK) begin
+		
         if (displayEnable == 1) begin
             //PAL color bar pattern, kind of
             /*if (horizontalPix < 102)
@@ -68,32 +70,31 @@ module pattern_generator_top  (
             else
                 currentPixel <= BLUE;
 */
-            if (horizontalPix < 102 * 4) begin
-                if (horizontalPix < 102 * 2) begin
-                    if (horizontalPix < 102) begin
-                        currentPixel <= WHITE;
+            if ($unsigned(horizontalPix) < 102 * 4) begin
+                if ($unsigned(horizontalPix) < 102 * 2) begin
+                    if ($unsigned(horizontalPix) < 102) begin
+                        {currentPixel, currentPixel_xfer} <= {currentPixel_xfer, WHITE};
                     end else begin
-                        currentPixel <= YELLOW;
+                        {currentPixel, currentPixel_xfer} <= {currentPixel_xfer, YELLOW};
                     end
-                end else if(horizontalPix < 102 * 3) begin
-                    currentPixel <= CYAN;
+                end else if($unsigned(horizontalPix) < 102 * 3) begin
+                    {currentPixel, currentPixel_xfer} <= {currentPixel_xfer, CYAN};
                 end else begin
-                	currentPixel <= GREEN;
+                	{currentPixel, currentPixel_xfer} <= {currentPixel_xfer, GREEN};
 				end
             end else begin
-				if (horizontalPix < 102 * 6) begin
-					if (horizontalPix < 102 * 5) begin
-                		currentPixel <= MAGENTA;
+				if ($unsigned(horizontalPix) < 102 * 6) begin
+					if ($unsigned(horizontalPix) < 102 * 5) begin
+                		{currentPixel, currentPixel_xfer} <= {currentPixel_xfer, MAGENTA};
 					end else begin
-                		currentPixel <= RED;
+                		{currentPixel, currentPixel_xfer} <= {currentPixel_xfer, RED};
 					end
 				end else begin
-                	currentPixel <= BLUE;
+                	{currentPixel, currentPixel_xfer} <= {currentPixel_xfer, BLUE};
 				end
 			end
-
         end else begin
-            currentPixel <= BLACK;
+            {currentPixel, currentPixel_xfer} <= {currentPixel_xfer, BLACK};
         end
     end
 endmodule

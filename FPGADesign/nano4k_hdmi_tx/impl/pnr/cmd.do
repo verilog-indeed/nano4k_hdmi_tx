@@ -7,5 +7,7 @@
 -bit
 -tr
 -ph
+-sdf
+-o
 -timing
 -cst_error

@@ -1,5 +1,31 @@
 [
  {
+  "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
+  "InstLine" : 3,
+  "InstName" : "encoder_serializer",
+  "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
+  "ModuleLine" : 3,
+  "ModuleName" : "encoder_serializer",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
+    "InstLine" : 24,
+    "InstName" : "ones_in_pixel",
+    "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/num_of_ones.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "num_of_ones"
+   },
+   {
+    "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
+    "InstLine" : 30,
+    "InstName" : "ones_in_tmds_buffer",
+    "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/num_of_ones.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "num_of_ones"
+   }
+  ]
+ },
+ {
   "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/pattern_generator_top.v",
   "InstLine" : 4,
   "InstName" : "pattern_generator_top",
@@ -27,22 +53,22 @@
       "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/hdmi_tx.v",
       "InstLine" : 42,
       "InstName" : "blue_tmds",
-      "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
-      "ModuleLine" : 3,
-      "ModuleName" : "encoder_serializer",
+      "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
+      "ModuleLine" : 1,
+      "ModuleName" : "synchronous_encoder_serializer",
       "SubInsts" : [
        {
-        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
-        "InstLine" : 24,
+        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
+        "InstLine" : 23,
         "InstName" : "ones_in_pixel",
         "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/num_of_ones.v",
         "ModuleLine" : 1,
         "ModuleName" : "num_of_ones"
        },
        {
-        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
-        "InstLine" : 30,
-        "InstName" : "ones_in_tmds_buffer",
+        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
+        "InstLine" : 29,
+        "InstName" : "ones_in_tmds_stage1",
         "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/num_of_ones.v",
         "ModuleLine" : 1,
         "ModuleName" : "num_of_ones"
@@ -53,22 +79,22 @@
       "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/hdmi_tx.v",
       "InstLine" : 52,
       "InstName" : "green_tmds",
-      "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
-      "ModuleLine" : 3,
-      "ModuleName" : "encoder_serializer",
+      "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
+      "ModuleLine" : 1,
+      "ModuleName" : "synchronous_encoder_serializer",
       "SubInsts" : [
        {
-        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
-        "InstLine" : 24,
+        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
+        "InstLine" : 23,
         "InstName" : "ones_in_pixel",
         "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/num_of_ones.v",
         "ModuleLine" : 1,
         "ModuleName" : "num_of_ones"
        },
        {
-        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
-        "InstLine" : 30,
-        "InstName" : "ones_in_tmds_buffer",
+        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
+        "InstLine" : 29,
+        "InstName" : "ones_in_tmds_stage1",
         "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/num_of_ones.v",
         "ModuleLine" : 1,
         "ModuleName" : "num_of_ones"
@@ -79,22 +105,22 @@
       "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/hdmi_tx.v",
       "InstLine" : 62,
       "InstName" : "red_tmds",
-      "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
-      "ModuleLine" : 3,
-      "ModuleName" : "encoder_serializer",
+      "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
+      "ModuleLine" : 1,
+      "ModuleName" : "synchronous_encoder_serializer",
       "SubInsts" : [
        {
-        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
-        "InstLine" : 24,
+        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
+        "InstLine" : 23,
         "InstName" : "ones_in_pixel",
         "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/num_of_ones.v",
         "ModuleLine" : 1,
         "ModuleName" : "num_of_ones"
        },
        {
-        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v",
-        "InstLine" : 30,
-        "InstName" : "ones_in_tmds_buffer",
+        "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
+        "InstLine" : 29,
+        "InstName" : "ones_in_tmds_stage1",
         "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/num_of_ones.v",
         "ModuleLine" : 1,
         "ModuleName" : "num_of_ones"
