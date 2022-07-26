@@ -1,0 +1,11 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Lite</Mode>
+    <AoCore_Lite index="0" sample_clock="video_transmitter/pixelClock" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="0" capture_init_data_enabled="0" module_name="pattern_generator_top">
+        <SignalList>
+            <Signal>video_transmitter/hSync</Signal>
+        </SignalList>
+    </AoCore_Lite>
+    <GAO_ID>1110111111110100</GAO_ID>
+</GAO_CONFIG>

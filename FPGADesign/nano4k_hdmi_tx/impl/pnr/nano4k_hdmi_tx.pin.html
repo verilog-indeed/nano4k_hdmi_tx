@@ -46,7 +46,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <table class="summary_table">
 <tr>
 <td class="label">Report Title</td>
-<td>Gowin Pin Report</td>
+<td>Pin Report</td>
 </tr>
 <tr>
 <td class="label">Design File</td>
@@ -61,8 +61,8 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\nano4k_hdmi_tx.sdc</td>
 </tr>
 <tr>
-<td class="label">GOWIN Version</td>
-<td>V1.9.8 Education</td>
+<td class="label">Version</td>
+<td>V1.9.8.03 Education</td>
 </tr>
 <tr>
 <td class="label">Part Number</td>
@@ -74,12 +74,12 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Tue Jun 28 01:06:46 2022
+<td>Wed Jul 20 20:00:11 2022
 </td>
 </tr>
 <tr>
 <td class="label">Legal Announcement</td>
-<td>Copyright (C)2014-2021 Gowin Semiconductor Corporation. All rights reserved.</td>
+<td>Copyright (C)2014-2022 Gowin Semiconductor Corporation. All rights reserved.</td>
 </tr>
 </table>
 <h1><a name="Pin_Details">Pin Details</a></h1>
@@ -122,6 +122,63 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>1.2</td>
+</tr>
+<tr>
+<td class="label">tms_pad_i</td>
+<td></td>
+<td>6/0</td>
+<td>N</td>
+<td>in</td>
+<td>IOT3[A]</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>NA</td>
+<td>NONE</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">tck_pad_i</td>
+<td></td>
+<td>7/0</td>
+<td>N</td>
+<td>in</td>
+<td>IOT3[B]</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>NA</td>
+<td>NONE</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">tdi_pad_i</td>
+<td></td>
+<td>3/0</td>
+<td>N</td>
+<td>in</td>
+<td>IOT2[A]</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>NA</td>
+<td>NONE</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>1.8</td>
 </tr>
 <tr>
 <td class="label">tmdsChannel_p[0]</td>
@@ -199,6 +256,25 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>2.5</td>
 </tr>
+<tr>
+<td class="label">tdo_pad_o</td>
+<td></td>
+<td>4/0</td>
+<td>N</td>
+<td>out</td>
+<td>IOT2[B]</td>
+<td>LVCMOS18</td>
+<td>8</td>
+<td>NONE</td>
+<td>NA</td>
+<td>NA</td>
+<td>OFF</td>
+<td>FAST</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
 </table>
 <br/>
 <h2><a name="All_Package_Pins">All Package Pins:</a></h2>
@@ -221,7 +297,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td><b>Bank Vccio</b></td>
 </tr>
 <td class="label">3/0</td>
-<td>-</td>
+<td>tdi_pad_i</td>
 <td>in</td>
 <td>IOT2[A]</td>
 <td>LVCMOS18</td>
@@ -234,10 +310,10 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-<td>-</td>
+<td>1.8</td>
 </tr>
 <td class="label">4/0</td>
-<td>-</td>
+<td>tdo_pad_o</td>
 <td>out</td>
 <td>IOT2[B]</td>
 <td>LVCMOS18</td>
@@ -250,10 +326,10 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-<td>-</td>
+<td>1.8</td>
 </tr>
 <td class="label">6/0</td>
-<td>-</td>
+<td>tms_pad_i</td>
 <td>in</td>
 <td>IOT3[A]</td>
 <td>LVCMOS18</td>
@@ -266,10 +342,10 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-<td>-</td>
+<td>1.8</td>
 </tr>
 <td class="label">7/0</td>
-<td>-</td>
+<td>tck_pad_i</td>
 <td>in</td>
 <td>IOT3[B]</td>
 <td>LVCMOS18</td>
@@ -282,7 +358,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-<td>-</td>
+<td>1.8</td>
 </tr>
 <td class="label">8/0</td>
 <td>-</td>
@@ -298,7 +374,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-<td>-</td>
+<td>1.8</td>
 </tr>
 <td class="label">9/0</td>
 <td>-</td>
@@ -314,7 +390,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-<td>-</td>
+<td>1.8</td>
 </tr>
 <td class="label">10/0</td>
 <td>-</td>
@@ -330,7 +406,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-<td>-</td>
+<td>1.8</td>
 </tr>
 <td class="label">1/0</td>
 <td>-</td>
@@ -346,7 +422,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-<td>-</td>
+<td>1.8</td>
 </tr>
 <td class="label">2/0</td>
 <td>-</td>
@@ -362,7 +438,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-<td>-</td>
+<td>1.8</td>
 </tr>
 <td class="label">48/1</td>
 <td>-</td>

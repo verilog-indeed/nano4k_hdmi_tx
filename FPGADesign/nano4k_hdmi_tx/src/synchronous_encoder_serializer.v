@@ -46,7 +46,7 @@ module synchronous_encoder_serializer(
     reg[9:0] encoderStage2;
 	reg[2:0] idleCounter;
     always@(posedge encoderSerialClock) begin
-        if (DE == 1) begin
+        if (displayEnable == 1) begin
 			if (stage1Ready == 0) begin //Video island period
 				//1-Transition minimization
 				encoderStage1[0] <= currentSubPixel[0]; 
@@ -105,6 +105,7 @@ module synchronous_encoder_serializer(
 				end
 			end
         end else begin
+			//Control period
             disparityCounter[4:0] <= 0;
             case(controlBus)
                 2'b00: encoderStage2[9:0] <= 10'b1101010100;

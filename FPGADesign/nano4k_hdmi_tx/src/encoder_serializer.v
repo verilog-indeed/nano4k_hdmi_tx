@@ -66,7 +66,7 @@ module encoder_serializer(
             //k-th bit of the TMDS character is the (k-1) TMDS bit XOR'ed/XNOR'ed with the k-th bit of the pixel byte
             if (onesInPixelComponent > 4 || (onesInPixelComponent == 4 && pixelComponent[0] == 0)) begin
                 //XNOR will result in less transitions
-                for (tmdsBitIndex = 1; tmdsBitIndex < 7; tmdsBitIndex = tmdsBitIndex + 1)
+                for (tmdsBitIndex = 1; tmdsBitIndex <= 7; tmdsBitIndex = tmdsBitIndex + 1)
                 begin
                     tmdsCharacterBuff[tmdsBitIndex] = pixelComponent[tmdsBitIndex] ^~ tmdsCharacterBuff[tmdsBitIndex - 1];
                 end
@@ -74,7 +74,7 @@ module encoder_serializer(
                 tmdsCharacterBuff[8] = 0; 
             end else begin
                 //XOR will result in less transitions
-                for (tmdsBitIndex = 1; tmdsBitIndex < 7; tmdsBitIndex = tmdsBitIndex + 1)
+                for (tmdsBitIndex = 1; tmdsBitIndex <= 7; tmdsBitIndex = tmdsBitIndex + 1)
                 begin
                     tmdsCharacterBuff[tmdsBitIndex] = pixelComponent[tmdsBitIndex] ^ tmdsCharacterBuff[tmdsBitIndex - 1];
                 end

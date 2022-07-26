@@ -55,7 +55,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <table class="summary_table">
 <tr>
 <td class="label">Report Title</td>
-<td>Gowin Power Analysis Report</td>
+<td>Power Analysis Report</td>
 </tr>
 <tr>
 <td class="label">Design File</td>
@@ -70,8 +70,8 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\nano4k_hdmi_tx.sdc</td>
 </tr>
 <tr>
-<td class="label">GOWIN Version</td>
-<td>V1.9.8 Education</td>
+<td class="label">Version</td>
+<td>V1.9.8.03 Education</td>
 </tr>
 <tr>
 <td class="label">Part Number</td>
@@ -83,12 +83,12 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Tue Jun 28 01:06:46 2022
+<td>Wed Jul 20 20:00:11 2022
 </td>
 </tr>
 <tr>
 <td class="label">Legal Announcement</td>
-<td>Copyright (C)2014-2021 Gowin Semiconductor Corporation. All rights reserved.</td>
+<td>Copyright (C)2014-2022 Gowin Semiconductor Corporation. All rights reserved.</td>
 </tr>
 </table>
 <h1><a name="Summary">Power Summary</a></h1>
@@ -96,30 +96,30 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <table class="summary_table">
 <tr>
 <td class="label">Total Power (mW)</td>
-<td>27.343</td>
+<td>16.955</td>
 </tr>
 <tr>
 <td class="label">Quiescent Power (mW)</td>
-<td>8.515</td>
+<td>8.574</td>
 </tr>
 <tr>
 <td class="label">Dynamic Power (mW)</td>
-<td>18.828</td>
+<td>8.381</td>
 </tr>
 </table>
 <h2><a name="Thermal_Info">Thermal Information:</a></h2>
 <table class="summary_table">
 <tr>
 <td class="label">Junction Temperature</td>
-<td>25.290</td>
+<td>25.698</td>
 </tr>
 <tr>
 <td class="label">Theta JA</td>
-<td>10.500</td>
+<td>40.580</td>
 </tr>
 <tr>
 <td class="label">Max Allowed Ambient Temperature</td>
-<td>84.710</td>
+<td>84.302</td>
 </tr>
 </table>
 <h2><a name="Configure_Info">Configure Information:</a></h2>
@@ -188,16 +188,16 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td>VCC</td>
 <td>1.200</td>
-<td>13.040</td>
-<td>1.957</td>
-<td>17.996</td>
+<td>4.222</td>
+<td>1.980</td>
+<td>7.442</td>
 </tr>
 <tr>
 <td>VCCX</td>
 <td>2.500</td>
-<td>0.164</td>
+<td>0.196</td>
 <td>2.424</td>
-<td>6.471</td>
+<td>6.550</td>
 </tr>
 <tr>
 <td>VCCO12</td>
@@ -205,6 +205,13 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>0.019</td>
 <td>0.003</td>
 <td>0.026</td>
+</tr>
+<tr>
+<td>VCCO18</td>
+<td>1.800</td>
+<td>0.031</td>
+<td>0.018</td>
+<td>0.088</td>
 </tr>
 <tr>
 <td>VCCO25</td>
@@ -225,15 +232,21 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td>Logic</td>
-<td>0.194</td>
+<td>0.202</td>
 <td>NA</td>
-<td>11.386</td>
+<td>9.426</td>
 </tr>
 <tr>
 <td>IO</td>
-<td>3.677
-<td>0.268
-<td>29.025
+<td>3.949
+<td>0.367
+<td>21.125
+</tr>
+<tr>
+<td>BSRAM</td>
+<td>0.823
+<td>NA</td>
+<td>NA</td>
 </tr>
 <tr>
 <td>PLL</td>
@@ -251,36 +264,52 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td>pattern_generator_top</td>
-<td>3.960</td>
-<td>3.960(3.958)</td>
+<td>4.791</td>
+<td>4.791(4.790)</td>
 <tr>
 <td>pattern_generator_top/clock_5x/</td>
 <td>3.766</td>
 <td>3.766(0.000)</td>
 <tr>
+<td>pattern_generator_top/gw_gao_inst_0/</td>
+<td>0.851</td>
+<td>0.851(0.851)</td>
+<tr>
+<td>pattern_generator_top/gw_gao_inst_0/u_ao_top/</td>
+<td>0.850</td>
+<td>0.850(0.825)</td>
+<tr>
+<td>pattern_generator_top/gw_gao_inst_0/u_ao_top/u_ao_mem_ctrl/</td>
+<td>0.825</td>
+<td>0.825(0.000)</td>
+<tr>
+<td>pattern_generator_top/gw_gao_inst_0/u_icon_top/</td>
+<td>0.002</td>
+<td>0.002(0.000)</td>
+<tr>
 <td>pattern_generator_top/video_transmitter/</td>
-<td>0.193</td>
-<td>0.193(0.187)</td>
+<td>0.173</td>
+<td>0.173(0.166)</td>
 <tr>
 <td>pattern_generator_top/video_transmitter/blue_tmds/</td>
-<td>0.061</td>
-<td>0.061(0.011)</td>
+<td>0.054</td>
+<td>0.054(0.011)</td>
 <tr>
 <td>pattern_generator_top/video_transmitter/blue_tmds/ones_in_tmds_stage1/</td>
 <td>0.011</td>
 <td>0.011(0.000)</td>
 <tr>
 <td>pattern_generator_top/video_transmitter/green_tmds/</td>
-<td>0.063</td>
-<td>0.063(0.011)</td>
+<td>0.056</td>
+<td>0.056(0.011)</td>
 <tr>
 <td>pattern_generator_top/video_transmitter/green_tmds/ones_in_tmds_stage1/</td>
 <td>0.011</td>
 <td>0.011(0.000)</td>
 <tr>
 <td>pattern_generator_top/video_transmitter/red_tmds/</td>
-<td>0.062</td>
-<td>0.062(0.011)</td>
+<td>0.056</td>
+<td>0.056(0.011)</td>
 <tr>
 <td>pattern_generator_top/video_transmitter/red_tmds/ones_in_tmds_stage1/</td>
 <td>0.011</td>
@@ -296,17 +325,32 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td>clock_5x/pllvr_inst/CLKOUT.default_gen_clk</td>
 <td>135.000</td>
-<td>8.353</td>
-</tr>
-<tr>
-<td>vertical_pixel_clock</td>
-<td>0.031</td>
-<td>1.101</td>
+<td>0.168</td>
 </tr>
 <tr>
 <td>crystal_oscillator</td>
 <td>27.000</td>
-<td>5.965</td>
+<td>4.253</td>
+</tr>
+<tr>
+<td>vertical_pixel_clock</td>
+<td>0.031</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>tck_pad_i</td>
+<td>20.000</td>
+<td>0.373</td>
+</tr>
+<tr>
+<td>gw_gao_inst_0/u_ao_top/out_reg_ld_en</td>
+<td>50.000</td>
+<td>0.002</td>
+</tr>
+<tr>
+<td>gw_gao_inst_0/u_ao_top/addr_sel</td>
+<td>50.000</td>
+<td>0.003</td>
 </tr>
 </table>
 </div><!-- content -->

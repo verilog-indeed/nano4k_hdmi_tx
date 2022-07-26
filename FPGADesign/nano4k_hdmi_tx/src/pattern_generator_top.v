@@ -55,21 +55,6 @@ module pattern_generator_top  (
 		
         if (displayEnable == 1) begin
             //PAL color bar pattern, kind of
-            /*if (horizontalPix < 102)
-                currentPixel <= WHITE;
-            else if(horizontalPix < 102 * 2)
-                currentPixel <= YELLOW;
-            else if(horizontalPix < 102 * 3)
-                currentPixel <= CYAN;
-            else if(horizontalPix < 102 * 4)
-                currentPixel <= GREEN;
-            else if(horizontalPix < 102 * 5)
-                currentPixel <= MAGENTA;
-            else if(horizontalPix < 102 * 6)
-                currentPixel <= RED;
-            else
-                currentPixel <= BLUE;
-*/
             if ($unsigned(horizontalPix) < 102 * 4) begin
                 if ($unsigned(horizontalPix) < 102 * 2) begin
                     if ($unsigned(horizontalPix) < 102) begin

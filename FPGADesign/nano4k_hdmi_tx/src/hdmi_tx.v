@@ -70,7 +70,7 @@ module hdmi_tx(
     );
 
 	//rederive pixel clock from serial clock by recreating the waveform
-	//this helps resynchronize the tmds data stream and tmds clock channel?
+	//this helps resynchronize the tmds data stream and tmds clock channel
 	wire pClock;
 	OSER10 pclock_serializer(
         .Q(pClock),
@@ -116,6 +116,7 @@ module hdmi_tx(
         vPosCounter <= 0;
     end
     
+	//vertical clock is the time it takes to scan one row, 429 is half of that row where the clock wave is high
     wire vPixelClk = hPosCounter < 430;
     
     always@(posedge vPixelClk) begin
