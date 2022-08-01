@@ -51,7 +51,8 @@ module pattern_generator_top  (
     end
 
 	reg[23:0] currentPixel_xfer;
-    always@(posedge crystalCLK) begin
+    /*
+	always@(posedge crystalCLK) begin
 		
         if (displayEnable == 1) begin
             //PAL color bar pattern, kind of
@@ -82,4 +83,36 @@ module pattern_generator_top  (
             {currentPixel, currentPixel_xfer} <= {currentPixel_xfer, BLACK};
         end
     end
+	*/
+
+	always@(*) begin
+		if (displayEnable == 1) begin
+            //PAL color bar pattern, kind of
+            if ($unsigned(horizontalPix) < 102 * 4) begin
+                if ($unsigned(horizontalPix) < 102 * 2) begin
+                    if ($unsigned(horizontalPix) < 102) begin
+                        currentPixel = WHITE;
+                    end else begin
+                        currentPixel = YELLOW;
+                    end
+                end else if($unsigned(horizontalPix) < 102 * 3) begin
+                    currentPixel = CYAN;
+                end else begin
+                	currentPixel = GREEN;
+				end
+            end else begin
+				if ($unsigned(horizontalPix) < 102 * 6) begin
+					if ($unsigned(horizontalPix) < 102 * 5) begin
+                		currentPixel = MAGENTA;
+					end else begin
+                		currentPixel = RED;
+					end
+				end else begin
+                	currentPixel = BLUE;
+				end
+			end
+        end else begin
+            currentPixel = BLACK;
+        end
+	end
 endmodule

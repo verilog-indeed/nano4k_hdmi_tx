@@ -4,7 +4,6 @@
 -cst D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\nano4k_hdmi_tx.cst
 -cfg D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\pnr\device.cfg
 -sdc D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\nano4k_hdmi_tx.sdc
--gao_crc 1110111111110100
 -bit
 -tr
 -ph
@@ -12,4 +11,3 @@
 -o
 -timing
 -cst_error
--rtl_gao

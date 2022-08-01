@@ -116,12 +116,14 @@ module synchronous_encoder_serializer(
         end
     end
 
-	reg currentSubPixel_xfer;
-    always@(posedge pixelClock) begin
-        {currentSubPixel, currentSubPixel_xfer} <= {currentSubPixel_xfer, pixelComponent};
+	always@(posedge pixelClock) begin
+		currentSubPixel <= pixelComponent;
+
+		//delay display activation by 2-cycles to account for the 2-cycle initial delay of the serializer block
 		{displayEnable, displayEnable_xfer} <= {displayEnable_xfer, DE};
-        tmdsCharacterOut <= encoderStage2;
-    end
+
+		tmdsCharacterOut <= encoderStage2;
+	end
 
     OSER10 serializer(
         .Q(tmdsSerialOut),
@@ -145,7 +147,6 @@ module synchronous_encoder_serializer(
 		displayEnable <= 0;
 		displayEnable_xfer <= 0;
 		idleCounter <= 0;
-		currentSubPixel_xfer <= 0;
 		currentSubPixel <= 0;
         tmdsCharacterOut <= 0;
         encoderStage1 <= 0;

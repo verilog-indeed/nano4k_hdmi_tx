@@ -13,6 +13,6 @@
         <File path="src/synchronous_encoder_serializer.v" type="file.verilog" enable="1"/>
         <File path="src/nano4k_hdmi_tx.cst" type="file.cst" enable="1"/>
         <File path="src/nano4k_hdmi_tx.sdc" type="file.sdc" enable="1"/>
-        <File path="src/nano4k_hdmi_tx.rao" type="file.gao" enable="0"/>
+        <File path="src/nano4k_hdmi_tx_std.rao" type="file.gao" enable="0"/>
     </FileList>
 </Project>

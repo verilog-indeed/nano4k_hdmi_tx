@@ -9,17 +9,10 @@
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v" type="verilog"/>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\pattern_generator_top.v" type="verilog"/>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\synchronous_encoder_serializer.v" type="verilog"/>
-        <File path="I:\External Programs\Gowin\Gowin_V1.9.8.03_Education\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v" type="gao"/>
-        <File path="I:\External Programs\Gowin\Gowin_V1.9.8.03_Education\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v" type="gao"/>
-        <File path="I:\External Programs\Gowin\Gowin_V1.9.8.03_Education\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v" type="gao"/>
-        <File path="I:\External Programs\Gowin\Gowin_V1.9.8.03_Education\IDE\data\ipcores\gw_jtag.v" type="gao"/>
-        <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\gwsynthesis\RTL_GAO\gw_gao_top.v" type="gao"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>
         <Option type="dsp_balance" value="0"/>
-        <Option type="include_path" value="I:/External Programs/Gowin/Gowin_V1.9.8.03_Education/IDE/data/ipcores/GAO_LITE"/>
-        <Option type="include_path" value="D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/impl/gwsynthesis/RTL_GAO"/>
         <Option type="looplimit" value="2000"/>
         <Option type="output_file" value="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\gwsynthesis\nano4k_hdmi_tx.vg"/>
         <Option type="print_all_synthesis_warning" value="0"/>

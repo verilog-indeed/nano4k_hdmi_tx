@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="pattern_generator_top" Register="6" Lut="17">
+<Module name="pattern_generator_top" Lut="17">
     <SubModule name="clock_5x"/>
-    <SubModule name="video_transmitter" Register="20" Alu="18" Lut="19">
-        <SubModule name="blue_tmds" Register="42" Alu="10" Lut="49">
+    <SubModule name="video_transmitter" Register="20" Alu="18" Lut="13">
+        <SubModule name="blue_tmds" Register="41" Alu="10" Lut="50">
             <SubModule name="ones_in_tmds_stage1" Alu="3" Lut="8"/>
         </SubModule>
-        <SubModule name="green_tmds" Register="41" Alu="10" Lut="43">
+        <SubModule name="green_tmds" Register="40" Alu="10" Lut="42">
             <SubModule name="ones_in_tmds_stage1" Alu="3" Lut="8"/>
         </SubModule>
-        <SubModule name="red_tmds" Register="42" Alu="10" Lut="43">
+        <SubModule name="red_tmds" Register="41" Alu="10" Lut="42">
             <SubModule name="ones_in_tmds_stage1" Alu="3" Lut="8"/>
         </SubModule>
     </SubModule>
-    <SubModule name="gw_gao_inst_0" Register="120" Alu="19" Lut="102" Bsram="1"/>
 </Module>
