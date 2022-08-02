@@ -49,24 +49,25 @@ module synchronous_encoder_serializer(
         if (displayEnable == 1) begin
 			if (stage1Ready == 0) begin //Video island period
 				//1-Transition minimization
-				encoderStage1[0] <= currentSubPixel[0]; 
+				encoderStage1[0] = currentSubPixel[0]; 
 				//k-th bit of the TMDS character is the (k-1) TMDS bit XOR'ed/XNOR'ed with the k-th bit of the pixel byte
 				if (onesIn_currentSubPixel > 4 || (onesIn_currentSubPixel == 4 && currentSubPixel[0] == 0)) begin
 					//XNOR will result in less transitions
 					for (tmdsBitIndex = 1; tmdsBitIndex <= 7; tmdsBitIndex = tmdsBitIndex + 1)
 					begin
-						encoderStage1[tmdsBitIndex] <= currentSubPixel[tmdsBitIndex] ^~ encoderStage1[tmdsBitIndex - 1];
+						//blocking assignment to prevent flopping and having this block take multiple clock cycles to correct itself
+						encoderStage1[tmdsBitIndex] = currentSubPixel[tmdsBitIndex] ^~ encoderStage1[tmdsBitIndex - 1];
 					end
 					//~XNOR bit flag set
-					encoderStage1[8] <= 0; 
+					encoderStage1[8] = 0; 
 				end else begin
 					//XOR will result in less transitions
 					for (tmdsBitIndex = 1; tmdsBitIndex <= 7; tmdsBitIndex = tmdsBitIndex + 1)
 					begin
-						encoderStage1[tmdsBitIndex] <= currentSubPixel[tmdsBitIndex] ^ encoderStage1[tmdsBitIndex - 1];
+						encoderStage1[tmdsBitIndex] = currentSubPixel[tmdsBitIndex] ^ encoderStage1[tmdsBitIndex - 1];
 					end
 					//XOR bit flag set
-					encoderStage1[8] <= 1; 
+					encoderStage1[8] = 1; 
 				end
 				stage1Ready <= 1;
 			end else if (stage2Ready == 0) begin

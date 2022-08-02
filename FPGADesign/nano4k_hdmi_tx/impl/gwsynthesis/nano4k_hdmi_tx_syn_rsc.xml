@@ -2,14 +2,8 @@
 <Module name="pattern_generator_top" Lut="17">
     <SubModule name="clock_5x"/>
     <SubModule name="video_transmitter" Register="20" Alu="18" Lut="13">
-        <SubModule name="blue_tmds" Register="41" Alu="10" Lut="50">
-            <SubModule name="ones_in_tmds_stage1" Alu="3" Lut="8"/>
-        </SubModule>
-        <SubModule name="green_tmds" Register="40" Alu="10" Lut="42">
-            <SubModule name="ones_in_tmds_stage1" Alu="3" Lut="8"/>
-        </SubModule>
-        <SubModule name="red_tmds" Register="41" Alu="10" Lut="42">
-            <SubModule name="ones_in_tmds_stage1" Alu="3" Lut="8"/>
-        </SubModule>
+        <SubModule name="blue_tmds" Register="22" Alu="10" Lut="36"/>
+        <SubModule name="green_tmds" Register="21" Alu="10" Lut="27"/>
+        <SubModule name="red_tmds" Register="22" Alu="10" Lut="27"/>
     </SubModule>
 </Module>

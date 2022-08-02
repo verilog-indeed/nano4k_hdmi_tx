@@ -11,26 +11,26 @@
   <PnR Version>: V1.9.8.03 Education
   <Part Number>: GW1NSR-LV4CQN48PC6/I5
   <Device>: GW1NSR-4C
-  <Created Time>:Mon Aug 01 21:49:41 2022
+  <Created Time>:Tue Aug 02 03:33:55 2022
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.031s, Elapsed time = 0h 0m 0.032s
+    Placement Phase 0: CPU time = 0h 0m 0.02s, Elapsed time = 0h 0m 0.02s
     Placement Phase 1: CPU time = 0h 0m 0.141s, Elapsed time = 0h 0m 0.141s
-    Placement Phase 2: CPU time = 0h 0m 0.042s, Elapsed time = 0h 0m 0.042s
+    Placement Phase 2: CPU time = 0h 0m 0.01s, Elapsed time = 0h 0m 0.011s
     Placement Phase 3: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s
-    Total Placement: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s
+    Total Placement: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s
  Running routing:
-    Routing Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0s
-    Routing Phase 1: CPU time = 0h 0m 0.166s, Elapsed time = 0h 0m 0.167s
-    Routing Phase 2: CPU time = 0h 0m 0.471s, Elapsed time = 0h 0m 0.47s
-    Total Routing: CPU time = 0h 0m 0.638s, Elapsed time = 0h 0m 0.637s
+    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
+    Routing Phase 1: CPU time = 0h 0m 0.145s, Elapsed time = 0h 0m 0.145s
+    Routing Phase 2: CPU time = 0h 0m 0.313s, Elapsed time = 0h 0m 0.314s
+    Total Routing: CPU time = 0h 0m 0.458s, Elapsed time = 0h 0m 0.459s
  Generate output files:
     CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
 
- Total Time and Memory Usage: CPU time = 0h 0m 5s, Elapsed time = 0h 0m 5s, Peak memory usage = 146MB
+ Total Time and Memory Usage: CPU time = 0h 0m 4s, Elapsed time = 0h 0m 4s, Peak memory usage = 152MB
 
 
 3. Resource Usage Summary
@@ -38,15 +38,15 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 255/4608  5%
-    --LUT,ALU,ROM16           | 255(184 LUT, 71 ALU, 0 ROM16)
+  Logic                       | 172/4608  3%
+    --LUT,ALU,ROM16           | 172(116 LUT, 56 ALU, 0 ROM16)
     --SSRAM(RAM16)            | 0
-  Register                    | 142/3570  3%
+  Register                    | 85/3570  2%
     --Logic Register as Latch | 0/3456  0%
-    --Logic Register as FF    | 142/3456  4%
+    --Logic Register as FF    | 85/3456  2%
     --I/O Register as Latch   | 0/114  0%
     --I/O Register as FF      | 0/114  0%
-  CLS                         | 180/2304  7%
+  CLS                         | 111/2304  4%
   I/O Port                    | 9
   I/O Buf                     | 5
     --Input Buf               | 1
@@ -85,7 +85,7 @@
   Global Clock  | Usage       
   -------------------------------
   PRIMARY       | 3/8(37%)
-  SECONDARY     | 1/8(12%)
+  SECONDARY     | 0/8(0%)
   GCLK_PIN      | 1/5(20%)
   PLL           | 1/2(50%)
   CLKDIV        | 0/6(0%)
@@ -101,7 +101,6 @@
   crystalCLK_d   | PRIMARY        |  LEFT RIGHT
   multiplierClkOut| PRIMARY        |  LEFT RIGHT
   vPixelClk      | PRIMARY        |  LEFT
-  displayEnable  | SECONDARY      |  -
   multiplierClkOut| HCLK           | RIGHT[1]
   ===========================================
 
