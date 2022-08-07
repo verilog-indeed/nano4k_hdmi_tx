@@ -47,23 +47,60 @@ module bouncy_box_top(
         currentPixel <= BLACK;
 		boxHpos <= 240;
 		boxVpos <= 160;
+		movingRight <= 1;
+		movingDown <= 1;
     end
 	
 	//top left corner coordinates
-	reg[9:0] boxHpos;
-	reg[9:0] boxVpos;
+	reg signed [10:0] boxHpos;
+	reg signed [10:0] boxVpos;
 
-	localparam boxHeight = 160;
-	localparam boxWidth = 240;
+	localparam boxHeight = 90;
+	localparam boxWidth = 120;
+	
+	wire signed [10:0] rightEdgeCoord = boxHpos + boxWidth;
+	wire signed [10:0] bottomEdgeCoord = boxVpos + boxHeight;
 
+	reg movingRight;
+	reg movingDown;
 	always@(posedge crystalCLK) begin
-		if ((verticalPix > boxVpos) && (verticalPix < (boxVpos + boxHeight)) && (horizontalPix > boxHpos) && (horizontalPix < (boxHpos + boxHeight))) begin
+		if ((verticalPix > boxVpos) && (verticalPix < (bottomEdgeCoord)) && (horizontalPix > boxHpos) && (horizontalPix < (rightEdgeCoord))) begin
 			currentPixel <= INDIGO;
 		end else begin
 			currentPixel <= CYAN;
 		end
 		if (verticalPix == 480 && horizontalPix == 720) begin
-			boxHpos <= boxHpos + 1;
+			if (movingRight) begin
+				if (rightEdgeCoord >= 720) begin
+					boxHpos <= 720 - boxWidth - 1;
+					movingRight <= 0;
+				end else begin
+					boxHpos <= boxHpos + 1;
+				end
+			end else begin
+				if (boxHpos <= 0) begin
+					boxHpos <= 1;
+					movingRight <= 1;
+				end else begin
+					boxHpos <= boxHpos - 1;
+				end
+			end
+
+			if (movingDown) begin
+				if (bottomEdgeCoord >= 480) begin
+					boxVpos <= 480 - boxHeight - 1;
+					movingDown <= 0;
+				end else begin
+					boxVpos <= boxVpos + 1;
+				end
+			end else begin
+				if (boxVpos <= 0) begin
+					boxVpos <= 1;
+					movingDown <= 1;
+				end else begin
+					boxVpos <= boxVpos - 1;
+				end
+			end
 		end
 	end
 

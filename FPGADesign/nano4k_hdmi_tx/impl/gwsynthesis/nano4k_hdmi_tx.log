@@ -1,11 +1,11 @@
 GowinSynthesis start
 Running parser ...
+Analyzing Verilog file 'D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v'
 Analyzing Verilog file 'D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\gowin_pllvr\gowin_pllvr.v'
 Analyzing Verilog file 'D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v'
 Analyzing Verilog file 'D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v'
 Analyzing Verilog file 'D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\synchronous_encoder_serializer.v'
 WARN  (EX3012) : Empty statement in sequential block("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\synchronous_encoder_serializer.v":132)
-Analyzing Verilog file 'D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v'
 Compiling module 'bouncy_box_top'("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v":1)
 WARN  (EX3791) : Expression size 8 truncated to fit in target size 1("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v":48)
 WARN  (EX3791) : Expression size 8 truncated to fit in target size 1("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v":49)
@@ -21,8 +21,12 @@ WARN  (EX1987) : Input port 'RESET' is not connected on this instance("D:\Nano4K
 WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":125)
 WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":128)
 WARN  (EX1987) : Input port 'RESET' is not connected on this instance("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v":89)
-WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v":66)
-WARN  (EX1998) : Net 'boxVpos[9]' does not have a driver("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v":54)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 11("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v":61)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 11("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v":62)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 11("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v":78)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 11("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v":85)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 11("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v":94)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 11("D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v":101)
 NOTE  (EX0101) : Current top module is "bouncy_box_top"
 [5%] Running netlist conversion ...
 Running device independent optimization ...

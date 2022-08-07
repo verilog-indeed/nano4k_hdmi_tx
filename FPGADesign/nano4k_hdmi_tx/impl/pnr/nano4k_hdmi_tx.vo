@@ -2,7 +2,7 @@
 //All rights reserved.
 //File Title: Post-PnR Simulation Model file
 //GOWIN Version: V1.9.8.03 Education
-//Created Time: Sun Aug 07 02:22:42 2022
+//Created Time: Sun Aug 07 13:41:35 2022
 
 module bouncy_box_top(
 	crystalCLK,
@@ -18,84 +18,190 @@ output [2:0] tmdsChannel_n;
 output tmdsClockChannel_n;
 wire GND;
 wire VCC;
-wire [9:0] boxHpos;
+wire [10:0] boxHpos;
+wire [10:0] boxVpos;
 wire crystalCLK;
 wire crystalCLK_d;
 wire [22:7] currentPixel;
 wire currentPixel_22_6;
-wire currentPixel_22_7;
-wire currentPixel_22_8;
 wire [9:0] horizontalPix;
+wire movingDown;
+wire movingDown_7;
+wire movingRight;
+wire movingRight_7;
 wire multiplierClkOut;
-wire n32_4;
-wire n44_21_SUM;
-wire n44_22_SUM;
-wire n44_23_SUM;
-wire n44_24;
-wire n44_24_SUM;
-wire n44_25_SUM;
-wire n44_26;
-wire n44_26_SUM;
-wire n44_27_SUM;
-wire n44_28;
-wire n44_28_SUM;
-wire n44_29_SUM;
-wire n44_30;
-wire n44_30_SUM;
-wire n44_32;
-wire n44_34;
-wire n44_36;
-wire n44_38;
-wire n44_40;
-wire n44_42;
-wire n52_24_SUM;
-wire n52_25_SUM;
-wire n52_26_SUM;
-wire n52_27_SUM;
-wire n52_28;
-wire n52_28_SUM;
-wire n52_30;
-wire n52_32;
-wire n52_34;
-wire n52_36;
-wire n52_41;
-wire n58_10;
-wire n58_11;
-wire n58_12;
-wire n58_13;
-wire n58_14;
-wire n58_15;
-wire n58_16;
-wire n58_5;
-wire n58_6;
-wire n58_7;
-wire n58_8;
-wire n58_9;
+wire n101_23_SUM;
+wire n101_24_SUM;
+wire n101_25_SUM;
+wire n101_26;
+wire n101_26_SUM;
+wire n101_27_SUM;
+wire n101_28;
+wire n101_28_SUM;
+wire n101_29_SUM;
+wire n101_30;
+wire n101_30_SUM;
+wire n101_31_SUM;
+wire n101_32;
+wire n101_32_SUM;
+wire n101_34;
+wire n101_36;
+wire n101_38;
+wire n101_40;
+wire n101_42;
+wire n101_44;
+wire n104_23_SUM;
+wire n104_24_SUM;
+wire n104_25_SUM;
+wire n104_26;
+wire n104_26_SUM;
+wire n104_27_SUM;
+wire n104_28;
+wire n104_28_SUM;
+wire n104_29_SUM;
+wire n104_30;
+wire n104_30_SUM;
+wire n104_31_SUM;
+wire n104_32;
+wire n104_32_SUM;
+wire n104_34;
+wire n104_36;
+wire n104_38;
+wire n104_40;
+wire n104_42;
+wire n104_44;
+wire n106_24_SUM;
+wire n106_25_SUM;
+wire n106_26_SUM;
+wire n106_28;
+wire n106_30;
+wire n106_32;
+wire n106_37;
+wire n106_38;
+wire n106_39;
+wire n106_40;
+wire n106_41;
+wire n106_42;
+wire n106_43;
+wire n106_44;
+wire n106_45;
+wire n106_46;
+wire n106_47;
+wire n106_48;
+wire n106_50;
+wire n106_51;
+wire n106_52;
+wire n106_54;
+wire n112_10;
+wire n112_11;
+wire n112_12;
+wire n112_14;
+wire n112_15;
+wire n112_16;
+wire n112_17;
+wire n112_18;
+wire n112_19;
+wire n112_20;
+wire n112_21;
+wire n112_22;
+wire n112_23;
+wire n112_24;
+wire n112_25;
+wire n112_26;
+wire n112_27;
+wire n112_28;
+wire n112_29;
+wire n112_30;
+wire n112_31;
+wire n112_33;
+wire n112_5;
+wire n112_6;
+wire n112_7;
+wire n112_8;
+wire n112_9;
+wire n136_4;
+wire n136_5;
+wire n136_6;
+wire n136_7;
+wire n136_8;
+wire n136_9;
+wire n217_5;
+wire n217_8;
+wire n219_5;
+wire n219_6;
+wire n219_9;
+wire n220_5;
+wire n220_6;
+wire n220_7;
+wire n222_5;
+wire n222_6;
+wire n224_5;
+wire n224_6;
+wire n227_7;
+wire n230_3;
+wire n230_4;
+wire n230_5;
+wire n230_6;
+wire n230_7;
+wire n230_8;
+wire n233_3;
+wire n233_4;
+wire n233_5;
+wire n233_6;
+wire n233_7;
+wire n233_8;
+wire n235_3;
+wire n235_4;
+wire n235_5;
+wire n235_6;
+wire n237_3;
+wire n237_4;
+wire n237_5;
+wire n238_3;
+wire n238_4;
+wire n238_5;
+wire n238_6;
+wire n238_7;
+wire n240_12;
+wire n321_5;
+wire n321_6;
+wire n322_5;
+wire n322_6;
+wire n322_7;
+wire n325_5;
+wire n325_6;
+wire n326_5;
+wire n326_6;
+wire n326_7;
+wire n326_8;
+wire n326_9;
+wire n327_5;
+wire n328_5;
+wire n328_6;
+wire n32_5;
+wire n330_5;
+wire n330_6;
+wire n331_7;
+wire n335_10;
+wire n335_11;
+wire n335_3;
+wire n335_4;
+wire n335_5;
+wire n335_6;
+wire n335_7;
+wire n335_8;
+wire n335_9;
+wire n336_3;
+wire n336_4;
+wire n336_5;
+wire n336_6;
+wire n336_7;
+wire n336_8;
+wire n341_3;
+wire n341_4;
+wire n341_5;
+wire n344_9;
 wire n5_35;
-wire n82_11;
-wire n82_5;
-wire n82_7;
-wire n82_8;
-wire n82_9;
-wire n84_0_COUT;
-wire n84_1;
-wire n85_1;
-wire n85_2;
-wire n86_1;
-wire n86_2;
-wire n87_1;
-wire n87_2;
-wire n88_1;
-wire n88_2;
-wire n89_1;
-wire n89_2;
-wire n90_1;
-wire n90_2;
-wire n91_1;
-wire n91_2;
-wire n92_1;
-wire n92_2;
-wire n93_6;
 wire [2:0] tmdsChannel_n;
 wire [2:0] tmdsChannel_p;
 wire tmdsClockChannel_n;
@@ -105,14 +211,13 @@ wire \clock_5x/clkoutp_o ;
 wire \clock_5x/clkoutd_o ;
 wire \clock_5x/clkoutd3_o ;
 wire \clock_5x/lock_o ;
+wire \video_transmitter/n32_3 ;
 wire \video_transmitter/n49_4 ;
 wire \video_transmitter/n5_34 ;
-wire \video_transmitter/n32_5 ;
-wire \video_transmitter/n32_6 ;
+wire \video_transmitter/n32_4 ;
 wire \video_transmitter/n49_5 ;
 wire \video_transmitter/n49_6 ;
 wire \video_transmitter/n49_7 ;
-wire \video_transmitter/n32_8 ;
 wire \video_transmitter/pClock ;
 wire \video_transmitter/n47_1 ;
 wire \video_transmitter/n47_2 ;
@@ -180,27 +285,26 @@ wire \video_transmitter/blue_tmds/n258_3 ;
 wire \video_transmitter/blue_tmds/n535_3 ;
 wire \video_transmitter/blue_tmds/displayEnable_xfer_6 ;
 wire \video_transmitter/blue_tmds/stage2Ready_12 ;
+wire \video_transmitter/blue_tmds/n121_1_2 ;
 wire \video_transmitter/blue_tmds/disparityCounterCompensation_1_12 ;
 wire \video_transmitter/blue_tmds/n177_4 ;
 wire \video_transmitter/blue_tmds/n176_4 ;
-wire \video_transmitter/blue_tmds/n121_4 ;
-wire \video_transmitter/blue_tmds/n121_5 ;
+wire \video_transmitter/blue_tmds/n170_4 ;
 wire \video_transmitter/blue_tmds/n249_4 ;
+wire \video_transmitter/blue_tmds/n249_5 ;
 wire \video_transmitter/blue_tmds/n249_6 ;
 wire \video_transmitter/blue_tmds/n251_4 ;
 wire \video_transmitter/blue_tmds/n184_5 ;
 wire \video_transmitter/blue_tmds/displayEnable_xfer_7 ;
-wire \video_transmitter/blue_tmds/disparityCounterCompensation_3_10 ;
-wire \video_transmitter/blue_tmds/n121_6 ;
-wire \video_transmitter/blue_tmds/n121_7 ;
+wire \video_transmitter/blue_tmds/n170_5 ;
+wire \video_transmitter/blue_tmds/n170_6 ;
 wire \video_transmitter/blue_tmds/n249_7 ;
 wire \video_transmitter/blue_tmds/n249_8 ;
-wire \video_transmitter/blue_tmds/n249_10 ;
-wire \video_transmitter/blue_tmds/n121_9 ;
+wire \video_transmitter/blue_tmds/n249_9 ;
 wire \video_transmitter/blue_tmds/n184_7 ;
 wire \video_transmitter/blue_tmds/encoderStage2_9_10 ;
-wire \video_transmitter/blue_tmds/n121_1_4 ;
-wire \video_transmitter/blue_tmds/n178_11 ;
+wire \video_transmitter/blue_tmds/n121_5 ;
+wire \video_transmitter/blue_tmds/n178_8 ;
 wire \video_transmitter/blue_tmds/n336_6 ;
 wire \video_transmitter/blue_tmds/n543_9 ;
 wire \video_transmitter/blue_tmds/n543_8 ;
@@ -227,8 +331,8 @@ wire \video_transmitter/blue_tmds/n156_2 ;
 wire \video_transmitter/blue_tmds/n156_1_0_COUT ;
 wire \video_transmitter/blue_tmds/encoderStage1[8]_3_3 ;
 wire \video_transmitter/blue_tmds/onesInTmdsBuffer_2x_minus_8_3_10 ;
-wire [4:4] \video_transmitter/blue_tmds/onesInTmdsBuffer_2x_minus_8 ;
 wire [4:2] \video_transmitter/blue_tmds/disparityCounterCompensation ;
+wire [4:4] \video_transmitter/blue_tmds/onesInTmdsBuffer_2x_minus_8 ;
 wire [7:6] \video_transmitter/blue_tmds/encoderStage1_0 ;
 wire [4:0] \video_transmitter/blue_tmds/disparityCounter ;
 wire [2:0] \video_transmitter/blue_tmds/idleCounter ;
@@ -254,17 +358,17 @@ wire \video_transmitter/green_tmds/encoderStage2_9_16 ;
 wire \video_transmitter/green_tmds/encoderStage2_8_16 ;
 wire \video_transmitter/green_tmds/n177_4 ;
 wire \video_transmitter/green_tmds/n176_4 ;
-wire \video_transmitter/green_tmds/n148_4 ;
 wire \video_transmitter/green_tmds/n184_5 ;
 wire \video_transmitter/green_tmds/n121_1_3 ;
-wire \video_transmitter/green_tmds/encoderStage2_2_20 ;
 wire \video_transmitter/green_tmds/n184_7 ;
+wire \video_transmitter/green_tmds/n148_6 ;
 wire \video_transmitter/green_tmds/n174_5 ;
 wire \video_transmitter/green_tmds/n173_5 ;
 wire \video_transmitter/green_tmds/n172_5 ;
 wire \video_transmitter/green_tmds/n171_5 ;
 wire \video_transmitter/green_tmds/n170_6 ;
 wire \video_transmitter/green_tmds/n121_5 ;
+wire \video_transmitter/green_tmds/encoderStage2_2_20 ;
 wire \video_transmitter/green_tmds/encoderStage2_2_22 ;
 wire \video_transmitter/green_tmds/n178_8 ;
 wire \video_transmitter/green_tmds/n336_6 ;
@@ -301,7 +405,6 @@ wire [4:0] \video_transmitter/green_tmds/disparityCounter ;
 wire [2:0] \video_transmitter/green_tmds/idleCounter ;
 wire [9:0] \video_transmitter/green_tmds/tmdsCharacterOut ;
 wire \video_transmitter/red_tmds/n120_3 ;
-wire \video_transmitter/red_tmds/n151_3 ;
 wire \video_transmitter/red_tmds/n170_3 ;
 wire \video_transmitter/red_tmds/n171_3 ;
 wire \video_transmitter/red_tmds/n172_3 ;
@@ -314,11 +417,12 @@ wire \video_transmitter/red_tmds/encoderStage2_4_16 ;
 wire \video_transmitter/red_tmds/n154_6 ;
 wire \video_transmitter/red_tmds/n177_4 ;
 wire \video_transmitter/red_tmds/n176_4 ;
-wire \video_transmitter/red_tmds/n151_4 ;
+wire \video_transmitter/red_tmds/n170_4 ;
 wire \video_transmitter/red_tmds/n184_5 ;
-wire \video_transmitter/red_tmds/n151_5 ;
+wire \video_transmitter/red_tmds/n170_5 ;
 wire \video_transmitter/red_tmds/n121_1_4 ;
 wire \video_transmitter/red_tmds/encoderStage2_6_17 ;
+wire \video_transmitter/red_tmds/n151_5 ;
 wire \video_transmitter/red_tmds/n184_7 ;
 wire \video_transmitter/red_tmds/encoderStage2_2_18 ;
 wire \video_transmitter/red_tmds/n178_8 ;
@@ -389,170 +493,970 @@ TLVDS_OBUF \video_transmitter/tlvds_buffer_gen[2].tlvds_inst  (
 	.O(tmdsChannel_p[2]),
 	.OB(tmdsChannel_n[2])
 );
-LUT3 n58_s1 (
-	.I0(currentPixel_22_6),
-	.I1(n58_6),
-	.I2(n58_7),
-	.F(n58_5)
+LUT4 n136_s0 (
+	.I0(n136_5),
+	.I1(n136_6),
+	.I2(n136_7),
+	.I3(n136_8),
+	.F(n136_4)
 );
-defparam n58_s1.INIT=8'hEF;
-LUT4 currentPixel_22_s2 (
-	.I0(n82_5),
-	.I1(currentPixel_22_7),
-	.I2(verticalPix[7]),
-	.I3(currentPixel_22_8),
+defparam n136_s0.INIT=16'h8000;
+LUT4 n230_s0 (
+	.I0(n230_4),
+	.I1(n230_5),
+	.I2(movingRight),
+	.I3(n230_6),
+	.F(n230_3)
+);
+defparam n230_s0.INIT=16'h708F;
+LUT4 n233_s0 (
+	.I0(n233_4),
+	.I1(movingRight),
+	.I2(n233_5),
+	.I3(n233_6),
+	.F(n233_3)
+);
+defparam n233_s0.INIT=16'h4F44;
+LUT4 n235_s0 (
+	.I0(n235_4),
+	.I1(movingRight),
+	.I2(n235_5),
+	.I3(n233_6),
+	.F(n235_3)
+);
+defparam n235_s0.INIT=16'h4F44;
+LUT4 n237_s0 (
+	.I0(n237_4),
+	.I1(movingRight),
+	.I2(n237_5),
+	.I3(n233_6),
+	.F(n237_3)
+);
+defparam n237_s0.INIT=16'h4F44;
+LUT4 n238_s0 (
+	.I0(n238_4),
+	.I1(n233_6),
+	.I2(n238_5),
+	.I3(movingRight),
+	.F(n238_3)
+);
+defparam n238_s0.INIT=16'hFE0C;
+LUT4 n335_s0 (
+	.I0(n335_4),
+	.I1(n335_5),
+	.I2(n335_6),
+	.I3(movingDown),
+	.F(n335_3)
+);
+defparam n335_s0.INIT=16'hBBF0;
+LUT4 n336_s0 (
+	.I0(n336_4),
+	.I1(movingDown),
+	.I2(n336_5),
+	.I3(n336_6),
+	.F(n336_3)
+);
+defparam n336_s0.INIT=16'h4F44;
+LUT4 n341_s0 (
+	.I0(n341_4),
+	.I1(movingDown),
+	.I2(n341_5),
+	.I3(n336_6),
+	.F(n341_3)
+);
+defparam n341_s0.INIT=16'h4F44;
+LUT4 n112_s1 (
+	.I0(n112_6),
+	.I1(n112_7),
+	.I2(n106_37),
+	.I3(n112_8),
+	.F(n112_5)
+);
+defparam n112_s1.INIT=16'h4FFF;
+LUT3 currentPixel_22_s2 (
+	.I0(n112_6),
+	.I1(n112_8),
+	.I2(n112_7),
 	.F(currentPixel_22_6)
 );
-defparam currentPixel_22_s2.INIT=16'h3BF3;
-LUT2 n52_s30 (
-	.I0(n58_6),
-	.I1(n58_7),
-	.F(n52_41)
+defparam currentPixel_22_s2.INIT=8'h73;
+LUT4 n106_s28 (
+	.I0(n106_38),
+	.I1(n106_39),
+	.I2(n106_40),
+	.I3(n106_41),
+	.F(n106_37)
 );
-defparam n52_s30.INIT=4'h4;
-LUT3 n82_s1 (
-	.I0(verticalPix[3]),
-	.I1(verticalPix[4]),
-	.I2(n82_8),
-	.F(n82_5)
+defparam n106_s28.INIT=16'hFF70;
+LUT3 n217_s1 (
+	.I0(n217_8),
+	.I1(boxHpos[10]),
+	.I2(movingRight),
+	.F(n217_5)
 );
-defparam n82_s1.INIT=8'h10;
-LUT4 n82_s3 (
-	.I0(horizontalPix[0]),
-	.I1(horizontalPix[6]),
-	.I2(n32_4),
-	.I3(n82_9),
-	.F(n82_7)
+defparam n217_s1.INIT=8'h60;
+LUT3 n219_s1 (
+	.I0(movingRight_7),
+	.I1(boxHpos[8]),
+	.I2(n219_6),
+	.F(n219_5)
 );
-defparam n82_s3.INIT=16'h4000;
-LUT4 n58_s2 (
-	.I0(n58_8),
-	.I1(horizontalPix[8]),
-	.I2(n58_9),
-	.I3(n58_10),
-	.F(n58_6)
+defparam n219_s1.INIT=8'h41;
+LUT3 n220_s1 (
+	.I0(movingRight_7),
+	.I1(boxHpos[7]),
+	.I2(n220_6),
+	.F(n220_5)
 );
-defparam n58_s2.INIT=16'h0E00;
-LUT4 n58_s3 (
-	.I0(horizontalPix[9]),
-	.I1(boxHpos[9]),
-	.I2(n58_11),
-	.I3(n58_12),
-	.F(n58_7)
+defparam n220_s1.INIT=8'h41;
+LUT3 n222_s1 (
+	.I0(movingRight_7),
+	.I1(boxHpos[5]),
+	.I2(n222_6),
+	.F(n222_5)
 );
-defparam n58_s3.INIT=16'hD4FD;
-LUT3 currentPixel_22_s3 (
-	.I0(verticalPix[8]),
+defparam n222_s1.INIT=8'h41;
+LUT3 n224_s1 (
+	.I0(movingRight_7),
+	.I1(boxHpos[3]),
+	.I2(n224_6),
+	.F(n224_5)
+);
+defparam n224_s1.INIT=8'h14;
+LUT3 n321_s1 (
+	.I0(n321_6),
+	.I1(boxVpos[10]),
+	.I2(movingDown),
+	.F(n321_5)
+);
+defparam n321_s1.INIT=8'h60;
+LUT3 n322_s1 (
+	.I0(movingDown_7),
+	.I1(boxVpos[9]),
+	.I2(n322_6),
+	.F(n322_5)
+);
+defparam n322_s1.INIT=8'h41;
+LUT3 n325_s1 (
+	.I0(movingDown_7),
+	.I1(boxVpos[6]),
+	.I2(n325_6),
+	.F(n325_5)
+);
+defparam n325_s1.INIT=8'h14;
+LUT4 n326_s1 (
+	.I0(n326_6),
+	.I1(n326_7),
+	.I2(movingDown_7),
+	.I3(boxVpos[5]),
+	.F(n326_5)
+);
+defparam n326_s1.INIT=16'h0E01;
+LUT3 n327_s1 (
+	.I0(movingDown_7),
+	.I1(boxVpos[4]),
+	.I2(n326_6),
+	.F(n327_5)
+);
+defparam n327_s1.INIT=8'h41;
+LUT3 n328_s1 (
+	.I0(movingDown_7),
+	.I1(boxVpos[3]),
+	.I2(n328_6),
+	.F(n328_5)
+);
+defparam n328_s1.INIT=8'h14;
+LUT4 n330_s1 (
+	.I0(n335_4),
+	.I1(movingDown),
+	.I2(n336_6),
+	.I3(n330_6),
+	.F(n330_5)
+);
+defparam n330_s1.INIT=16'h44F0;
+LUT3 n136_s1 (
+	.I0(verticalPix[4]),
 	.I1(verticalPix[9]),
-	.I2(n44_42),
-	.F(currentPixel_22_7)
+	.I2(n5_35),
+	.F(n136_5)
 );
-defparam currentPixel_22_s3.INIT=8'h10;
-LUT2 currentPixel_22_s4 (
-	.I0(verticalPix[5]),
-	.I1(verticalPix[6]),
-	.F(currentPixel_22_8)
+defparam n136_s1.INIT=8'h10;
+LUT4 n136_s2 (
+	.I0(verticalPix[3]),
+	.I1(horizontalPix[1]),
+	.I2(n136_9),
+	.I3(n32_5),
+	.F(n136_6)
 );
-defparam currentPixel_22_s4.INIT=4'h1;
-LUT3 n82_s4 (
+defparam n136_s2.INIT=16'h1000;
+LUT3 n136_s3 (
+	.I0(horizontalPix[0]),
+	.I1(horizontalPix[5]),
+	.I2(horizontalPix[4]),
+	.F(n136_7)
+);
+defparam n136_s3.INIT=8'h10;
+LUT3 n136_s4 (
 	.I0(verticalPix[0]),
 	.I1(verticalPix[1]),
 	.I2(verticalPix[2]),
-	.F(n82_8)
+	.F(n136_8)
 );
-defparam n82_s4.INIT=8'h01;
-LUT4 n82_s5 (
-	.I0(horizontalPix[1]),
+defparam n136_s4.INIT=8'h01;
+LUT3 n230_s1 (
+	.I0(boxHpos[5]),
+	.I1(boxHpos[6]),
+	.I2(n230_7),
+	.F(n230_4)
+);
+defparam n230_s1.INIT=8'h80;
+LUT2 n230_s2 (
+	.I0(boxHpos[7]),
+	.I1(boxHpos[8]),
+	.F(n230_5)
+);
+defparam n230_s2.INIT=4'h8;
+LUT4 n230_s3 (
+	.I0(boxHpos[10]),
+	.I1(n230_8),
+	.I2(movingRight),
+	.I3(boxHpos[9]),
+	.F(n230_6)
+);
+defparam n230_s3.INIT=16'hFE0F;
+LUT4 n233_s1 (
+	.I0(boxHpos[5]),
+	.I1(n230_7),
+	.I2(n238_4),
+	.I3(boxHpos[6]),
+	.F(n233_4)
+);
+defparam n233_s1.INIT=16'h0807;
+LUT4 n233_s2 (
+	.I0(boxHpos[5]),
+	.I1(n233_7),
+	.I2(n233_8),
+	.I3(boxHpos[6]),
+	.F(n233_5)
+);
+defparam n233_s2.INIT=16'h40BF;
+LUT4 n233_s3 (
+	.I0(n230_8),
+	.I1(boxHpos[9]),
+	.I2(movingRight),
+	.I3(boxHpos[10]),
+	.F(n233_6)
+);
+defparam n233_s3.INIT=16'h000D;
+LUT4 n235_s1 (
+	.I0(boxHpos[3]),
+	.I1(n235_6),
+	.I2(n238_4),
+	.I3(boxHpos[4]),
+	.F(n235_4)
+);
+defparam n235_s1.INIT=16'h0807;
+LUT3 n235_s2 (
+	.I0(boxHpos[3]),
+	.I1(n233_7),
+	.I2(boxHpos[4]),
+	.F(n235_5)
+);
+defparam n235_s2.INIT=8'h4B;
+LUT4 n237_s1 (
+	.I0(boxHpos[1]),
+	.I1(boxHpos[0]),
+	.I2(n238_4),
+	.I3(boxHpos[2]),
+	.F(n237_4)
+);
+defparam n237_s1.INIT=16'h0807;
+LUT3 n237_s2 (
+	.I0(boxHpos[1]),
+	.I1(boxHpos[0]),
+	.I2(boxHpos[2]),
+	.F(n237_5)
+);
+defparam n237_s2.INIT=8'h1E;
+LUT3 n238_s1 (
+	.I0(boxHpos[10]),
+	.I1(n238_6),
+	.I2(boxHpos[9]),
+	.F(n238_4)
+);
+defparam n238_s1.INIT=8'h40;
+LUT2 n238_s2 (
+	.I0(boxHpos[1]),
+	.I1(boxHpos[0]),
+	.F(n238_5)
+);
+defparam n238_s2.INIT=4'h6;
+LUT4 n335_s1 (
+	.I0(n335_7),
+	.I1(n335_8),
+	.I2(boxVpos[10]),
+	.I3(boxVpos[9]),
+	.F(n335_4)
+);
+defparam n335_s1.INIT=16'h0B04;
+LUT4 n335_s2 (
+	.I0(boxVpos[7]),
+	.I1(boxVpos[6]),
+	.I2(n335_9),
+	.I3(boxVpos[8]),
+	.F(n335_5)
+);
+defparam n335_s2.INIT=16'h807F;
+LUT4 n335_s3 (
+	.I0(boxVpos[9]),
+	.I1(boxVpos[10]),
+	.I2(boxVpos[8]),
+	.I3(n335_10),
+	.F(n335_6)
+);
+defparam n335_s3.INIT=16'h0230;
+LUT4 n336_s1 (
+	.I0(boxVpos[6]),
+	.I1(n335_9),
+	.I2(n335_4),
+	.I3(boxVpos[7]),
+	.F(n336_4)
+);
+defparam n336_s1.INIT=16'h0807;
+LUT3 n336_s2 (
+	.I0(boxVpos[6]),
+	.I1(n336_7),
+	.I2(boxVpos[7]),
+	.F(n336_5)
+);
+defparam n336_s2.INIT=8'h4B;
+LUT4 n336_s3 (
+	.I0(n336_7),
+	.I1(n336_8),
+	.I2(boxVpos[10]),
+	.I3(movingDown),
+	.F(n336_6)
+);
+defparam n336_s3.INIT=16'h0007;
+LUT4 n341_s1 (
+	.I0(boxVpos[0]),
+	.I1(boxVpos[1]),
+	.I2(n335_4),
+	.I3(boxVpos[2]),
+	.F(n341_4)
+);
+defparam n341_s1.INIT=16'h0807;
+LUT3 n341_s2 (
+	.I0(boxVpos[0]),
+	.I1(boxVpos[1]),
+	.I2(boxVpos[2]),
+	.F(n341_5)
+);
+defparam n341_s2.INIT=8'h1E;
+LUT4 n112_s2 (
+	.I0(n112_9),
+	.I1(n112_10),
+	.I2(n112_11),
+	.I3(n112_12),
+	.F(n112_6)
+);
+defparam n112_s2.INIT=16'h0D00;
+LUT4 n112_s3 (
+	.I0(verticalPix[9]),
+	.I1(boxVpos[9]),
+	.I2(n112_33),
+	.I3(n112_14),
+	.F(n112_7)
+);
+defparam n112_s3.INIT=16'h002B;
+LUT4 n112_s4 (
+	.I0(boxVpos[9]),
+	.I1(n112_33),
+	.I2(verticalPix[9]),
+	.I3(n112_15),
+	.F(n112_8)
+);
+defparam n112_s4.INIT=16'hEF00;
+LUT3 movingRight_s3 (
+	.I0(n238_4),
+	.I1(movingRight),
+	.I2(n233_6),
+	.F(movingRight_7)
+);
+defparam movingRight_s3.INIT=8'h0B;
+LUT3 movingDown_s3 (
+	.I0(n335_4),
+	.I1(movingDown),
+	.I2(n336_6),
+	.F(movingDown_7)
+);
+defparam movingDown_s3.INIT=8'h0B;
+LUT3 n106_s29 (
+	.I0(n106_42),
+	.I1(horizontalPix[8]),
+	.I2(n106_43),
+	.F(n106_38)
+);
+defparam n106_s29.INIT=8'hE0;
+LUT3 n106_s30 (
+	.I0(n106_44),
+	.I1(n106_45),
+	.I2(n106_46),
+	.F(n106_39)
+);
+defparam n106_s30.INIT=8'h07;
+LUT4 n106_s31 (
+	.I0(n106_47),
+	.I1(horizontalPix[8]),
+	.I2(n106_42),
+	.I3(n106_48),
+	.F(n106_40)
+);
+defparam n106_s31.INIT=16'h0017;
+LUT4 n106_s32 (
+	.I0(horizontalPix[9]),
+	.I1(n106_54),
+	.I2(boxHpos[9]),
+	.I3(boxHpos[10]),
+	.F(n106_41)
+);
+defparam n106_s32.INIT=16'h3FD4;
+LUT4 n219_s2 (
+	.I0(n230_4),
+	.I1(n219_9),
+	.I2(boxHpos[7]),
+	.I3(movingRight),
+	.F(n219_6)
+);
+defparam n219_s2.INIT=16'h5FF3;
+LUT4 n220_s2 (
+	.I0(n233_7),
+	.I1(n220_7),
+	.I2(n230_4),
+	.I3(movingRight),
+	.F(n220_6)
+);
+defparam n220_s2.INIT=16'h0F77;
+LUT4 n222_s2 (
+	.I0(n233_7),
+	.I1(n233_8),
+	.I2(n230_7),
+	.I3(movingRight),
+	.F(n222_6)
+);
+defparam n222_s2.INIT=16'h0F77;
+LUT3 n224_s2 (
+	.I0(n233_7),
+	.I1(n235_6),
+	.I2(movingRight),
+	.F(n224_6)
+);
+defparam n224_s2.INIT=8'hCA;
+LUT4 n321_s2 (
+	.I0(boxVpos[9]),
+	.I1(boxVpos[6]),
+	.I2(n335_8),
+	.I3(n335_9),
+	.F(n321_6)
+);
+defparam n321_s2.INIT=16'h8000;
+LUT4 n322_s2 (
+	.I0(n335_9),
+	.I1(n336_7),
+	.I2(n322_7),
+	.I3(boxVpos[8]),
+	.F(n322_6)
+);
+defparam n322_s2.INIT=16'h5FF3;
+LUT3 n325_s2 (
+	.I0(n336_7),
+	.I1(n335_9),
+	.I2(movingDown),
+	.F(n325_6)
+);
+defparam n325_s2.INIT=8'hCA;
+LUT4 n326_s2 (
+	.I0(n326_8),
+	.I1(n326_9),
+	.I2(boxVpos[3]),
+	.I3(movingDown),
+	.F(n326_6)
+);
+defparam n326_s2.INIT=16'h3FF5;
+LUT2 n326_s3 (
+	.I0(boxVpos[3]),
+	.I1(boxVpos[4]),
+	.F(n326_7)
+);
+defparam n326_s3.INIT=4'h6;
+LUT3 n328_s2 (
+	.I0(n326_8),
+	.I1(n326_9),
+	.I2(movingDown),
+	.F(n328_6)
+);
+defparam n328_s2.INIT=8'hCA;
+LUT2 n330_s2 (
+	.I0(boxVpos[0]),
+	.I1(boxVpos[1]),
+	.F(n330_6)
+);
+defparam n330_s2.INIT=4'h6;
+LUT4 n136_s5 (
+	.I0(horizontalPix[2]),
 	.I1(horizontalPix[3]),
 	.I2(horizontalPix[8]),
 	.I3(horizontalPix[7]),
-	.F(n82_9)
+	.F(n136_9)
 );
-defparam n82_s5.INIT=16'h0100;
-LUT4 n58_s4 (
-	.I0(boxHpos[5]),
-	.I1(boxHpos[6]),
+defparam n136_s5.INIT=16'h0100;
+LUT3 n230_s4 (
+	.I0(boxHpos[3]),
+	.I1(boxHpos[4]),
+	.I2(n235_6),
+	.F(n230_7)
+);
+defparam n230_s4.INIT=8'h80;
+LUT4 n230_s5 (
+	.I0(boxHpos[7]),
+	.I1(boxHpos[8]),
+	.I2(n233_7),
+	.I3(n220_7),
+	.F(n230_8)
+);
+defparam n230_s5.INIT=16'h1000;
+LUT3 n233_s4 (
+	.I0(boxHpos[1]),
+	.I1(boxHpos[0]),
+	.I2(boxHpos[2]),
+	.F(n233_7)
+);
+defparam n233_s4.INIT=8'h01;
+LUT2 n233_s5 (
+	.I0(boxHpos[3]),
+	.I1(boxHpos[4]),
+	.F(n233_8)
+);
+defparam n233_s5.INIT=4'h1;
+LUT3 n235_s3 (
+	.I0(boxHpos[1]),
+	.I1(boxHpos[0]),
+	.I2(boxHpos[2]),
+	.F(n235_6)
+);
+defparam n235_s3.INIT=8'h80;
+LUT4 n238_s3 (
+	.I0(n238_7),
+	.I1(n220_7),
 	.I2(boxHpos[7]),
 	.I3(boxHpos[8]),
-	.F(n58_8)
+	.F(n238_6)
 );
-defparam n58_s4.INIT=16'hF807;
-LUT4 n58_s5 (
+defparam n238_s3.INIT=16'hCFFA;
+LUT4 n335_s4 (
+	.I0(boxVpos[9]),
+	.I1(boxVpos[5]),
+	.I2(n335_11),
+	.I3(boxVpos[6]),
+	.F(n335_7)
+);
+defparam n335_s4.INIT=16'h00B2;
+LUT2 n335_s5 (
+	.I0(boxVpos[7]),
+	.I1(boxVpos[8]),
+	.F(n335_8)
+);
+defparam n335_s5.INIT=4'h8;
+LUT4 n335_s6 (
+	.I0(boxVpos[5]),
+	.I1(boxVpos[3]),
+	.I2(boxVpos[4]),
+	.I3(n326_9),
+	.F(n335_9)
+);
+defparam n335_s6.INIT=16'h8000;
+LUT3 n335_s7 (
+	.I0(boxVpos[7]),
+	.I1(boxVpos[6]),
+	.I2(n336_7),
+	.F(n335_10)
+);
+defparam n335_s7.INIT=8'h10;
+LUT4 n336_s4 (
+	.I0(boxVpos[5]),
+	.I1(boxVpos[3]),
+	.I2(boxVpos[4]),
+	.I3(n326_8),
+	.F(n336_7)
+);
+defparam n336_s4.INIT=16'h0100;
+LUT4 n336_s5 (
+	.I0(boxVpos[7]),
+	.I1(boxVpos[8]),
+	.I2(boxVpos[9]),
+	.I3(boxVpos[6]),
+	.F(n336_8)
+);
+defparam n336_s5.INIT=16'h0001;
+LUT4 n112_s5 (
+	.I0(n112_16),
+	.I1(verticalPix[7]),
+	.I2(n112_17),
+	.I3(n112_18),
+	.F(n112_9)
+);
+defparam n112_s5.INIT=16'h000D;
+LUT4 n112_s6 (
+	.I0(n112_19),
+	.I1(n112_20),
+	.I2(n112_21),
+	.I3(n112_22),
+	.F(n112_10)
+);
+defparam n112_s6.INIT=16'h000D;
+LUT2 n112_s7 (
+	.I0(verticalPix[7]),
+	.I1(n112_16),
+	.F(n112_11)
+);
+defparam n112_s7.INIT=4'h2;
+LUT4 n112_s8 (
+	.I0(verticalPix[8]),
+	.I1(n112_23),
+	.I2(boxVpos[8]),
+	.I3(n112_24),
+	.F(n112_12)
+);
+defparam n112_s8.INIT=16'h007D;
+LUT4 n112_s10 (
+	.I0(n112_25),
+	.I1(boxVpos[7]),
+	.I2(verticalPix[8]),
+	.I3(boxVpos[8]),
+	.F(n112_14)
+);
+defparam n112_s10.INIT=16'h0B04;
+LUT4 n112_s11 (
+	.I0(boxHpos[10]),
+	.I1(boxVpos[10]),
+	.I2(n104_44),
+	.I3(n101_44),
+	.F(n112_15)
+);
+defparam n112_s11.INIT=16'h1000;
+LUT3 n106_s33 (
+	.I0(n220_7),
+	.I1(boxHpos[7]),
+	.I2(boxHpos[8]),
+	.F(n106_42)
+);
+defparam n106_s33.INIT=8'h4B;
+LUT4 n106_s34 (
 	.I0(horizontalPix[6]),
-	.I1(n58_13),
-	.I2(n58_14),
-	.I3(n58_15),
-	.F(n58_9)
+	.I1(horizontalPix[5]),
+	.I2(n106_50),
+	.I3(n106_51),
+	.F(n106_43)
 );
-defparam n58_s5.INIT=16'h00D4;
-LUT4 n58_s6 (
-	.I0(horizontalPix[9]),
-	.I1(boxHpos[9]),
-	.I2(n58_11),
-	.I3(n58_16),
-	.F(n58_10)
+defparam n106_s34.INIT=16'hFAE8;
+LUT4 n106_s35 (
+	.I0(boxHpos[3]),
+	.I1(horizontalPix[4]),
+	.I2(n106_52),
+	.I3(boxHpos[4]),
+	.F(n106_44)
 );
-defparam n58_s6.INIT=16'h002B;
-LUT4 n58_s7 (
-	.I0(boxHpos[6]),
-	.I1(boxHpos[5]),
+defparam n106_s35.INIT=16'h3A53;
+LUT4 n106_s36 (
+	.I0(n106_50),
+	.I1(horizontalPix[6]),
+	.I2(n106_51),
+	.I3(horizontalPix[5]),
+	.F(n106_45)
+);
+defparam n106_s36.INIT=16'h0777;
+LUT3 n106_s37 (
+	.I0(horizontalPix[7]),
+	.I1(boxHpos[7]),
+	.I2(n220_7),
+	.F(n106_46)
+);
+defparam n106_s37.INIT=8'h41;
+LUT3 n106_s38 (
+	.I0(boxHpos[7]),
+	.I1(n220_7),
+	.I2(horizontalPix[7]),
+	.F(n106_47)
+);
+defparam n106_s38.INIT=8'h60;
+LUT4 n106_s39 (
+	.I0(n220_7),
+	.I1(n230_5),
+	.I2(boxHpos[9]),
+	.I3(horizontalPix[9]),
+	.F(n106_48)
+);
+defparam n106_s39.INIT=16'h4B00;
+LUT4 n220_s3 (
+	.I0(boxHpos[3]),
+	.I1(boxHpos[4]),
+	.I2(boxHpos[5]),
+	.I3(boxHpos[6]),
+	.F(n220_7)
+);
+defparam n220_s3.INIT=16'h0001;
+LUT4 n322_s3 (
+	.I0(movingDown),
+	.I1(boxVpos[7]),
+	.I2(boxVpos[6]),
+	.I3(boxVpos[8]),
+	.F(n322_7)
+);
+defparam n322_s3.INIT=16'h80FE;
+LUT3 n326_s4 (
+	.I0(boxVpos[0]),
+	.I1(boxVpos[1]),
+	.I2(boxVpos[2]),
+	.F(n326_8)
+);
+defparam n326_s4.INIT=8'h01;
+LUT3 n326_s5 (
+	.I0(boxVpos[0]),
+	.I1(boxVpos[1]),
+	.I2(boxVpos[2]),
+	.F(n326_9)
+);
+defparam n326_s5.INIT=8'h80;
+LUT4 n238_s4 (
+	.I0(boxHpos[4]),
+	.I1(boxHpos[3]),
+	.I2(boxHpos[5]),
+	.I3(boxHpos[6]),
+	.F(n238_7)
+);
+defparam n238_s4.INIT=16'hF800;
+LUT4 n335_s8 (
+	.I0(boxVpos[2]),
+	.I1(boxVpos[1]),
+	.I2(boxVpos[3]),
+	.I3(boxVpos[4]),
+	.F(n335_11)
+);
+defparam n335_s8.INIT=16'h0007;
+LUT4 n112_s12 (
+	.I0(boxVpos[5]),
+	.I1(n335_11),
+	.I2(boxVpos[6]),
+	.I3(boxVpos[7]),
+	.F(n112_16)
+);
+defparam n112_s12.INIT=16'h0DF2;
+LUT3 n112_s13 (
+	.I0(verticalPix[5]),
+	.I1(boxVpos[5]),
+	.I2(n335_11),
+	.F(n112_17)
+);
+defparam n112_s13.INIT=8'h41;
+LUT4 n112_s14 (
+	.I0(n335_11),
+	.I1(boxVpos[5]),
+	.I2(verticalPix[6]),
+	.I3(boxVpos[6]),
+	.F(n112_18)
+);
+defparam n112_s14.INIT=16'h040B;
+LUT4 n112_s15 (
+	.I0(verticalPix[4]),
+	.I1(boxVpos[4]),
+	.I2(n112_26),
+	.I3(verticalPix[3]),
+	.F(n112_19)
+);
+defparam n112_s15.INIT=16'hEBB0;
+LUT4 n112_s16 (
+	.I0(n112_27),
+	.I1(verticalPix[2]),
+	.I2(n112_28),
+	.I3(n112_29),
+	.F(n112_20)
+);
+defparam n112_s16.INIT=16'h0017;
+LUT3 n112_s17 (
+	.I0(boxVpos[5]),
+	.I1(n335_11),
+	.I2(verticalPix[5]),
+	.F(n112_21)
+);
+defparam n112_s17.INIT=8'h60;
+LUT4 n112_s18 (
+	.I0(n112_30),
+	.I1(boxVpos[3]),
+	.I2(boxVpos[4]),
+	.I3(verticalPix[4]),
+	.F(n112_22)
+);
+defparam n112_s18.INIT=16'h1E00;
+LUT4 n112_s19 (
+	.I0(n335_11),
+	.I1(boxVpos[5]),
+	.I2(boxVpos[6]),
+	.I3(boxVpos[7]),
+	.F(n112_23)
+);
+defparam n112_s19.INIT=16'hF400;
+LUT4 n112_s20 (
+	.I0(n335_11),
+	.I1(boxVpos[5]),
+	.I2(boxVpos[6]),
+	.I3(n112_31),
+	.F(n112_24)
+);
+defparam n112_s20.INIT=16'hB400;
+LUT3 n112_s21 (
+	.I0(n335_11),
+	.I1(boxVpos[5]),
+	.I2(boxVpos[6]),
+	.F(n112_25)
+);
+defparam n112_s21.INIT=8'h0B;
+LUT4 n106_s41 (
+	.I0(boxHpos[3]),
+	.I1(boxHpos[4]),
+	.I2(boxHpos[5]),
+	.I3(boxHpos[6]),
+	.F(n106_50)
+);
+defparam n106_s41.INIT=16'h01FE;
+LUT3 n106_s42 (
+	.I0(boxHpos[3]),
+	.I1(boxHpos[4]),
+	.I2(boxHpos[5]),
+	.F(n106_51)
+);
+defparam n106_s42.INIT=8'h1E;
+LUT3 n106_s43 (
+	.I0(boxHpos[3]),
+	.I1(n106_32),
+	.I2(horizontalPix[3]),
+	.F(n106_52)
+);
+defparam n106_s43.INIT=8'hE7;
+LUT4 n112_s22 (
+	.I0(boxVpos[1]),
+	.I1(boxVpos[2]),
+	.I2(verticalPix[3]),
+	.I3(boxVpos[3]),
+	.F(n112_26)
+);
+defparam n112_s22.INIT=16'h0778;
+LUT2 n112_s23 (
+	.I0(boxVpos[1]),
+	.I1(boxVpos[2]),
+	.F(n112_27)
+);
+defparam n112_s23.INIT=4'h9;
+LUT4 n112_s24 (
+	.I0(verticalPix[1]),
+	.I1(boxVpos[1]),
+	.I2(verticalPix[0]),
+	.I3(boxVpos[0]),
+	.F(n112_28)
+);
+defparam n112_s24.INIT=16'hE8EE;
+LUT4 n112_s25 (
+	.I0(boxVpos[1]),
+	.I1(boxVpos[2]),
+	.I2(boxVpos[3]),
+	.I3(verticalPix[3]),
+	.F(n112_29)
+);
+defparam n112_s25.INIT=16'h7800;
+LUT2 n112_s26 (
+	.I0(boxVpos[1]),
+	.I1(boxVpos[2]),
+	.F(n112_30)
+);
+defparam n112_s26.INIT=4'h8;
+LUT3 n112_s27 (
+	.I0(boxVpos[7]),
+	.I1(verticalPix[7]),
+	.I2(verticalPix[6]),
+	.F(n112_31)
+);
+defparam n112_s27.INIT=8'hE0;
+LUT4 n112_s28 (
+	.I0(n335_11),
+	.I1(boxVpos[5]),
+	.I2(boxVpos[6]),
+	.I3(n335_8),
+	.F(n112_33)
+);
+defparam n112_s28.INIT=16'hF400;
+LUT3 n106_s44 (
+	.I0(n220_7),
+	.I1(boxHpos[7]),
+	.I2(boxHpos[8]),
+	.F(n106_54)
+);
+defparam n106_s44.INIT=8'h40;
+LUT4 n217_s3 (
+	.I0(boxHpos[9]),
+	.I1(n230_4),
 	.I2(boxHpos[7]),
 	.I3(boxHpos[8]),
-	.F(n58_11)
+	.F(n217_8)
 );
-defparam n58_s7.INIT=16'hF800;
-LUT2 n58_s8 (
-	.I0(n58_8),
-	.I1(horizontalPix[8]),
-	.F(n58_12)
+defparam n217_s3.INIT=16'h8000;
+LUT4 n227_s2 (
+	.I0(n238_4),
+	.I1(movingRight),
+	.I2(n233_6),
+	.I3(boxHpos[0]),
+	.F(n227_7)
 );
-defparam n58_s8.INIT=4'h8;
-LUT3 n58_s9 (
-	.I0(horizontalPix[5]),
-	.I1(n52_36),
-	.I2(boxHpos[5]),
-	.F(n58_13)
+defparam n227_s2.INIT=16'h0BFF;
+LUT4 n331_s2 (
+	.I0(n335_4),
+	.I1(movingDown),
+	.I2(n336_6),
+	.I3(boxVpos[0]),
+	.F(n331_7)
 );
-defparam n58_s9.INIT=8'h4D;
-LUT2 n58_s10 (
-	.I0(boxHpos[5]),
-	.I1(boxHpos[6]),
-	.F(n58_14)
+defparam n331_s2.INIT=16'h0BFF;
+LUT4 n219_s4 (
+	.I0(boxHpos[1]),
+	.I1(boxHpos[0]),
+	.I2(boxHpos[2]),
+	.I3(n220_7),
+	.F(n219_9)
 );
-defparam n58_s10.INIT=4'h6;
-LUT4 n58_s11 (
-	.I0(boxHpos[5]),
-	.I1(boxHpos[6]),
-	.I2(boxHpos[7]),
-	.I3(horizontalPix[7]),
-	.F(n58_15)
+defparam n219_s4.INIT=16'h0100;
+LUT4 n240_s4 (
+	.I0(movingRight),
+	.I1(n136_4),
+	.I2(n238_4),
+	.I3(n233_6),
+	.F(n240_12)
 );
-defparam n58_s11.INIT=16'h7800;
-LUT4 n58_s12 (
-	.I0(boxHpos[5]),
-	.I1(boxHpos[6]),
-	.I2(horizontalPix[7]),
-	.I3(boxHpos[7]),
-	.F(n58_16)
+defparam n240_s4.INIT=16'hAA6E;
+LUT4 n344_s4 (
+	.I0(n136_4),
+	.I1(movingDown),
+	.I2(n335_4),
+	.I3(n336_6),
+	.F(n344_9)
 );
-defparam n58_s12.INIT=16'h0807;
-LUT4 n82_s6 (
-	.I0(n82_5),
-	.I1(verticalPix[9]),
-	.I2(n5_35),
-	.I3(n82_7),
-	.F(n82_11)
-);
-defparam n82_s6.INIT=16'h2000;
+defparam n344_s4.INIT=16'hCC6E;
 DFFR currentPixel_22_s0 (
-	.D(n52_41),
+	.D(n106_37),
 	.CLK(crystalCLK_d),
 	.RESET(currentPixel_22_6),
 	.Q(currentPixel[22])
 );
 defparam currentPixel_22_s0.INIT=1'b0;
 DFF currentPixel_15_s0 (
-	.D(n58_5),
+	.D(n112_5),
 	.CLK(crystalCLK_d),
 	.Q(currentPixel[15])
 );
@@ -563,297 +1467,379 @@ DFF currentPixel_7_s0 (
 	.Q(currentPixel[7])
 );
 defparam currentPixel_7_s0.INIT=1'b0;
-DFFE boxHpos_9_s0 (
-	.D(n84_1),
+DFFE boxHpos_10_s0 (
+	.D(n217_5),
 	.CLK(crystalCLK_d),
-	.CE(n82_11),
+	.CE(n136_4),
+	.Q(boxHpos[10])
+);
+defparam boxHpos_10_s0.INIT=1'b0;
+DFFE boxHpos_9_s0 (
+	.D(n230_3),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
 	.Q(boxHpos[9])
 );
 defparam boxHpos_9_s0.INIT=1'b0;
 DFFE boxHpos_8_s0 (
-	.D(n85_1),
+	.D(n219_5),
 	.CLK(crystalCLK_d),
-	.CE(n82_11),
+	.CE(n136_4),
 	.Q(boxHpos[8])
 );
 defparam boxHpos_8_s0.INIT=1'b0;
 DFFE boxHpos_7_s0 (
-	.D(n86_1),
+	.D(n220_5),
 	.CLK(crystalCLK_d),
-	.CE(n82_11),
+	.CE(n136_4),
 	.Q(boxHpos[7])
 );
 defparam boxHpos_7_s0.INIT=1'b0;
 DFFE boxHpos_6_s0 (
-	.D(n87_1),
+	.D(n233_3),
 	.CLK(crystalCLK_d),
-	.CE(n82_11),
+	.CE(n136_4),
 	.Q(boxHpos[6])
 );
 defparam boxHpos_6_s0.INIT=1'b0;
 DFFE boxHpos_5_s0 (
-	.D(n88_1),
+	.D(n222_5),
 	.CLK(crystalCLK_d),
-	.CE(n82_11),
+	.CE(n136_4),
 	.Q(boxHpos[5])
 );
 defparam boxHpos_5_s0.INIT=1'b0;
 DFFE boxHpos_4_s0 (
-	.D(n89_1),
+	.D(n235_3),
 	.CLK(crystalCLK_d),
-	.CE(n82_11),
+	.CE(n136_4),
 	.Q(boxHpos[4])
 );
 defparam boxHpos_4_s0.INIT=1'b0;
 DFFE boxHpos_3_s0 (
-	.D(n90_1),
+	.D(n224_5),
 	.CLK(crystalCLK_d),
-	.CE(n82_11),
+	.CE(n136_4),
 	.Q(boxHpos[3])
 );
 defparam boxHpos_3_s0.INIT=1'b0;
 DFFE boxHpos_2_s0 (
-	.D(n91_1),
+	.D(n237_3),
 	.CLK(crystalCLK_d),
-	.CE(n82_11),
+	.CE(n136_4),
 	.Q(boxHpos[2])
 );
 defparam boxHpos_2_s0.INIT=1'b0;
 DFFE boxHpos_1_s0 (
-	.D(n92_1),
+	.D(n238_3),
 	.CLK(crystalCLK_d),
-	.CE(n82_11),
+	.CE(n136_4),
 	.Q(boxHpos[1])
 );
 defparam boxHpos_1_s0.INIT=1'b0;
 DFFE boxHpos_0_s0 (
-	.D(n93_6),
+	.D(n227_7),
 	.CLK(crystalCLK_d),
-	.CE(n82_11),
+	.CE(n136_4),
 	.Q(boxHpos[0])
 );
 defparam boxHpos_0_s0.INIT=1'b0;
-ALU n52_s23 (
+DFFE boxVpos_10_s0 (
+	.D(n321_5),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
+	.Q(boxVpos[10])
+);
+defparam boxVpos_10_s0.INIT=1'b0;
+DFFE boxVpos_9_s0 (
+	.D(n322_5),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
+	.Q(boxVpos[9])
+);
+defparam boxVpos_9_s0.INIT=1'b0;
+DFFE boxVpos_8_s0 (
+	.D(n335_3),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
+	.Q(boxVpos[8])
+);
+defparam boxVpos_8_s0.INIT=1'b0;
+DFFE boxVpos_7_s0 (
+	.D(n336_3),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
+	.Q(boxVpos[7])
+);
+defparam boxVpos_7_s0.INIT=1'b0;
+DFFE boxVpos_6_s0 (
+	.D(n325_5),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
+	.Q(boxVpos[6])
+);
+defparam boxVpos_6_s0.INIT=1'b0;
+DFFE boxVpos_5_s0 (
+	.D(n326_5),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
+	.Q(boxVpos[5])
+);
+defparam boxVpos_5_s0.INIT=1'b0;
+DFFE boxVpos_4_s0 (
+	.D(n327_5),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
+	.Q(boxVpos[4])
+);
+defparam boxVpos_4_s0.INIT=1'b0;
+DFFE boxVpos_3_s0 (
+	.D(n328_5),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
+	.Q(boxVpos[3])
+);
+defparam boxVpos_3_s0.INIT=1'b0;
+DFFE boxVpos_2_s0 (
+	.D(n341_3),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
+	.Q(boxVpos[2])
+);
+defparam boxVpos_2_s0.INIT=1'b0;
+DFFE boxVpos_1_s0 (
+	.D(n330_5),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
+	.Q(boxVpos[1])
+);
+defparam boxVpos_1_s0.INIT=1'b0;
+DFFE boxVpos_0_s0 (
+	.D(n331_7),
+	.CLK(crystalCLK_d),
+	.CE(n136_4),
+	.Q(boxVpos[0])
+);
+defparam boxVpos_0_s0.INIT=1'b0;
+DFF movingRight_s5 (
+	.D(n240_12),
+	.CLK(crystalCLK_d),
+	.Q(movingRight)
+);
+defparam movingRight_s5.INIT=1'b0;
+DFF movingDown_s5 (
+	.D(n344_9),
+	.CLK(crystalCLK_d),
+	.Q(movingDown)
+);
+defparam movingDown_s5.INIT=1'b0;
+ALU n101_s22 (
+	.I0(GND),
+	.I1(boxVpos[0]),
+	.I3(GND),
+	.CIN(verticalPix[0]),
+	.COUT(n101_26),
+	.SUM(n101_23_SUM)
+);
+defparam n101_s22.ALU_MODE=1;
+ALU n101_s23 (
+	.I0(verticalPix[1]),
+	.I1(boxVpos[1]),
+	.I3(GND),
+	.CIN(n101_26),
+	.COUT(n101_28),
+	.SUM(n101_24_SUM)
+);
+defparam n101_s23.ALU_MODE=1;
+ALU n101_s24 (
+	.I0(verticalPix[2]),
+	.I1(boxVpos[2]),
+	.I3(GND),
+	.CIN(n101_28),
+	.COUT(n101_30),
+	.SUM(n101_25_SUM)
+);
+defparam n101_s24.ALU_MODE=1;
+ALU n101_s25 (
+	.I0(verticalPix[3]),
+	.I1(boxVpos[3]),
+	.I3(GND),
+	.CIN(n101_30),
+	.COUT(n101_32),
+	.SUM(n101_26_SUM)
+);
+defparam n101_s25.ALU_MODE=1;
+ALU n101_s26 (
+	.I0(verticalPix[4]),
+	.I1(boxVpos[4]),
+	.I3(GND),
+	.CIN(n101_32),
+	.COUT(n101_34),
+	.SUM(n101_27_SUM)
+);
+defparam n101_s26.ALU_MODE=1;
+ALU n101_s27 (
+	.I0(verticalPix[5]),
+	.I1(boxVpos[5]),
+	.I3(GND),
+	.CIN(n101_34),
+	.COUT(n101_36),
+	.SUM(n101_28_SUM)
+);
+defparam n101_s27.ALU_MODE=1;
+ALU n101_s28 (
+	.I0(verticalPix[6]),
+	.I1(boxVpos[6]),
+	.I3(GND),
+	.CIN(n101_36),
+	.COUT(n101_38),
+	.SUM(n101_29_SUM)
+);
+defparam n101_s28.ALU_MODE=1;
+ALU n101_s29 (
+	.I0(verticalPix[7]),
+	.I1(boxVpos[7]),
+	.I3(GND),
+	.CIN(n101_38),
+	.COUT(n101_40),
+	.SUM(n101_30_SUM)
+);
+defparam n101_s29.ALU_MODE=1;
+ALU n101_s30 (
+	.I0(verticalPix[8]),
+	.I1(boxVpos[8]),
+	.I3(GND),
+	.CIN(n101_40),
+	.COUT(n101_42),
+	.SUM(n101_31_SUM)
+);
+defparam n101_s30.ALU_MODE=1;
+ALU n101_s31 (
+	.I0(verticalPix[9]),
+	.I1(boxVpos[9]),
+	.I3(GND),
+	.CIN(n101_42),
+	.COUT(n101_44),
+	.SUM(n101_32_SUM)
+);
+defparam n101_s31.ALU_MODE=1;
+ALU n106_s23 (
 	.I0(GND),
 	.I1(horizontalPix[0]),
 	.I3(GND),
 	.CIN(boxHpos[0]),
-	.COUT(n52_28),
-	.SUM(n52_24_SUM)
+	.COUT(n106_28),
+	.SUM(n106_24_SUM)
 );
-defparam n52_s23.ALU_MODE=1;
-ALU n44_s20 (
+defparam n106_s23.ALU_MODE=1;
+ALU n104_s22 (
 	.I0(GND),
 	.I1(boxHpos[0]),
 	.I3(GND),
 	.CIN(horizontalPix[0]),
-	.COUT(n44_24),
-	.SUM(n44_21_SUM)
+	.COUT(n104_26),
+	.SUM(n104_23_SUM)
 );
-defparam n44_s20.ALU_MODE=1;
-ALU n52_s24 (
+defparam n104_s22.ALU_MODE=1;
+ALU n106_s24 (
 	.I0(boxHpos[1]),
 	.I1(horizontalPix[1]),
 	.I3(GND),
-	.CIN(n52_28),
-	.COUT(n52_30),
-	.SUM(n52_25_SUM)
+	.CIN(n106_28),
+	.COUT(n106_30),
+	.SUM(n106_25_SUM)
 );
-defparam n52_s24.ALU_MODE=1;
-ALU n44_s21 (
+defparam n106_s24.ALU_MODE=1;
+ALU n104_s23 (
 	.I0(horizontalPix[1]),
 	.I1(boxHpos[1]),
 	.I3(GND),
-	.CIN(n44_24),
-	.COUT(n44_26),
-	.SUM(n44_22_SUM)
+	.CIN(n104_26),
+	.COUT(n104_28),
+	.SUM(n104_24_SUM)
 );
-defparam n44_s21.ALU_MODE=1;
-ALU n52_s25 (
+defparam n104_s23.ALU_MODE=1;
+ALU n106_s25 (
 	.I0(boxHpos[2]),
 	.I1(horizontalPix[2]),
 	.I3(GND),
-	.CIN(n52_30),
-	.COUT(n52_32),
-	.SUM(n52_26_SUM)
+	.CIN(n106_30),
+	.COUT(n106_32),
+	.SUM(n106_26_SUM)
 );
-defparam n52_s25.ALU_MODE=1;
-ALU n44_s22 (
+defparam n106_s25.ALU_MODE=1;
+ALU n104_s24 (
 	.I0(horizontalPix[2]),
 	.I1(boxHpos[2]),
 	.I3(GND),
-	.CIN(n44_26),
-	.COUT(n44_28),
-	.SUM(n44_23_SUM)
+	.CIN(n104_28),
+	.COUT(n104_30),
+	.SUM(n104_25_SUM)
 );
-defparam n44_s22.ALU_MODE=1;
-ALU n52_s26 (
-	.I0(boxHpos[3]),
-	.I1(horizontalPix[3]),
-	.I3(GND),
-	.CIN(n52_32),
-	.COUT(n52_34),
-	.SUM(n52_27_SUM)
-);
-defparam n52_s26.ALU_MODE=1;
-ALU n44_s23 (
+defparam n104_s24.ALU_MODE=1;
+ALU n104_s25 (
 	.I0(horizontalPix[3]),
 	.I1(boxHpos[3]),
 	.I3(GND),
-	.CIN(n44_28),
-	.COUT(n44_30),
-	.SUM(n44_24_SUM)
+	.CIN(n104_30),
+	.COUT(n104_32),
+	.SUM(n104_26_SUM)
 );
-defparam n44_s23.ALU_MODE=1;
-ALU n52_s27 (
-	.I0(boxHpos[4]),
-	.I1(horizontalPix[4]),
-	.I3(GND),
-	.CIN(n52_34),
-	.COUT(n52_36),
-	.SUM(n52_28_SUM)
-);
-defparam n52_s27.ALU_MODE=1;
-ALU n44_s24 (
+defparam n104_s25.ALU_MODE=1;
+ALU n104_s26 (
 	.I0(horizontalPix[4]),
 	.I1(boxHpos[4]),
 	.I3(GND),
-	.CIN(n44_30),
-	.COUT(n44_32),
-	.SUM(n44_25_SUM)
+	.CIN(n104_32),
+	.COUT(n104_34),
+	.SUM(n104_27_SUM)
 );
-defparam n44_s24.ALU_MODE=1;
-ALU n44_s25 (
+defparam n104_s26.ALU_MODE=1;
+ALU n104_s27 (
 	.I0(horizontalPix[5]),
 	.I1(boxHpos[5]),
 	.I3(GND),
-	.CIN(n44_32),
-	.COUT(n44_34),
-	.SUM(n44_26_SUM)
+	.CIN(n104_34),
+	.COUT(n104_36),
+	.SUM(n104_28_SUM)
 );
-defparam n44_s25.ALU_MODE=1;
-ALU n44_s26 (
+defparam n104_s27.ALU_MODE=1;
+ALU n104_s28 (
 	.I0(horizontalPix[6]),
 	.I1(boxHpos[6]),
 	.I3(GND),
-	.CIN(n44_34),
-	.COUT(n44_36),
-	.SUM(n44_27_SUM)
+	.CIN(n104_36),
+	.COUT(n104_38),
+	.SUM(n104_29_SUM)
 );
-defparam n44_s26.ALU_MODE=1;
-ALU n44_s27 (
+defparam n104_s28.ALU_MODE=1;
+ALU n104_s29 (
 	.I0(horizontalPix[7]),
 	.I1(boxHpos[7]),
 	.I3(GND),
-	.CIN(n44_36),
-	.COUT(n44_38),
-	.SUM(n44_28_SUM)
+	.CIN(n104_38),
+	.COUT(n104_40),
+	.SUM(n104_30_SUM)
 );
-defparam n44_s27.ALU_MODE=1;
-ALU n44_s28 (
+defparam n104_s29.ALU_MODE=1;
+ALU n104_s30 (
 	.I0(horizontalPix[8]),
 	.I1(boxHpos[8]),
 	.I3(GND),
-	.CIN(n44_38),
-	.COUT(n44_40),
-	.SUM(n44_29_SUM)
+	.CIN(n104_40),
+	.COUT(n104_42),
+	.SUM(n104_31_SUM)
 );
-defparam n44_s28.ALU_MODE=1;
-ALU n44_s29 (
+defparam n104_s30.ALU_MODE=1;
+ALU n104_s31 (
 	.I0(horizontalPix[9]),
 	.I1(boxHpos[9]),
 	.I3(GND),
-	.CIN(n44_40),
-	.COUT(n44_42),
-	.SUM(n44_30_SUM)
+	.CIN(n104_42),
+	.COUT(n104_44),
+	.SUM(n104_32_SUM)
 );
-defparam n44_s29.ALU_MODE=1;
-ALU n92_s (
-	.I0(boxHpos[1]),
-	.I1(boxHpos[0]),
-	.I3(GND),
-	.CIN(GND),
-	.COUT(n92_2),
-	.SUM(n92_1)
-);
-defparam n92_s.ALU_MODE=0;
-ALU n91_s (
-	.I0(GND),
-	.I1(boxHpos[2]),
-	.I3(GND),
-	.CIN(n92_2),
-	.COUT(n91_2),
-	.SUM(n91_1)
-);
-defparam n91_s.ALU_MODE=0;
-ALU n90_s (
-	.I0(GND),
-	.I1(boxHpos[3]),
-	.I3(GND),
-	.CIN(n91_2),
-	.COUT(n90_2),
-	.SUM(n90_1)
-);
-defparam n90_s.ALU_MODE=0;
-ALU n89_s (
-	.I0(GND),
-	.I1(boxHpos[4]),
-	.I3(GND),
-	.CIN(n90_2),
-	.COUT(n89_2),
-	.SUM(n89_1)
-);
-defparam n89_s.ALU_MODE=0;
-ALU n88_s (
-	.I0(GND),
-	.I1(boxHpos[5]),
-	.I3(GND),
-	.CIN(n89_2),
-	.COUT(n88_2),
-	.SUM(n88_1)
-);
-defparam n88_s.ALU_MODE=0;
-ALU n87_s (
-	.I0(GND),
-	.I1(boxHpos[6]),
-	.I3(GND),
-	.CIN(n88_2),
-	.COUT(n87_2),
-	.SUM(n87_1)
-);
-defparam n87_s.ALU_MODE=0;
-ALU n86_s (
-	.I0(GND),
-	.I1(boxHpos[7]),
-	.I3(GND),
-	.CIN(n87_2),
-	.COUT(n86_2),
-	.SUM(n86_1)
-);
-defparam n86_s.ALU_MODE=0;
-ALU n85_s (
-	.I0(GND),
-	.I1(boxHpos[8]),
-	.I3(GND),
-	.CIN(n86_2),
-	.COUT(n85_2),
-	.SUM(n85_1)
-);
-defparam n85_s.ALU_MODE=0;
-ALU n84_s (
-	.I0(GND),
-	.I1(boxHpos[9]),
-	.I3(GND),
-	.CIN(n85_2),
-	.COUT(n84_0_COUT),
-	.SUM(n84_1)
-);
-defparam n84_s.ALU_MODE=0;
-LUT1 n93_s2 (
-	.I0(boxHpos[0]),
-	.F(n93_6)
-);
-defparam n93_s2.INIT=2'h1;
+defparam n104_s31.ALU_MODE=1;
 PLLVR \clock_5x/pllvr_inst  (
 	.RESET(GND),
 	.RESET_P(GND),
@@ -894,11 +1880,19 @@ defparam \clock_5x/pllvr_inst .CLKOUTP_DLY_STEP=0;
 defparam \clock_5x/pllvr_inst .FCLKIN="27";
 defparam \clock_5x/pllvr_inst .ODIV_SEL=8;
 defparam \clock_5x/pllvr_inst .DEVICE="GW1NSR-4C";
+LUT4 \video_transmitter/n32_s0  (
+	.I0(\video_transmitter/n32_4 ),
+	.I1(horizontalPix[1]),
+	.I2(n32_5),
+	.I3(n136_7),
+	.F(\video_transmitter/n32_3 )
+);
+defparam \video_transmitter/n32_s0 .INIT=16'h8000;
 LUT4 \video_transmitter/n49_s1  (
-	.I0(\video_transmitter/n32_8 ),
-	.I1(\video_transmitter/n49_5 ),
-	.I2(\video_transmitter/n49_6 ),
-	.I3(\video_transmitter/n49_7 ),
+	.I0(\video_transmitter/n49_5 ),
+	.I1(verticalPix[2]),
+	.I2(\video_transmitter/n32_3 ),
+	.I3(\video_transmitter/n49_6 ),
 	.F(\video_transmitter/n49_4 )
 );
 defparam \video_transmitter/n49_s1 .INIT=16'h8000;
@@ -910,48 +1904,33 @@ LUT2 \video_transmitter/n5_s25  (
 defparam \video_transmitter/n5_s25 .INIT=4'h1;
 LUT4 \video_transmitter/n32_s1  (
 	.I0(horizontalPix[2]),
-	.I1(horizontalPix[5]),
-	.I2(horizontalPix[4]),
-	.I3(horizontalPix[9]),
-	.F(n32_4)
+	.I1(horizontalPix[7]),
+	.I2(horizontalPix[3]),
+	.I3(horizontalPix[8]),
+	.F(\video_transmitter/n32_4 )
 );
 defparam \video_transmitter/n32_s1 .INIT=16'h1000;
 LUT2 \video_transmitter/n32_s2  (
-	.I0(horizontalPix[1]),
-	.I1(horizontalPix[3]),
-	.F(\video_transmitter/n32_5 )
+	.I0(horizontalPix[6]),
+	.I1(horizontalPix[9]),
+	.F(n32_5)
 );
 defparam \video_transmitter/n32_s2 .INIT=4'h8;
-LUT4 \video_transmitter/n32_s3  (
-	.I0(horizontalPix[0]),
-	.I1(horizontalPix[7]),
-	.I2(horizontalPix[6]),
-	.I3(horizontalPix[8]),
-	.F(\video_transmitter/n32_6 )
-);
-defparam \video_transmitter/n32_s3 .INIT=16'h1000;
-LUT2 \video_transmitter/n49_s2  (
+LUT3 \video_transmitter/n49_s2  (
 	.I0(verticalPix[4]),
-	.I1(verticalPix[3]),
+	.I1(verticalPix[5]),
+	.I2(verticalPix[3]),
 	.F(\video_transmitter/n49_5 )
 );
-defparam \video_transmitter/n49_s2 .INIT=4'h4;
+defparam \video_transmitter/n49_s2 .INIT=8'h10;
 LUT4 \video_transmitter/n49_s3  (
-	.I0(verticalPix[6]),
-	.I1(verticalPix[7]),
-	.I2(verticalPix[8]),
-	.I3(verticalPix[9]),
+	.I0(verticalPix[1]),
+	.I1(verticalPix[6]),
+	.I2(\video_transmitter/n49_7 ),
+	.I3(verticalPix[0]),
 	.F(\video_transmitter/n49_6 )
 );
-defparam \video_transmitter/n49_s3 .INIT=16'h0100;
-LUT4 \video_transmitter/n49_s4  (
-	.I0(verticalPix[1]),
-	.I1(verticalPix[5]),
-	.I2(verticalPix[2]),
-	.I3(verticalPix[0]),
-	.F(\video_transmitter/n49_7 )
-);
-defparam \video_transmitter/n49_s4 .INIT=16'h1000;
+defparam \video_transmitter/n49_s3 .INIT=16'h1000;
 LUT4 \video_transmitter/n5_s26  (
 	.I0(verticalPix[5]),
 	.I1(verticalPix[6]),
@@ -960,81 +1939,80 @@ LUT4 \video_transmitter/n5_s26  (
 	.F(n5_35)
 );
 defparam \video_transmitter/n5_s26 .INIT=16'h8000;
-LUT4 \video_transmitter/n32_s4  (
-	.I0(n32_4),
-	.I1(horizontalPix[1]),
-	.I2(horizontalPix[3]),
-	.I3(\video_transmitter/n32_6 ),
-	.F(\video_transmitter/n32_8 )
+LUT3 \video_transmitter/n49_s4  (
+	.I0(verticalPix[7]),
+	.I1(verticalPix[8]),
+	.I2(verticalPix[9]),
+	.F(\video_transmitter/n49_7 )
 );
-defparam \video_transmitter/n32_s4 .INIT=16'h8000;
+defparam \video_transmitter/n49_s4 .INIT=8'h10;
 DFFR \video_transmitter/hPosCounter_8_s0  (
 	.D(\video_transmitter/n61_1 ),
 	.CLK(crystalCLK_d),
-	.RESET(\video_transmitter/n32_8 ),
+	.RESET(\video_transmitter/n32_3 ),
 	.Q(horizontalPix[8])
 );
 defparam \video_transmitter/hPosCounter_8_s0 .INIT=1'b0;
 DFFR \video_transmitter/hPosCounter_7_s0  (
 	.D(\video_transmitter/n62_1 ),
 	.CLK(crystalCLK_d),
-	.RESET(\video_transmitter/n32_8 ),
+	.RESET(\video_transmitter/n32_3 ),
 	.Q(horizontalPix[7])
 );
 defparam \video_transmitter/hPosCounter_7_s0 .INIT=1'b0;
 DFFR \video_transmitter/hPosCounter_6_s0  (
 	.D(\video_transmitter/n63_1 ),
 	.CLK(crystalCLK_d),
-	.RESET(\video_transmitter/n32_8 ),
+	.RESET(\video_transmitter/n32_3 ),
 	.Q(horizontalPix[6])
 );
 defparam \video_transmitter/hPosCounter_6_s0 .INIT=1'b0;
 DFFR \video_transmitter/hPosCounter_5_s0  (
 	.D(\video_transmitter/n64_1 ),
 	.CLK(crystalCLK_d),
-	.RESET(\video_transmitter/n32_8 ),
+	.RESET(\video_transmitter/n32_3 ),
 	.Q(horizontalPix[5])
 );
 defparam \video_transmitter/hPosCounter_5_s0 .INIT=1'b0;
 DFFR \video_transmitter/hPosCounter_4_s0  (
 	.D(\video_transmitter/n65_1 ),
 	.CLK(crystalCLK_d),
-	.RESET(\video_transmitter/n32_8 ),
+	.RESET(\video_transmitter/n32_3 ),
 	.Q(horizontalPix[4])
 );
 defparam \video_transmitter/hPosCounter_4_s0 .INIT=1'b0;
 DFFR \video_transmitter/hPosCounter_3_s0  (
 	.D(\video_transmitter/n66_1 ),
 	.CLK(crystalCLK_d),
-	.RESET(\video_transmitter/n32_8 ),
+	.RESET(\video_transmitter/n32_3 ),
 	.Q(horizontalPix[3])
 );
 defparam \video_transmitter/hPosCounter_3_s0 .INIT=1'b0;
 DFFR \video_transmitter/hPosCounter_2_s0  (
 	.D(\video_transmitter/n67_1 ),
 	.CLK(crystalCLK_d),
-	.RESET(\video_transmitter/n32_8 ),
+	.RESET(\video_transmitter/n32_3 ),
 	.Q(horizontalPix[2])
 );
 defparam \video_transmitter/hPosCounter_2_s0 .INIT=1'b0;
 DFFR \video_transmitter/hPosCounter_1_s0  (
 	.D(\video_transmitter/n68_1 ),
 	.CLK(crystalCLK_d),
-	.RESET(\video_transmitter/n32_8 ),
+	.RESET(\video_transmitter/n32_3 ),
 	.Q(horizontalPix[1])
 );
 defparam \video_transmitter/hPosCounter_1_s0 .INIT=1'b0;
 DFFR \video_transmitter/hPosCounter_0_s0  (
 	.D(\video_transmitter/n69_6 ),
 	.CLK(crystalCLK_d),
-	.RESET(\video_transmitter/n32_8 ),
+	.RESET(\video_transmitter/n32_3 ),
 	.Q(horizontalPix[0])
 );
 defparam \video_transmitter/hPosCounter_0_s0 .INIT=1'b0;
 DFFRE \video_transmitter/vPosCounter_9_s0  (
 	.D(\video_transmitter/n39_1 ),
 	.CLK(crystalCLK_d),
-	.CE(\video_transmitter/n32_8 ),
+	.CE(\video_transmitter/n32_3 ),
 	.RESET(\video_transmitter/n49_4 ),
 	.Q(verticalPix[9])
 );
@@ -1042,7 +2020,7 @@ defparam \video_transmitter/vPosCounter_9_s0 .INIT=1'b0;
 DFFRE \video_transmitter/vPosCounter_8_s0  (
 	.D(\video_transmitter/n40_1 ),
 	.CLK(crystalCLK_d),
-	.CE(\video_transmitter/n32_8 ),
+	.CE(\video_transmitter/n32_3 ),
 	.RESET(\video_transmitter/n49_4 ),
 	.Q(verticalPix[8])
 );
@@ -1050,7 +2028,7 @@ defparam \video_transmitter/vPosCounter_8_s0 .INIT=1'b0;
 DFFRE \video_transmitter/vPosCounter_7_s0  (
 	.D(\video_transmitter/n41_1 ),
 	.CLK(crystalCLK_d),
-	.CE(\video_transmitter/n32_8 ),
+	.CE(\video_transmitter/n32_3 ),
 	.RESET(\video_transmitter/n49_4 ),
 	.Q(verticalPix[7])
 );
@@ -1058,7 +2036,7 @@ defparam \video_transmitter/vPosCounter_7_s0 .INIT=1'b0;
 DFFRE \video_transmitter/vPosCounter_6_s0  (
 	.D(\video_transmitter/n42_1 ),
 	.CLK(crystalCLK_d),
-	.CE(\video_transmitter/n32_8 ),
+	.CE(\video_transmitter/n32_3 ),
 	.RESET(\video_transmitter/n49_4 ),
 	.Q(verticalPix[6])
 );
@@ -1066,7 +2044,7 @@ defparam \video_transmitter/vPosCounter_6_s0 .INIT=1'b0;
 DFFRE \video_transmitter/vPosCounter_5_s0  (
 	.D(\video_transmitter/n43_1 ),
 	.CLK(crystalCLK_d),
-	.CE(\video_transmitter/n32_8 ),
+	.CE(\video_transmitter/n32_3 ),
 	.RESET(\video_transmitter/n49_4 ),
 	.Q(verticalPix[5])
 );
@@ -1074,7 +2052,7 @@ defparam \video_transmitter/vPosCounter_5_s0 .INIT=1'b0;
 DFFRE \video_transmitter/vPosCounter_4_s0  (
 	.D(\video_transmitter/n44_1 ),
 	.CLK(crystalCLK_d),
-	.CE(\video_transmitter/n32_8 ),
+	.CE(\video_transmitter/n32_3 ),
 	.RESET(\video_transmitter/n49_4 ),
 	.Q(verticalPix[4])
 );
@@ -1082,7 +2060,7 @@ defparam \video_transmitter/vPosCounter_4_s0 .INIT=1'b0;
 DFFRE \video_transmitter/vPosCounter_3_s0  (
 	.D(\video_transmitter/n45_1 ),
 	.CLK(crystalCLK_d),
-	.CE(\video_transmitter/n32_8 ),
+	.CE(\video_transmitter/n32_3 ),
 	.RESET(\video_transmitter/n49_4 ),
 	.Q(verticalPix[3])
 );
@@ -1090,7 +2068,7 @@ defparam \video_transmitter/vPosCounter_3_s0 .INIT=1'b0;
 DFFRE \video_transmitter/vPosCounter_2_s0  (
 	.D(\video_transmitter/n46_1 ),
 	.CLK(crystalCLK_d),
-	.CE(\video_transmitter/n32_8 ),
+	.CE(\video_transmitter/n32_3 ),
 	.RESET(\video_transmitter/n49_4 ),
 	.Q(verticalPix[2])
 );
@@ -1098,7 +2076,7 @@ defparam \video_transmitter/vPosCounter_2_s0 .INIT=1'b0;
 DFFRE \video_transmitter/vPosCounter_1_s0  (
 	.D(\video_transmitter/n47_1 ),
 	.CLK(crystalCLK_d),
-	.CE(\video_transmitter/n32_8 ),
+	.CE(\video_transmitter/n32_3 ),
 	.RESET(\video_transmitter/n49_4 ),
 	.Q(verticalPix[1])
 );
@@ -1106,7 +2084,7 @@ defparam \video_transmitter/vPosCounter_1_s0 .INIT=1'b0;
 DFFRE \video_transmitter/vPosCounter_0_s0  (
 	.D(\video_transmitter/n48_6 ),
 	.CLK(crystalCLK_d),
-	.CE(\video_transmitter/n32_8 ),
+	.CE(\video_transmitter/n32_3 ),
 	.RESET(\video_transmitter/n49_4 ),
 	.Q(verticalPix[0])
 );
@@ -1114,7 +2092,7 @@ defparam \video_transmitter/vPosCounter_0_s0 .INIT=1'b0;
 DFFR \video_transmitter/hPosCounter_9_s0  (
 	.D(\video_transmitter/n60_1 ),
 	.CLK(crystalCLK_d),
-	.RESET(\video_transmitter/n32_8 ),
+	.RESET(\video_transmitter/n32_3 ),
 	.Q(horizontalPix[9])
 );
 defparam \video_transmitter/hPosCounter_9_s0 .INIT=1'b0;
@@ -1311,41 +2289,41 @@ defparam \video_transmitter/n69_s2 .INIT=2'h1;
 LUT3 \video_transmitter/blue_tmds/n170_s0  (
 	.I0(\video_transmitter/blue_tmds/n110_2 ),
 	.I1(\video_transmitter/blue_tmds/n156_2 ),
-	.I2(\video_transmitter/blue_tmds/n121_4 ),
+	.I2(\video_transmitter/blue_tmds/n170_4 ),
 	.F(\video_transmitter/blue_tmds/n170_3 )
 );
 defparam \video_transmitter/blue_tmds/n170_s0 .INIT=8'hCA;
 LUT3 \video_transmitter/blue_tmds/n171_s0  (
 	.I0(\video_transmitter/blue_tmds/n111_2 ),
 	.I1(\video_transmitter/blue_tmds/n157_2 ),
-	.I2(\video_transmitter/blue_tmds/n121_4 ),
+	.I2(\video_transmitter/blue_tmds/n170_4 ),
 	.F(\video_transmitter/blue_tmds/n171_3 )
 );
 defparam \video_transmitter/blue_tmds/n171_s0 .INIT=8'hCA;
 LUT3 \video_transmitter/blue_tmds/n172_s0  (
 	.I0(\video_transmitter/blue_tmds/n112_2 ),
 	.I1(\video_transmitter/blue_tmds/n158_2 ),
-	.I2(\video_transmitter/blue_tmds/n121_4 ),
+	.I2(\video_transmitter/blue_tmds/n170_4 ),
 	.F(\video_transmitter/blue_tmds/n172_3 )
 );
 defparam \video_transmitter/blue_tmds/n172_s0 .INIT=8'hCA;
 LUT3 \video_transmitter/blue_tmds/n173_s0  (
 	.I0(\video_transmitter/blue_tmds/n113_2 ),
 	.I1(\video_transmitter/blue_tmds/n159_2 ),
-	.I2(\video_transmitter/blue_tmds/n121_4 ),
+	.I2(\video_transmitter/blue_tmds/n170_4 ),
 	.F(\video_transmitter/blue_tmds/n173_3 )
 );
 defparam \video_transmitter/blue_tmds/n173_s0 .INIT=8'hCA;
 LUT3 \video_transmitter/blue_tmds/n174_s0  (
 	.I0(\video_transmitter/blue_tmds/n114_2 ),
 	.I1(\video_transmitter/blue_tmds/n160_2 ),
-	.I2(\video_transmitter/blue_tmds/n121_4 ),
+	.I2(\video_transmitter/blue_tmds/n170_4 ),
 	.F(\video_transmitter/blue_tmds/n174_3 )
 );
 defparam \video_transmitter/blue_tmds/n174_s0 .INIT=8'hCA;
 LUT4 \video_transmitter/blue_tmds/n249_s0  (
 	.I0(\video_transmitter/blue_tmds/n249_4 ),
-	.I1(\video_transmitter/blue_tmds/n249_10 ),
+	.I1(\video_transmitter/blue_tmds/n249_5 ),
 	.I2(\video_transmitter/blue_tmds/n249_6 ),
 	.I3(\video_transmitter/displayEnable ),
 	.F(\video_transmitter/blue_tmds/n249_3 )
@@ -1360,8 +2338,8 @@ LUT3 \video_transmitter/blue_tmds/n250_s0  (
 defparam \video_transmitter/blue_tmds/n250_s0 .INIT=8'hC5;
 LUT4 \video_transmitter/blue_tmds/n251_s0  (
 	.I0(\video_transmitter/blue_tmds/n251_4 ),
-	.I1(\video_transmitter/blue_tmds/encoderStage1_0 [7]),
-	.I2(\video_transmitter/blue_tmds/n249_4 ),
+	.I1(\video_transmitter/blue_tmds/n249_4 ),
+	.I2(\video_transmitter/blue_tmds/encoderStage1_0 [7]),
 	.I3(\video_transmitter/displayEnable ),
 	.F(\video_transmitter/blue_tmds/n251_3 )
 );
@@ -1376,8 +2354,8 @@ LUT4 \video_transmitter/blue_tmds/n252_s0  (
 defparam \video_transmitter/blue_tmds/n252_s0 .INIT=16'h007D;
 LUT4 \video_transmitter/blue_tmds/n253_s0  (
 	.I0(\video_transmitter/blue_tmds/n251_4 ),
-	.I1(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
-	.I2(\video_transmitter/blue_tmds/n249_4 ),
+	.I1(\video_transmitter/blue_tmds/n249_4 ),
+	.I2(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.I3(\video_transmitter/displayEnable ),
 	.F(\video_transmitter/blue_tmds/n253_3 )
 );
@@ -1392,8 +2370,8 @@ LUT4 \video_transmitter/blue_tmds/n254_s0  (
 defparam \video_transmitter/blue_tmds/n254_s0 .INIT=16'h007D;
 LUT4 \video_transmitter/blue_tmds/n255_s0  (
 	.I0(\video_transmitter/blue_tmds/n251_4 ),
-	.I1(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
-	.I2(\video_transmitter/blue_tmds/n249_4 ),
+	.I1(\video_transmitter/blue_tmds/n249_4 ),
+	.I2(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.I3(\video_transmitter/displayEnable ),
 	.F(\video_transmitter/blue_tmds/n255_3 )
 );
@@ -1408,16 +2386,16 @@ LUT4 \video_transmitter/blue_tmds/n256_s0  (
 defparam \video_transmitter/blue_tmds/n256_s0 .INIT=16'h007D;
 LUT4 \video_transmitter/blue_tmds/n257_s0  (
 	.I0(\video_transmitter/blue_tmds/n251_4 ),
-	.I1(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
-	.I2(\video_transmitter/blue_tmds/n249_4 ),
+	.I1(\video_transmitter/blue_tmds/n249_4 ),
+	.I2(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.I3(\video_transmitter/displayEnable ),
 	.F(\video_transmitter/blue_tmds/n257_3 )
 );
 defparam \video_transmitter/blue_tmds/n257_s0 .INIT=16'hBEAA;
 LUT4 \video_transmitter/blue_tmds/n258_s0  (
 	.I0(\video_transmitter/blue_tmds/n251_4 ),
-	.I1(\video_transmitter/blue_tmds/encoderStage1_0 [7]),
-	.I2(\video_transmitter/blue_tmds/n249_4 ),
+	.I1(\video_transmitter/blue_tmds/n249_4 ),
+	.I2(\video_transmitter/blue_tmds/encoderStage1_0 [7]),
 	.I3(\video_transmitter/displayEnable ),
 	.F(\video_transmitter/blue_tmds/n258_3 )
 );
@@ -1429,8 +2407,8 @@ LUT2 \video_transmitter/blue_tmds/n535_s0  (
 );
 defparam \video_transmitter/blue_tmds/n535_s0 .INIT=4'h4;
 LUT3 \video_transmitter/blue_tmds/displayEnable_xfer_s2  (
-	.I0(\video_transmitter/blue_tmds/displayEnable_xfer_7 ),
-	.I1(horizontalPix[8]),
+	.I0(horizontalPix[8]),
+	.I1(\video_transmitter/blue_tmds/displayEnable_xfer_7 ),
 	.I2(horizontalPix[9]),
 	.F(\video_transmitter/blue_tmds/displayEnable_xfer_6 )
 );
@@ -1443,6 +2421,22 @@ LUT4 \video_transmitter/blue_tmds/stage2Ready_s6  (
 	.F(\video_transmitter/blue_tmds/stage2Ready_12 )
 );
 defparam \video_transmitter/blue_tmds/stage2Ready_s6 .INIT=16'h7FC0;
+LUT4 \video_transmitter/blue_tmds/n121_1_s0  (
+	.I0(\video_transmitter/blue_tmds/onesIn_encoderStage1 [2]),
+	.I1(\video_transmitter/blue_tmds/onesIn_encoderStage1 [3]),
+	.I2(\video_transmitter/blue_tmds/n170_4 ),
+	.I3(\video_transmitter/blue_tmds/disparityCounter [4]),
+	.F(\video_transmitter/blue_tmds/n121_1_2 )
+);
+defparam \video_transmitter/blue_tmds/n121_1_s0 .INIT=16'hEE1F;
+LUT4 \video_transmitter/blue_tmds/disparityCounterCompensation_3_s4  (
+	.I0(\video_transmitter/blue_tmds/onesIn_encoderStage1 [0]),
+	.I1(\video_transmitter/blue_tmds/onesIn_encoderStage1 [1]),
+	.I2(\video_transmitter/encoderStage1 [8]),
+	.I3(\video_transmitter/blue_tmds/onesIn_encoderStage1 [2]),
+	.F(\video_transmitter/blue_tmds/disparityCounterCompensation [3])
+);
+defparam \video_transmitter/blue_tmds/disparityCounterCompensation_3_s4 .INIT=16'h10EF;
 LUT2 \video_transmitter/blue_tmds/disparityCounterCompensation_1_s6  (
 	.I0(\video_transmitter/blue_tmds/onesIn_encoderStage1 [0]),
 	.I1(\video_transmitter/encoderStage1 [8]),
@@ -1463,12 +2457,12 @@ LUT3 \video_transmitter/blue_tmds/disparityCounterCompensation_2_s5  (
 );
 defparam \video_transmitter/blue_tmds/disparityCounterCompensation_2_s5 .INIT=8'hB4;
 LUT3 \video_transmitter/blue_tmds/disparityCounterCompensation_4_s4  (
-	.I0(\video_transmitter/blue_tmds/disparityCounterCompensation_3_10 ),
-	.I1(\video_transmitter/blue_tmds/onesIn_encoderStage1 [2]),
-	.I2(\video_transmitter/blue_tmds/onesIn_encoderStage1 [3]),
+	.I0(\video_transmitter/blue_tmds/onesIn_encoderStage1 [2]),
+	.I1(\video_transmitter/blue_tmds/onesIn_encoderStage1 [3]),
+	.I2(\video_transmitter/blue_tmds/disparityCounterCompensation [3]),
 	.F(\video_transmitter/blue_tmds/disparityCounterCompensation [4])
 );
-defparam \video_transmitter/blue_tmds/disparityCounterCompensation_4_s4 .INIT=8'h4B;
+defparam \video_transmitter/blue_tmds/disparityCounterCompensation_4_s4 .INIT=8'h39;
 LUT2 \video_transmitter/blue_tmds/n177_s0  (
 	.I0(\video_transmitter/blue_tmds/idleCounter [0]),
 	.I1(\video_transmitter/blue_tmds/idleCounter [1]),
@@ -1482,35 +2476,35 @@ LUT3 \video_transmitter/blue_tmds/n176_s0  (
 	.F(\video_transmitter/blue_tmds/n176_4 )
 );
 defparam \video_transmitter/blue_tmds/n176_s0 .INIT=8'h78;
-LUT3 \video_transmitter/blue_tmds/n121_s1  (
-	.I0(\video_transmitter/blue_tmds/n121_6 ),
+LUT3 \video_transmitter/blue_tmds/n170_s1  (
+	.I0(\video_transmitter/blue_tmds/n170_5 ),
 	.I1(\video_transmitter/blue_tmds/disparityCounter [0]),
-	.I2(\video_transmitter/blue_tmds/n121_7 ),
-	.F(\video_transmitter/blue_tmds/n121_4 )
+	.I2(\video_transmitter/blue_tmds/n170_6 ),
+	.F(\video_transmitter/blue_tmds/n170_4 )
 );
-defparam \video_transmitter/blue_tmds/n121_s1 .INIT=8'h0D;
-LUT3 \video_transmitter/blue_tmds/n121_s2  (
-	.I0(\video_transmitter/blue_tmds/onesIn_encoderStage1 [2]),
-	.I1(\video_transmitter/blue_tmds/onesIn_encoderStage1 [3]),
-	.I2(\video_transmitter/blue_tmds/disparityCounter [4]),
-	.F(\video_transmitter/blue_tmds/n121_5 )
-);
-defparam \video_transmitter/blue_tmds/n121_s2 .INIT=8'hE1;
+defparam \video_transmitter/blue_tmds/n170_s1 .INIT=8'h0D;
 LUT3 \video_transmitter/blue_tmds/n249_s1  (
-	.I0(\video_transmitter/blue_tmds/n121_5 ),
+	.I0(\video_transmitter/blue_tmds/n121_1_2 ),
 	.I1(\video_transmitter/encoderStage1 [8]),
-	.I2(\video_transmitter/blue_tmds/n121_4 ),
+	.I2(\video_transmitter/blue_tmds/n170_4 ),
 	.F(\video_transmitter/blue_tmds/n249_4 )
 );
 defparam \video_transmitter/blue_tmds/n249_s1 .INIT=8'h53;
+LUT3 \video_transmitter/blue_tmds/n249_s2  (
+	.I0(n136_8),
+	.I1(n136_5),
+	.I2(verticalPix[3]),
+	.F(\video_transmitter/blue_tmds/n249_5 )
+);
+defparam \video_transmitter/blue_tmds/n249_s2 .INIT=8'h40;
 LUT4 \video_transmitter/blue_tmds/n249_s3  (
 	.I0(\video_transmitter/blue_tmds/n249_7 ),
-	.I1(\video_transmitter/n32_5 ),
+	.I1(horizontalPix[6]),
 	.I2(\video_transmitter/blue_tmds/n249_8 ),
 	.I3(horizontalPix[9]),
 	.F(\video_transmitter/blue_tmds/n249_6 )
 );
-defparam \video_transmitter/blue_tmds/n249_s3 .INIT=16'h0700;
+defparam \video_transmitter/blue_tmds/n249_s3 .INIT=16'h1C00;
 LUT2 \video_transmitter/blue_tmds/n251_s1  (
 	.I0(\video_transmitter/displayEnable ),
 	.I1(\video_transmitter/blue_tmds/n249_6 ),
@@ -1532,69 +2526,44 @@ LUT4 \video_transmitter/blue_tmds/displayEnable_xfer_s3  (
 	.F(\video_transmitter/blue_tmds/displayEnable_xfer_7 )
 );
 defparam \video_transmitter/blue_tmds/displayEnable_xfer_s3 .INIT=16'hE000;
-LUT3 \video_transmitter/blue_tmds/disparityCounterCompensation_3_s5  (
-	.I0(\video_transmitter/blue_tmds/onesIn_encoderStage1 [0]),
-	.I1(\video_transmitter/blue_tmds/onesIn_encoderStage1 [1]),
-	.I2(\video_transmitter/encoderStage1 [8]),
-	.F(\video_transmitter/blue_tmds/disparityCounterCompensation_3_10 )
-);
-defparam \video_transmitter/blue_tmds/disparityCounterCompensation_3_s5 .INIT=8'h10;
-LUT4 \video_transmitter/blue_tmds/n121_s3  (
+LUT4 \video_transmitter/blue_tmds/n170_s2  (
 	.I0(\video_transmitter/blue_tmds/disparityCounter [1]),
 	.I1(\video_transmitter/blue_tmds/disparityCounter [2]),
 	.I2(\video_transmitter/blue_tmds/disparityCounter [3]),
 	.I3(\video_transmitter/blue_tmds/disparityCounter [4]),
-	.F(\video_transmitter/blue_tmds/n121_6 )
+	.F(\video_transmitter/blue_tmds/n170_5 )
 );
-defparam \video_transmitter/blue_tmds/n121_s3 .INIT=16'h0001;
-LUT4 \video_transmitter/blue_tmds/n121_s4  (
+defparam \video_transmitter/blue_tmds/n170_s2 .INIT=16'h0001;
+LUT4 \video_transmitter/blue_tmds/n170_s3  (
 	.I0(\video_transmitter/blue_tmds/onesIn_encoderStage1 [0]),
 	.I1(\video_transmitter/blue_tmds/onesIn_encoderStage1 [1]),
 	.I2(\video_transmitter/blue_tmds/onesIn_encoderStage1 [3]),
 	.I3(\video_transmitter/blue_tmds/onesIn_encoderStage1 [2]),
-	.F(\video_transmitter/blue_tmds/n121_7 )
+	.F(\video_transmitter/blue_tmds/n170_6 )
 );
-defparam \video_transmitter/blue_tmds/n121_s4 .INIT=16'h0100;
+defparam \video_transmitter/blue_tmds/n170_s3 .INIT=16'h0100;
 LUT4 \video_transmitter/blue_tmds/n249_s4  (
-	.I0(horizontalPix[6]),
-	.I1(horizontalPix[2]),
-	.I2(horizontalPix[4]),
-	.I3(horizontalPix[0]),
+	.I0(\video_transmitter/blue_tmds/n249_9 ),
+	.I1(horizontalPix[0]),
+	.I2(horizontalPix[1]),
+	.I3(horizontalPix[2]),
 	.F(\video_transmitter/blue_tmds/n249_7 )
 );
-defparam \video_transmitter/blue_tmds/n249_s4 .INIT=16'h4000;
+defparam \video_transmitter/blue_tmds/n249_s4 .INIT=16'h8000;
 LUT4 \video_transmitter/blue_tmds/n249_s5  (
-	.I0(horizontalPix[5]),
-	.I1(horizontalPix[6]),
+	.I0(horizontalPix[8]),
+	.I1(horizontalPix[5]),
 	.I2(horizontalPix[7]),
-	.I3(horizontalPix[8]),
+	.I3(horizontalPix[6]),
 	.F(\video_transmitter/blue_tmds/n249_8 )
 );
-defparam \video_transmitter/blue_tmds/n249_s5 .INIT=16'hFE7F;
-LUT4 \video_transmitter/blue_tmds/n249_s6  (
-	.I0(n82_8),
-	.I1(verticalPix[9]),
-	.I2(n5_35),
-	.I3(\video_transmitter/n49_5 ),
-	.F(\video_transmitter/blue_tmds/n249_10 )
+defparam \video_transmitter/blue_tmds/n249_s5 .INIT=16'hBF02;
+LUT2 \video_transmitter/blue_tmds/n249_s6  (
+	.I0(horizontalPix[3]),
+	.I1(horizontalPix[4]),
+	.F(\video_transmitter/blue_tmds/n249_9 )
 );
-defparam \video_transmitter/blue_tmds/n249_s6 .INIT=16'h1000;
-LUT4 \video_transmitter/blue_tmds/disparityCounterCompensation_3_s6  (
-	.I0(\video_transmitter/blue_tmds/onesIn_encoderStage1 [2]),
-	.I1(\video_transmitter/blue_tmds/onesIn_encoderStage1 [0]),
-	.I2(\video_transmitter/blue_tmds/onesIn_encoderStage1 [1]),
-	.I3(\video_transmitter/encoderStage1 [8]),
-	.F(\video_transmitter/blue_tmds/disparityCounterCompensation [3])
-);
-defparam \video_transmitter/blue_tmds/disparityCounterCompensation_3_s6 .INIT=16'h5655;
-LUT4 \video_transmitter/blue_tmds/n121_s5  (
-	.I0(\video_transmitter/blue_tmds/n121_4 ),
-	.I1(\video_transmitter/blue_tmds/onesIn_encoderStage1 [2]),
-	.I2(\video_transmitter/blue_tmds/onesIn_encoderStage1 [3]),
-	.I3(\video_transmitter/blue_tmds/disparityCounter [4]),
-	.F(\video_transmitter/blue_tmds/n121_9 )
-);
-defparam \video_transmitter/blue_tmds/n121_s5 .INIT=16'h02A8;
+defparam \video_transmitter/blue_tmds/n249_s6 .INIT=4'h8;
 LUT4 \video_transmitter/blue_tmds/n184_s3  (
 	.I0(\video_transmitter/blue_tmds/idleCounter [2]),
 	.I1(\video_transmitter/blue_tmds/idleCounter [1]),
@@ -1610,20 +2579,20 @@ LUT3 \video_transmitter/blue_tmds/encoderStage2_9_s4  (
 	.F(\video_transmitter/blue_tmds/encoderStage2_9_10 )
 );
 defparam \video_transmitter/blue_tmds/encoderStage2_9_s4 .INIT=8'h4F;
-LUT4 \video_transmitter/blue_tmds/n121_1_s1  (
-	.I0(\video_transmitter/blue_tmds/n121_4 ),
-	.I1(\video_transmitter/blue_tmds/onesIn_encoderStage1 [2]),
-	.I2(\video_transmitter/blue_tmds/onesIn_encoderStage1 [3]),
+LUT4 \video_transmitter/blue_tmds/n121_s1  (
+	.I0(\video_transmitter/blue_tmds/onesIn_encoderStage1 [2]),
+	.I1(\video_transmitter/blue_tmds/onesIn_encoderStage1 [3]),
+	.I2(\video_transmitter/blue_tmds/n170_4 ),
 	.I3(\video_transmitter/blue_tmds/disparityCounter [4]),
-	.F(\video_transmitter/blue_tmds/n121_1_4 )
+	.F(\video_transmitter/blue_tmds/n121_5 )
 );
-defparam \video_transmitter/blue_tmds/n121_1_s1 .INIT=16'hFD57;
+defparam \video_transmitter/blue_tmds/n121_s1 .INIT=16'h11E0;
 LUT4 \video_transmitter/blue_tmds/n178_s3  (
 	.I0(\video_transmitter/blue_tmds/idleCounter [0]),
 	.I1(\video_transmitter/blue_tmds/stage2Ready ),
 	.I2(\video_transmitter/displayEnable ),
 	.I3(\video_transmitter/stage1Ready ),
-	.F(\video_transmitter/blue_tmds/n178_11 )
+	.F(\video_transmitter/blue_tmds/n178_8 )
 );
 defparam \video_transmitter/blue_tmds/n178_s3 .INIT=16'h6AAA;
 LUT3 \video_transmitter/blue_tmds/n336_s2  (
@@ -1873,7 +2842,7 @@ DFFE \video_transmitter/blue_tmds/encoderStage2_0_s1  (
 );
 defparam \video_transmitter/blue_tmds/encoderStage2_0_s1 .INIT=1'b0;
 DFFR \video_transmitter/blue_tmds/idleCounter_0_s1  (
-	.D(\video_transmitter/blue_tmds/n178_11 ),
+	.D(\video_transmitter/blue_tmds/n178_8 ),
 	.CLK(multiplierClkOut),
 	.RESET(\video_transmitter/blue_tmds/n184_7 ),
 	.Q(\video_transmitter/blue_tmds/idleCounter [0])
@@ -1957,8 +2926,8 @@ defparam \video_transmitter/blue_tmds/n110_1_s .ALU_MODE=2;
 ALU \video_transmitter/blue_tmds/n160_1_s  (
 	.I0(\video_transmitter/blue_tmds/disparityCounter [0]),
 	.I1(GND),
-	.I3(\video_transmitter/blue_tmds/n121_1_4 ),
-	.CIN(\video_transmitter/blue_tmds/n121_9 ),
+	.I3(\video_transmitter/blue_tmds/n121_1_2 ),
+	.CIN(\video_transmitter/blue_tmds/n121_5 ),
 	.COUT(\video_transmitter/blue_tmds/n160_1_1 ),
 	.SUM(\video_transmitter/blue_tmds/n160_2 )
 );
@@ -1966,7 +2935,7 @@ defparam \video_transmitter/blue_tmds/n160_1_s .ALU_MODE=2;
 ALU \video_transmitter/blue_tmds/n159_1_s  (
 	.I0(\video_transmitter/blue_tmds/disparityCounter [1]),
 	.I1(\video_transmitter/blue_tmds/disparityCounterCompensation_1_12 ),
-	.I3(\video_transmitter/blue_tmds/n121_1_4 ),
+	.I3(\video_transmitter/blue_tmds/n121_1_2 ),
 	.CIN(\video_transmitter/blue_tmds/n160_1_1 ),
 	.COUT(\video_transmitter/blue_tmds/n159_1_1 ),
 	.SUM(\video_transmitter/blue_tmds/n159_2 )
@@ -1975,7 +2944,7 @@ defparam \video_transmitter/blue_tmds/n159_1_s .ALU_MODE=2;
 ALU \video_transmitter/blue_tmds/n158_1_s  (
 	.I0(\video_transmitter/blue_tmds/disparityCounter [2]),
 	.I1(\video_transmitter/blue_tmds/disparityCounterCompensation [2]),
-	.I3(\video_transmitter/blue_tmds/n121_1_4 ),
+	.I3(\video_transmitter/blue_tmds/n121_1_2 ),
 	.CIN(\video_transmitter/blue_tmds/n159_1_1 ),
 	.COUT(\video_transmitter/blue_tmds/n158_1_1 ),
 	.SUM(\video_transmitter/blue_tmds/n158_2 )
@@ -1984,7 +2953,7 @@ defparam \video_transmitter/blue_tmds/n158_1_s .ALU_MODE=2;
 ALU \video_transmitter/blue_tmds/n157_1_s  (
 	.I0(\video_transmitter/blue_tmds/disparityCounter [3]),
 	.I1(\video_transmitter/blue_tmds/disparityCounterCompensation [3]),
-	.I3(\video_transmitter/blue_tmds/n121_1_4 ),
+	.I3(\video_transmitter/blue_tmds/n121_1_2 ),
 	.CIN(\video_transmitter/blue_tmds/n158_1_1 ),
 	.COUT(\video_transmitter/blue_tmds/n157_1_1 ),
 	.SUM(\video_transmitter/blue_tmds/n157_2 )
@@ -1993,7 +2962,7 @@ defparam \video_transmitter/blue_tmds/n157_1_s .ALU_MODE=2;
 ALU \video_transmitter/blue_tmds/n156_1_s  (
 	.I0(\video_transmitter/blue_tmds/disparityCounter [4]),
 	.I1(\video_transmitter/blue_tmds/disparityCounterCompensation [4]),
-	.I3(\video_transmitter/blue_tmds/n121_1_4 ),
+	.I3(\video_transmitter/blue_tmds/n121_1_2 ),
 	.CIN(\video_transmitter/blue_tmds/n157_1_1 ),
 	.COUT(\video_transmitter/blue_tmds/n156_1_0_COUT ),
 	.SUM(\video_transmitter/blue_tmds/n156_2 )
@@ -2025,45 +2994,45 @@ LUT2 \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_s10
 );
 defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_s10 .INIT=4'h8;
 LUT4 \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_s11  (
-	.I0(\video_transmitter/blue_tmds/encoderStage1_0 [7]),
+	.I0(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.I1(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.I2(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.I3(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_23 ),
 	.F(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_22 )
 );
-defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_s11 .INIT=16'h6996;
+defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_s11 .INIT=16'h9669;
 LUT4 \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_s2  (
 	.I0(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_12 ),
 	.I1(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_13 ),
-	.I2(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
+	.I2(\video_transmitter/blue_tmds/encoderStage1_0 [7]),
 	.I3(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.F(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_11 )
 );
-defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_s2 .INIT=16'hD444;
+defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_s2 .INIT=16'hE888;
 LUT4 \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_1_s5  (
-	.I0(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
+	.I0(\video_transmitter/blue_tmds/encoderStage1_0 [7]),
 	.I1(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
-	.I2(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_12 ),
-	.I3(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_13 ),
+	.I2(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_13 ),
+	.I3(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_12 ),
 	.F(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_1_13 )
 );
-defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_1_s5 .INIT=16'h7087;
+defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_1_s5 .INIT=16'h0778;
 LUT2 \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_s12  (
-	.I0(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
+	.I0(\video_transmitter/blue_tmds/encoderStage1_0 [7]),
 	.I1(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.F(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_23 )
 );
-defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_s12 .INIT=4'h6;
+defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_s12 .INIT=4'h9;
 LUT4 \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_s3  (
 	.I0(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.I1(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_0_23 ),
-	.I2(\video_transmitter/blue_tmds/encoderStage1_0 [7]),
+	.I2(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.I3(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.F(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_12 )
 );
-defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_s3 .INIT=16'h7117;
+defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_s3 .INIT=16'h2BB2;
 LUT2 \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_s4  (
-	.I0(\video_transmitter/blue_tmds/encoderStage1_0 [7]),
+	.I0(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.I1(\video_transmitter/blue_tmds/encoderStage1_0 [6]),
 	.F(\video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_13 )
 );
@@ -2097,10 +3066,10 @@ ALU \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_s1  
 defparam \video_transmitter/blue_tmds/ones_in_tmds_stage1/onesIn_encoderStage1_2_s1 .ALU_MODE=0;
 LUT2 \video_transmitter/green_tmds/n148_s0  (
 	.I0(\video_transmitter/green_tmds/encoderStage1_0 [7]),
-	.I1(\video_transmitter/green_tmds/n148_4 ),
+	.I1(\video_transmitter/green_tmds/n148_6 ),
 	.F(\video_transmitter/green_tmds/n148_3 )
 );
-defparam \video_transmitter/green_tmds/n148_s0 .INIT=4'h6;
+defparam \video_transmitter/green_tmds/n148_s0 .INIT=4'h9;
 LUT2 \video_transmitter/green_tmds/n535_s0  (
 	.I0(\video_transmitter/green_tmds/stage2Ready ),
 	.I1(\video_transmitter/green_tmds/stage1Ready_0 ),
@@ -2124,10 +3093,10 @@ LUT3 \video_transmitter/green_tmds/n121_1_s0  (
 defparam \video_transmitter/green_tmds/n121_1_s0 .INIT=8'hE3;
 LUT2 \video_transmitter/green_tmds/encoderStage2_9_s9  (
 	.I0(\video_transmitter/displayEnable ),
-	.I1(\video_transmitter/green_tmds/n148_4 ),
+	.I1(\video_transmitter/green_tmds/n148_6 ),
 	.F(\video_transmitter/green_tmds/encoderStage2_9_16 )
 );
-defparam \video_transmitter/green_tmds/encoderStage2_9_s9 .INIT=4'hD;
+defparam \video_transmitter/green_tmds/encoderStage2_9_s9 .INIT=4'h7;
 LUT2 \video_transmitter/green_tmds/encoderStage2_8_s9  (
 	.I0(\video_transmitter/green_tmds/encoderStage1_0 [8]),
 	.I1(\video_transmitter/displayEnable ),
@@ -2147,14 +3116,6 @@ LUT3 \video_transmitter/green_tmds/n176_s0  (
 	.F(\video_transmitter/green_tmds/n176_4 )
 );
 defparam \video_transmitter/green_tmds/n176_s0 .INIT=8'h78;
-LUT4 \video_transmitter/green_tmds/n148_s1  (
-	.I0(\video_transmitter/green_tmds/encoderStage1_0 [8]),
-	.I1(\video_transmitter/green_tmds/encoderStage1_0 [7]),
-	.I2(\video_transmitter/green_tmds/n121_1_3 ),
-	.I3(\video_transmitter/green_tmds/disparityCounter [4]),
-	.F(\video_transmitter/green_tmds/n148_4 )
-);
-defparam \video_transmitter/green_tmds/n148_s1 .INIT=16'h335C;
 LUT3 \video_transmitter/green_tmds/n184_s2  (
 	.I0(\video_transmitter/green_tmds/idleCounter [2]),
 	.I1(\video_transmitter/green_tmds/idleCounter [1]),
@@ -2170,13 +3131,6 @@ LUT4 \video_transmitter/green_tmds/n121_1_s1  (
 	.F(\video_transmitter/green_tmds/n121_1_3 )
 );
 defparam \video_transmitter/green_tmds/n121_1_s1 .INIT=16'h0001;
-LUT3 \video_transmitter/green_tmds/encoderStage2_2_s11  (
-	.I0(\video_transmitter/green_tmds/encoderStage1_0 [7]),
-	.I1(\video_transmitter/green_tmds/n148_4 ),
-	.I2(\video_transmitter/displayEnable ),
-	.F(\video_transmitter/green_tmds/encoderStage2_2_20 )
-);
-defparam \video_transmitter/green_tmds/encoderStage2_2_s11 .INIT=8'h6F;
 LUT4 \video_transmitter/green_tmds/n184_s3  (
 	.I0(\video_transmitter/green_tmds/idleCounter [2]),
 	.I1(\video_transmitter/green_tmds/idleCounter [1]),
@@ -2185,6 +3139,14 @@ LUT4 \video_transmitter/green_tmds/n184_s3  (
 	.F(\video_transmitter/green_tmds/n184_7 )
 );
 defparam \video_transmitter/green_tmds/n184_s3 .INIT=16'h4000;
+LUT4 \video_transmitter/green_tmds/n148_s2  (
+	.I0(\video_transmitter/green_tmds/disparityCounter [4]),
+	.I1(\video_transmitter/green_tmds/n121_1_3 ),
+	.I2(\video_transmitter/green_tmds/encoderStage1_0 [8]),
+	.I3(\video_transmitter/green_tmds/n121_1_2 ),
+	.F(\video_transmitter/green_tmds/n148_6 )
+);
+defparam \video_transmitter/green_tmds/n148_s2 .INIT=16'hFB00;
 LUT4 \video_transmitter/green_tmds/n174_s1  (
 	.I0(\video_transmitter/green_tmds/n114_2 ),
 	.I1(\video_transmitter/green_tmds/n160_2 ),
@@ -2232,13 +3194,20 @@ LUT3 \video_transmitter/green_tmds/n121_s1  (
 	.F(\video_transmitter/green_tmds/n121_5 )
 );
 defparam \video_transmitter/green_tmds/n121_s1 .INIT=8'h1C;
-LUT3 \video_transmitter/green_tmds/encoderStage2_2_s12  (
+LUT3 \video_transmitter/green_tmds/encoderStage2_2_s11  (
 	.I0(\video_transmitter/green_tmds/stage2Ready ),
 	.I1(\video_transmitter/green_tmds/stage1Ready_0 ),
 	.I2(\video_transmitter/displayEnable ),
+	.F(\video_transmitter/green_tmds/encoderStage2_2_20 )
+);
+defparam \video_transmitter/green_tmds/encoderStage2_2_s11 .INIT=8'h4F;
+LUT3 \video_transmitter/green_tmds/encoderStage2_2_s12  (
+	.I0(\video_transmitter/green_tmds/encoderStage1_0 [7]),
+	.I1(\video_transmitter/green_tmds/n148_6 ),
+	.I2(\video_transmitter/displayEnable ),
 	.F(\video_transmitter/green_tmds/encoderStage2_2_22 )
 );
-defparam \video_transmitter/green_tmds/encoderStage2_2_s12 .INIT=8'h4F;
+defparam \video_transmitter/green_tmds/encoderStage2_2_s12 .INIT=8'h9F;
 LUT4 \video_transmitter/green_tmds/n278_s3  (
 	.I0(\video_transmitter/displayEnable ),
 	.I1(\video_transmitter/stage1Ready ),
@@ -2386,23 +3355,23 @@ DFF \video_transmitter/green_tmds/stage2Ready_s1  (
 );
 defparam \video_transmitter/green_tmds/stage2Ready_s1 .INIT=1'b0;
 DFFE \video_transmitter/green_tmds/encoderStage2_2_s6  (
-	.D(\video_transmitter/green_tmds/encoderStage2_2_20 ),
+	.D(\video_transmitter/green_tmds/encoderStage2_2_22 ),
 	.CLK(multiplierClkOut),
-	.CE(\video_transmitter/green_tmds/encoderStage2_2_22 ),
+	.CE(\video_transmitter/green_tmds/encoderStage2_2_20 ),
 	.Q(\video_transmitter/green_tmds/encoderStage2 [2])
 );
 defparam \video_transmitter/green_tmds/encoderStage2_2_s6 .INIT=1'b0;
 DFFE \video_transmitter/green_tmds/encoderStage2_8_s6  (
 	.D(\video_transmitter/green_tmds/encoderStage2_8_16 ),
 	.CLK(multiplierClkOut),
-	.CE(\video_transmitter/green_tmds/encoderStage2_2_22 ),
+	.CE(\video_transmitter/green_tmds/encoderStage2_2_20 ),
 	.Q(\video_transmitter/green_tmds/encoderStage2 [8])
 );
 defparam \video_transmitter/green_tmds/encoderStage2_8_s6 .INIT=1'b0;
 DFFE \video_transmitter/green_tmds/encoderStage2_9_s6  (
 	.D(\video_transmitter/green_tmds/encoderStage2_9_16 ),
 	.CLK(multiplierClkOut),
-	.CE(\video_transmitter/green_tmds/encoderStage2_2_22 ),
+	.CE(\video_transmitter/green_tmds/encoderStage2_2_20 ),
 	.Q(\video_transmitter/green_tmds/encoderStage2 [9])
 );
 defparam \video_transmitter/green_tmds/encoderStage2_9_s6 .INIT=1'b0;
@@ -2548,46 +3517,38 @@ LUT2 \video_transmitter/red_tmds/n120_s0  (
 	.F(\video_transmitter/red_tmds/n120_3 )
 );
 defparam \video_transmitter/red_tmds/n120_s0 .INIT=4'h4;
-LUT4 \video_transmitter/red_tmds/n151_s0  (
-	.I0(\video_transmitter/red_tmds/disparityCounter [4]),
-	.I1(\video_transmitter/red_tmds/encoderStage1 [8]),
-	.I2(\video_transmitter/red_tmds/n151_4 ),
-	.I3(\video_transmitter/red_tmds/encoderStage1 [5]),
-	.F(\video_transmitter/red_tmds/n151_3 )
-);
-defparam \video_transmitter/red_tmds/n151_s0 .INIT=16'hCCA3;
 LUT3 \video_transmitter/red_tmds/n170_s0  (
 	.I0(\video_transmitter/red_tmds/n110_2 ),
 	.I1(\video_transmitter/red_tmds/n156_2 ),
-	.I2(\video_transmitter/red_tmds/n151_4 ),
+	.I2(\video_transmitter/red_tmds/n170_4 ),
 	.F(\video_transmitter/red_tmds/n170_3 )
 );
 defparam \video_transmitter/red_tmds/n170_s0 .INIT=8'hCA;
 LUT3 \video_transmitter/red_tmds/n171_s0  (
 	.I0(\video_transmitter/red_tmds/n111_2 ),
 	.I1(\video_transmitter/red_tmds/n157_2 ),
-	.I2(\video_transmitter/red_tmds/n151_4 ),
+	.I2(\video_transmitter/red_tmds/n170_4 ),
 	.F(\video_transmitter/red_tmds/n171_3 )
 );
 defparam \video_transmitter/red_tmds/n171_s0 .INIT=8'hCA;
 LUT3 \video_transmitter/red_tmds/n172_s0  (
 	.I0(\video_transmitter/red_tmds/n112_2 ),
 	.I1(\video_transmitter/red_tmds/n158_2 ),
-	.I2(\video_transmitter/red_tmds/n151_4 ),
+	.I2(\video_transmitter/red_tmds/n170_4 ),
 	.F(\video_transmitter/red_tmds/n172_3 )
 );
 defparam \video_transmitter/red_tmds/n172_s0 .INIT=8'hCA;
 LUT3 \video_transmitter/red_tmds/n173_s0  (
 	.I0(\video_transmitter/red_tmds/n113_2 ),
 	.I1(\video_transmitter/red_tmds/n159_2 ),
-	.I2(\video_transmitter/red_tmds/n151_4 ),
+	.I2(\video_transmitter/red_tmds/n170_4 ),
 	.F(\video_transmitter/red_tmds/n173_3 )
 );
 defparam \video_transmitter/red_tmds/n173_s0 .INIT=8'hCA;
 LUT3 \video_transmitter/red_tmds/n174_s0  (
 	.I0(\video_transmitter/red_tmds/n114_2 ),
 	.I1(\video_transmitter/red_tmds/n160_2 ),
-	.I2(\video_transmitter/red_tmds/n151_4 ),
+	.I2(\video_transmitter/red_tmds/n170_4 ),
 	.F(\video_transmitter/red_tmds/n174_3 )
 );
 defparam \video_transmitter/red_tmds/n174_s0 .INIT=8'hCA;
@@ -2612,7 +3573,7 @@ LUT2 \video_transmitter/red_tmds/encoderStage2_8_s9  (
 );
 defparam \video_transmitter/red_tmds/encoderStage2_8_s9 .INIT=4'hB;
 LUT2 \video_transmitter/red_tmds/encoderStage2_4_s9  (
-	.I0(\video_transmitter/red_tmds/n151_3 ),
+	.I0(\video_transmitter/red_tmds/n151_5 ),
 	.I1(\video_transmitter/displayEnable ),
 	.F(\video_transmitter/red_tmds/encoderStage2_4_16 )
 );
@@ -2620,7 +3581,7 @@ defparam \video_transmitter/red_tmds/encoderStage2_4_s9 .INIT=4'hB;
 LUT3 \video_transmitter/red_tmds/n154_s2  (
 	.I0(\video_transmitter/red_tmds/encoderStage1 [8]),
 	.I1(\video_transmitter/red_tmds/disparityCounter [4]),
-	.I2(\video_transmitter/red_tmds/n151_4 ),
+	.I2(\video_transmitter/red_tmds/n170_4 ),
 	.F(\video_transmitter/red_tmds/n154_6 )
 );
 defparam \video_transmitter/red_tmds/n154_s2 .INIT=8'hC5;
@@ -2649,13 +3610,14 @@ LUT3 \video_transmitter/red_tmds/n176_s0  (
 	.F(\video_transmitter/red_tmds/n176_4 )
 );
 defparam \video_transmitter/red_tmds/n176_s0 .INIT=8'h78;
-LUT3 \video_transmitter/red_tmds/n151_s1  (
-	.I0(\video_transmitter/red_tmds/n151_5 ),
-	.I1(\video_transmitter/red_tmds/disparityCounter [3]),
-	.I2(\video_transmitter/red_tmds/encoderStage1 [5]),
-	.F(\video_transmitter/red_tmds/n151_4 )
+LUT4 \video_transmitter/red_tmds/n170_s1  (
+	.I0(\video_transmitter/red_tmds/disparityCounter [0]),
+	.I1(\video_transmitter/red_tmds/disparityCounter [1]),
+	.I2(\video_transmitter/red_tmds/n170_5 ),
+	.I3(\video_transmitter/red_tmds/encoderStage1 [5]),
+	.F(\video_transmitter/red_tmds/n170_4 )
 );
-defparam \video_transmitter/red_tmds/n151_s1 .INIT=8'h0D;
+defparam \video_transmitter/red_tmds/n170_s1 .INIT=16'h00EF;
 LUT3 \video_transmitter/red_tmds/n184_s2  (
 	.I0(\video_transmitter/red_tmds/idleCounter [2]),
 	.I1(\video_transmitter/red_tmds/idleCounter [1]),
@@ -2663,14 +3625,13 @@ LUT3 \video_transmitter/red_tmds/n184_s2  (
 	.F(\video_transmitter/red_tmds/n184_5 )
 );
 defparam \video_transmitter/red_tmds/n184_s2 .INIT=8'h40;
-LUT4 \video_transmitter/red_tmds/n151_s2  (
-	.I0(\video_transmitter/red_tmds/disparityCounter [0]),
-	.I1(\video_transmitter/red_tmds/disparityCounter [1]),
-	.I2(\video_transmitter/red_tmds/disparityCounter [2]),
-	.I3(\video_transmitter/red_tmds/disparityCounter [4]),
-	.F(\video_transmitter/red_tmds/n151_5 )
+LUT3 \video_transmitter/red_tmds/n170_s2  (
+	.I0(\video_transmitter/red_tmds/disparityCounter [2]),
+	.I1(\video_transmitter/red_tmds/disparityCounter [3]),
+	.I2(\video_transmitter/red_tmds/disparityCounter [4]),
+	.F(\video_transmitter/red_tmds/n170_5 )
 );
-defparam \video_transmitter/red_tmds/n151_s2 .INIT=16'h0001;
+defparam \video_transmitter/red_tmds/n170_s2 .INIT=8'h01;
 LUT2 \video_transmitter/red_tmds/n121_1_s1  (
 	.I0(\video_transmitter/red_tmds/encoderStage1 [5]),
 	.I1(\video_transmitter/red_tmds/disparityCounter [4]),
@@ -2680,11 +3641,19 @@ defparam \video_transmitter/red_tmds/n121_1_s1 .INIT=4'hB;
 LUT4 \video_transmitter/red_tmds/encoderStage2_6_s9  (
 	.I0(\video_transmitter/red_tmds/encoderStage1 [8]),
 	.I1(\video_transmitter/red_tmds/disparityCounter [4]),
-	.I2(\video_transmitter/red_tmds/n151_4 ),
+	.I2(\video_transmitter/red_tmds/n170_4 ),
 	.I3(\video_transmitter/displayEnable ),
 	.F(\video_transmitter/red_tmds/encoderStage2_6_17 )
 );
 defparam \video_transmitter/red_tmds/encoderStage2_6_s9 .INIT=16'hC5FF;
+LUT4 \video_transmitter/red_tmds/n151_s1  (
+	.I0(\video_transmitter/red_tmds/encoderStage1 [5]),
+	.I1(\video_transmitter/red_tmds/encoderStage1 [8]),
+	.I2(\video_transmitter/red_tmds/disparityCounter [4]),
+	.I3(\video_transmitter/red_tmds/n170_4 ),
+	.F(\video_transmitter/red_tmds/n151_5 )
+);
+defparam \video_transmitter/red_tmds/n151_s1 .INIT=16'h5A99;
 LUT4 \video_transmitter/red_tmds/n184_s3  (
 	.I0(\video_transmitter/red_tmds/idleCounter [2]),
 	.I1(\video_transmitter/red_tmds/idleCounter [1]),
@@ -2745,7 +3714,7 @@ DFFRE \video_transmitter/red_tmds/encoderStage2_7_s0  (
 );
 defparam \video_transmitter/red_tmds/encoderStage2_7_s0 .INIT=1'b0;
 DFFRE \video_transmitter/red_tmds/encoderStage2_5_s0  (
-	.D(\video_transmitter/red_tmds/n151_3 ),
+	.D(\video_transmitter/red_tmds/n151_5 ),
 	.CLK(multiplierClkOut),
 	.CE(\video_transmitter/red_tmds/n535_3 ),
 	.RESET(\video_transmitter/n330_5 ),

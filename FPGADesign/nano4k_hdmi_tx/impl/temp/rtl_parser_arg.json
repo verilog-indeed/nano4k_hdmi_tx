@@ -1,6 +1,10 @@
 {
  "Files" : [
   {
+   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/bouncy_box_top.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/gowin_pllvr/gowin_pllvr.v",
    "Type" : "verilog"
   },
@@ -14,10 +18,6 @@
   },
   {
    "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/bouncy_box_top.v",
    "Type" : "verilog"
   }
  ],
