@@ -72,6 +72,7 @@ module synchronous_encoder_serializer(
 				stage1Ready <= 1;
 			end else if (stage2Ready == 0) begin
 				encoderStage2[8:0] <= encoderStage1;
+				
 				if (disparityCounter == 0 || (onesIn_encoderStage1 == 4)) begin
 					//No previous DC bias recorded or encoded pixel data already balanced,
 					// keep balance by canceling out the XOR/XNOR operation flag.
@@ -96,6 +97,20 @@ module synchronous_encoder_serializer(
 						disparityCounter <= disparityCounter + disparityCounterCompensation;
 					end
 				end
+				
+				/*
+				//slightly faster butchering of DC balancing, for testing
+				encoderStage2[8:0] <= encoderStage1;
+				//No previous DC bias recorded or encoded pixel data already balanced,
+				// keep balance by canceling out the XOR/XNOR operation flag.
+				encoderStage2[9] <= ~encoderStage1[8]; 
+				if (encoderStage1[8] == 0) begin
+					encoderStage2[7:0] <= ~encoderStage1[7:0];
+					disparityCounter <= disparityCounter - onesInTmdsBuffer_2x_minus_8;
+				end else begin
+					disparityCounter <= disparityCounter + onesInTmdsBuffer_2x_minus_8;
+				end
+				*/
 				stage2Ready <= 1;
 			end else begin
 				idleCounter <= idleCounter + 1;

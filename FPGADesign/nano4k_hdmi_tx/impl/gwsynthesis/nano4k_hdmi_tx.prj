@@ -7,8 +7,8 @@
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\gowin_pllvr\gowin_pllvr.v" type="verilog"/>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v" type="verilog"/>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v" type="verilog"/>
-        <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\pattern_generator_top.v" type="verilog"/>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\synchronous_encoder_serializer.v" type="verilog"/>
+        <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>

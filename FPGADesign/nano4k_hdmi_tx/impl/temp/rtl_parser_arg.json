@@ -13,11 +13,11 @@
    "Type" : "verilog"
   },
   {
-   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/pattern_generator_top.v",
+   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/synchronous_encoder_serializer.v",
+   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/bouncy_box_top.v",
    "Type" : "verilog"
   }
  ],

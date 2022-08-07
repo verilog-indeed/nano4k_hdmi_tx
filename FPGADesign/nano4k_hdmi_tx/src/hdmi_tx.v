@@ -116,20 +116,14 @@ module hdmi_tx(
         vPosCounter <= 0;
     end
     
-	//vertical clock is the time it takes to scan one row, 429 is half of that row where the clock wave is high
-    wire vPixelClk = hPosCounter < 430;
-    
-    always@(posedge vPixelClk) begin
-        if (vPosCounter == 525) begin
-            vPosCounter <= 0;
-        end else begin
-            vPosCounter <= vPosCounter + 1;
-        end
-    end
-
     always@(posedge pixelClock) begin
         if (hPosCounter == 858) begin
             hPosCounter <= 0;
+			if (vPosCounter == 525) begin
+            	vPosCounter <= 0;
+			end else begin
+				vPosCounter <= vPosCounter + 1;
+			end
         end else begin
             hPosCounter <= hPosCounter + 1;
         end

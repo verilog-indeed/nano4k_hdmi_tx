@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="pattern_generator_top" Lut="17">
+<Module name="bouncy_box_top" Register="13" Alu="24" Lut="22">
     <SubModule name="clock_5x"/>
-    <SubModule name="video_transmitter" Register="20" Alu="18" Lut="13">
-        <SubModule name="blue_tmds" Register="22" Alu="10" Lut="36"/>
-        <SubModule name="green_tmds" Register="21" Alu="10" Lut="27"/>
-        <SubModule name="red_tmds" Register="22" Alu="10" Lut="27"/>
+    <SubModule name="video_transmitter" Register="20" Alu="18" Lut="12">
+        <SubModule name="blue_tmds" Register="36" Alu="10" Lut="49">
+            <SubModule name="ones_in_tmds_stage1" Alu="3" Lut="8"/>
+        </SubModule>
+        <SubModule name="green_tmds" Register="20" Alu="10" Lut="28"/>
+        <SubModule name="red_tmds" Register="24" Alu="10" Lut="29"/>
     </SubModule>
 </Module>

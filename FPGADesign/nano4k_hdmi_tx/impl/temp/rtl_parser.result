@@ -1,23 +1,23 @@
 [
  {
-  "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/pattern_generator_top.v",
-  "InstLine" : 4,
-  "InstName" : "pattern_generator_top",
-  "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/pattern_generator_top.v",
-  "ModuleLine" : 4,
-  "ModuleName" : "pattern_generator_top",
+  "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/bouncy_box_top.v",
+  "InstLine" : 1,
+  "InstName" : "bouncy_box_top",
+  "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/bouncy_box_top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "bouncy_box_top",
   "SubInsts" : [
    {
-    "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/pattern_generator_top.v",
-    "InstLine" : 27,
+    "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/bouncy_box_top.v",
+    "InstLine" : 25,
     "InstName" : "clock_5x",
     "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/gowin_pllvr/gowin_pllvr.v",
     "ModuleLine" : 9,
     "ModuleName" : "Gowin_PLLVR"
    },
    {
-    "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/pattern_generator_top.v",
-    "InstLine" : 32,
+    "InstFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/bouncy_box_top.v",
+    "InstLine" : 30,
     "InstName" : "video_transmitter",
     "ModuleFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/hdmi_tx.v",
     "ModuleLine" : 7,

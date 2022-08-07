@@ -1,14 +1,10 @@
-//`include "hdmi_tx.v"
-//`include "gowin_pllvr\gowin_pllvr.v"
-
-module pattern_generator_top  (
+module bouncy_box_top(
                                 input crystalCLK,
                                 output [2:0] tmdsChannel_p,
                                 output tmdsClockChannel_p,
                                 output [2:0] tmdsChannel_n,
                                 output tmdsClockChannel_n
-                              );
-
+                      );
     localparam	WHITE	= {8'd255 , 8'd255 , 8'd255 };//{R,G,B}
     localparam	YELLOW	= { 8'd255 , 8'd255, 8'd0   };
     localparam	CYAN	= { 8'd0, 8'd255 , 8'd255   };
@@ -17,6 +13,8 @@ module pattern_generator_top  (
     localparam	RED		= {8'd255, 8'd0   , 8'd0    };
     localparam	BLUE	= { 8'd0   , 8'd0  , 8'd255};
     localparam	BLACK	= {8'd0   , 8'd0   , 8'd0   };
+
+	localparam INDIGO = {8'd75   , 8'd0   , 8'd130   };
 
     reg[23:0] currentPixel; //{R8, G8, B8}
     wire[9:0] verticalPix;
@@ -47,36 +45,26 @@ module pattern_generator_top  (
 
     initial begin
         currentPixel <= BLACK;
+		boxHpos <= 240;
+		boxVpos <= 160;
     end
+	
+	//top left corner coordinates
+	reg[9:0] boxHpos;
+	reg[9:0] boxVpos;
 
-	always@(*) begin
-		if (displayEnable == 1) begin
-            //PAL color bar pattern, kind of
-            if ($unsigned(horizontalPix) < 102 * 4) begin
-                if ($unsigned(horizontalPix) < 102 * 2) begin
-                    if ($unsigned(horizontalPix) < 102) begin
-                        currentPixel = WHITE;
-                    end else begin
-                        currentPixel = YELLOW;
-                    end
-                end else if($unsigned(horizontalPix) < 102 * 3) begin
-                    currentPixel = CYAN;
-                end else begin
-                	currentPixel = GREEN;
-				end
-            end else begin
-				if ($unsigned(horizontalPix) < 102 * 6) begin
-					if ($unsigned(horizontalPix) < 102 * 5) begin
-                		currentPixel = MAGENTA;
-					end else begin
-                		currentPixel = RED;
-					end
-				end else begin
-                	currentPixel = BLUE;
-				end
-			end
-        end else begin
-            currentPixel = BLACK;
-        end
+	localparam boxHeight = 160;
+	localparam boxWidth = 240;
+
+	always@(posedge crystalCLK) begin
+		if ((verticalPix > boxVpos) && (verticalPix < (boxVpos + boxHeight)) && (horizontalPix > boxHpos) && (horizontalPix < (boxHpos + boxHeight))) begin
+			currentPixel <= INDIGO;
+		end else begin
+			currentPixel <= CYAN;
+		end
+		if (verticalPix == 480 && horizontalPix == 720) begin
+			boxHpos <= boxHpos + 1;
+		end
 	end
+
 endmodule
