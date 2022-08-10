@@ -19,8 +19,8 @@ module pattern_generator_top  (
     localparam	BLACK	= {8'd0   , 8'd0   , 8'd0   };
 
     reg[23:0] currentPixel; //{R8, G8, B8}
-    wire[9:0] verticalPix;
-    wire[9:0] horizontalPix;
+    wire signed [10:0] verticalPix;
+    wire signed [11:0] horizontalPix;
     wire displayEnable;
     wire multiplierClkOut;
 	
@@ -35,7 +35,6 @@ module pattern_generator_top  (
         .redByte(currentPixel[23:16]),
         .greenByte(currentPixel[15:8]),
         .blueByte(currentPixel[7:0]),
-        .pcmSample(16'b0),
         .inActiveDisplay(displayEnable),
         .hPosCounter(horizontalPix),
         .vPosCounter(verticalPix),
@@ -50,33 +49,33 @@ module pattern_generator_top  (
     end
 
 	always@(*) begin
-		if (displayEnable == 1) begin
-            //PAL color bar pattern, kind of
-            if ($unsigned(horizontalPix) < 102 * 4) begin
-                if ($unsigned(horizontalPix) < 102 * 2) begin
-                    if ($unsigned(horizontalPix) < 102) begin
-                        currentPixel = WHITE;
-                    end else begin
-                        currentPixel = YELLOW;
-                    end
-                end else if($unsigned(horizontalPix) < 102 * 3) begin
-                    currentPixel = CYAN;
-                end else begin
-                	currentPixel = GREEN;
-				end
-            end else begin
-				if ($unsigned(horizontalPix) < 102 * 6) begin
-					if ($unsigned(horizontalPix) < 102 * 5) begin
-                		currentPixel = MAGENTA;
+		if (displayEnable) begin
+			//PAL color bar pattern, kind of
+			if (horizontalPix < 102 * 4) begin
+				if (horizontalPix < 102 * 2) begin
+					if (horizontalPix < 102) begin
+						currentPixel = WHITE;
 					end else begin
-                		currentPixel = RED;
+						currentPixel = YELLOW;
+					end
+				end else if(horizontalPix < 102 * 3) begin
+					currentPixel = CYAN;
+				end else begin
+					currentPixel = GREEN;
+				end
+			end else begin
+				if (horizontalPix < 102 * 6) begin
+					if (horizontalPix < 102 * 5) begin
+						currentPixel = MAGENTA;
+					end else begin
+						currentPixel = RED;
 					end
 				end else begin
-                	currentPixel = BLUE;
+					currentPixel = BLUE;
 				end
 			end
-        end else begin
-            currentPixel = BLACK;
-        end
+		end else begin
+			currentPixel <= BLACK;
+		end
 	end
 endmodule

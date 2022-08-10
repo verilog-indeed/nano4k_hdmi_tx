@@ -1,39 +1,27 @@
 module gw_gao(
-    \video_transmitter/blue_tmds/tmdsCharacterOut[9] ,
-    \video_transmitter/blue_tmds/tmdsCharacterOut[8] ,
-    \video_transmitter/blue_tmds/tmdsCharacterOut[7] ,
-    \video_transmitter/blue_tmds/tmdsCharacterOut[6] ,
-    \video_transmitter/blue_tmds/tmdsCharacterOut[5] ,
-    \video_transmitter/blue_tmds/tmdsCharacterOut[4] ,
-    \video_transmitter/blue_tmds/tmdsCharacterOut[3] ,
-    \video_transmitter/blue_tmds/tmdsCharacterOut[2] ,
-    \video_transmitter/blue_tmds/tmdsCharacterOut[1] ,
-    \video_transmitter/blue_tmds/tmdsCharacterOut[0] ,
-    \video_transmitter/blue_tmds/pixelComponent[7] ,
-    \video_transmitter/blue_tmds/pixelComponent[6] ,
-    \video_transmitter/blue_tmds/pixelComponent[5] ,
-    \video_transmitter/blue_tmds/pixelComponent[4] ,
-    \video_transmitter/blue_tmds/pixelComponent[3] ,
-    \video_transmitter/blue_tmds/pixelComponent[2] ,
-    \video_transmitter/blue_tmds/pixelComponent[1] ,
-    \video_transmitter/blue_tmds/pixelComponent[0] ,
-    \video_transmitter/blue_tmds/currentSubPixel[7] ,
-    \video_transmitter/blue_tmds/currentSubPixel[6] ,
-    \video_transmitter/blue_tmds/currentSubPixel[5] ,
-    \video_transmitter/blue_tmds/currentSubPixel[4] ,
-    \video_transmitter/blue_tmds/currentSubPixel[3] ,
-    \video_transmitter/blue_tmds/currentSubPixel[2] ,
-    \video_transmitter/blue_tmds/currentSubPixel[1] ,
-    \video_transmitter/blue_tmds/currentSubPixel[0] ,
-    \video_transmitter/blue_tmds/encoderStage1[8] ,
-    \video_transmitter/blue_tmds/encoderStage1[7] ,
-    \video_transmitter/blue_tmds/encoderStage1[6] ,
-    \video_transmitter/blue_tmds/encoderStage1[5] ,
-    \video_transmitter/blue_tmds/encoderStage1[4] ,
-    \video_transmitter/blue_tmds/encoderStage1[3] ,
-    \video_transmitter/blue_tmds/encoderStage1[2] ,
-    \video_transmitter/blue_tmds/encoderStage1[1] ,
-    \video_transmitter/blue_tmds/encoderStage1[0] ,
+    \video_transmitter/hSync ,
+    \video_transmitter/vSync ,
+    \video_transmitter/vPosCounter[9] ,
+    \video_transmitter/vPosCounter[8] ,
+    \video_transmitter/vPosCounter[7] ,
+    \video_transmitter/vPosCounter[6] ,
+    \video_transmitter/vPosCounter[5] ,
+    \video_transmitter/vPosCounter[4] ,
+    \video_transmitter/vPosCounter[3] ,
+    \video_transmitter/vPosCounter[2] ,
+    \video_transmitter/vPosCounter[1] ,
+    \video_transmitter/vPosCounter[0] ,
+    \video_transmitter/hPosCounter[10] ,
+    \video_transmitter/hPosCounter[9] ,
+    \video_transmitter/hPosCounter[8] ,
+    \video_transmitter/hPosCounter[7] ,
+    \video_transmitter/hPosCounter[6] ,
+    \video_transmitter/hPosCounter[5] ,
+    \video_transmitter/hPosCounter[4] ,
+    \video_transmitter/hPosCounter[3] ,
+    \video_transmitter/hPosCounter[2] ,
+    \video_transmitter/hPosCounter[1] ,
+    \video_transmitter/hPosCounter[0] ,
     \horizontalPix[9] ,
     \horizontalPix[8] ,
     \horizontalPix[7] ,
@@ -44,50 +32,36 @@ module gw_gao(
     \horizontalPix[2] ,
     \horizontalPix[1] ,
     \horizontalPix[0] ,
-    \video_transmitter/blue_tmds/stage1Ready ,
-    \video_transmitter/blue_tmds/stage2Ready ,
-    multiplierClkOut,
+    crystalCLK,
     tms_pad_i,
     tck_pad_i,
     tdi_pad_i,
     tdo_pad_o
 );
 
-input \video_transmitter/blue_tmds/tmdsCharacterOut[9] ;
-input \video_transmitter/blue_tmds/tmdsCharacterOut[8] ;
-input \video_transmitter/blue_tmds/tmdsCharacterOut[7] ;
-input \video_transmitter/blue_tmds/tmdsCharacterOut[6] ;
-input \video_transmitter/blue_tmds/tmdsCharacterOut[5] ;
-input \video_transmitter/blue_tmds/tmdsCharacterOut[4] ;
-input \video_transmitter/blue_tmds/tmdsCharacterOut[3] ;
-input \video_transmitter/blue_tmds/tmdsCharacterOut[2] ;
-input \video_transmitter/blue_tmds/tmdsCharacterOut[1] ;
-input \video_transmitter/blue_tmds/tmdsCharacterOut[0] ;
-input \video_transmitter/blue_tmds/pixelComponent[7] ;
-input \video_transmitter/blue_tmds/pixelComponent[6] ;
-input \video_transmitter/blue_tmds/pixelComponent[5] ;
-input \video_transmitter/blue_tmds/pixelComponent[4] ;
-input \video_transmitter/blue_tmds/pixelComponent[3] ;
-input \video_transmitter/blue_tmds/pixelComponent[2] ;
-input \video_transmitter/blue_tmds/pixelComponent[1] ;
-input \video_transmitter/blue_tmds/pixelComponent[0] ;
-input \video_transmitter/blue_tmds/currentSubPixel[7] ;
-input \video_transmitter/blue_tmds/currentSubPixel[6] ;
-input \video_transmitter/blue_tmds/currentSubPixel[5] ;
-input \video_transmitter/blue_tmds/currentSubPixel[4] ;
-input \video_transmitter/blue_tmds/currentSubPixel[3] ;
-input \video_transmitter/blue_tmds/currentSubPixel[2] ;
-input \video_transmitter/blue_tmds/currentSubPixel[1] ;
-input \video_transmitter/blue_tmds/currentSubPixel[0] ;
-input \video_transmitter/blue_tmds/encoderStage1[8] ;
-input \video_transmitter/blue_tmds/encoderStage1[7] ;
-input \video_transmitter/blue_tmds/encoderStage1[6] ;
-input \video_transmitter/blue_tmds/encoderStage1[5] ;
-input \video_transmitter/blue_tmds/encoderStage1[4] ;
-input \video_transmitter/blue_tmds/encoderStage1[3] ;
-input \video_transmitter/blue_tmds/encoderStage1[2] ;
-input \video_transmitter/blue_tmds/encoderStage1[1] ;
-input \video_transmitter/blue_tmds/encoderStage1[0] ;
+input \video_transmitter/hSync ;
+input \video_transmitter/vSync ;
+input \video_transmitter/vPosCounter[9] ;
+input \video_transmitter/vPosCounter[8] ;
+input \video_transmitter/vPosCounter[7] ;
+input \video_transmitter/vPosCounter[6] ;
+input \video_transmitter/vPosCounter[5] ;
+input \video_transmitter/vPosCounter[4] ;
+input \video_transmitter/vPosCounter[3] ;
+input \video_transmitter/vPosCounter[2] ;
+input \video_transmitter/vPosCounter[1] ;
+input \video_transmitter/vPosCounter[0] ;
+input \video_transmitter/hPosCounter[10] ;
+input \video_transmitter/hPosCounter[9] ;
+input \video_transmitter/hPosCounter[8] ;
+input \video_transmitter/hPosCounter[7] ;
+input \video_transmitter/hPosCounter[6] ;
+input \video_transmitter/hPosCounter[5] ;
+input \video_transmitter/hPosCounter[4] ;
+input \video_transmitter/hPosCounter[3] ;
+input \video_transmitter/hPosCounter[2] ;
+input \video_transmitter/hPosCounter[1] ;
+input \video_transmitter/hPosCounter[0] ;
 input \horizontalPix[9] ;
 input \horizontalPix[8] ;
 input \horizontalPix[7] ;
@@ -98,49 +72,35 @@ input \horizontalPix[3] ;
 input \horizontalPix[2] ;
 input \horizontalPix[1] ;
 input \horizontalPix[0] ;
-input \video_transmitter/blue_tmds/stage1Ready ;
-input \video_transmitter/blue_tmds/stage2Ready ;
-input multiplierClkOut;
+input crystalCLK;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
 output tdo_pad_o;
 
-wire \video_transmitter/blue_tmds/tmdsCharacterOut[9] ;
-wire \video_transmitter/blue_tmds/tmdsCharacterOut[8] ;
-wire \video_transmitter/blue_tmds/tmdsCharacterOut[7] ;
-wire \video_transmitter/blue_tmds/tmdsCharacterOut[6] ;
-wire \video_transmitter/blue_tmds/tmdsCharacterOut[5] ;
-wire \video_transmitter/blue_tmds/tmdsCharacterOut[4] ;
-wire \video_transmitter/blue_tmds/tmdsCharacterOut[3] ;
-wire \video_transmitter/blue_tmds/tmdsCharacterOut[2] ;
-wire \video_transmitter/blue_tmds/tmdsCharacterOut[1] ;
-wire \video_transmitter/blue_tmds/tmdsCharacterOut[0] ;
-wire \video_transmitter/blue_tmds/pixelComponent[7] ;
-wire \video_transmitter/blue_tmds/pixelComponent[6] ;
-wire \video_transmitter/blue_tmds/pixelComponent[5] ;
-wire \video_transmitter/blue_tmds/pixelComponent[4] ;
-wire \video_transmitter/blue_tmds/pixelComponent[3] ;
-wire \video_transmitter/blue_tmds/pixelComponent[2] ;
-wire \video_transmitter/blue_tmds/pixelComponent[1] ;
-wire \video_transmitter/blue_tmds/pixelComponent[0] ;
-wire \video_transmitter/blue_tmds/currentSubPixel[7] ;
-wire \video_transmitter/blue_tmds/currentSubPixel[6] ;
-wire \video_transmitter/blue_tmds/currentSubPixel[5] ;
-wire \video_transmitter/blue_tmds/currentSubPixel[4] ;
-wire \video_transmitter/blue_tmds/currentSubPixel[3] ;
-wire \video_transmitter/blue_tmds/currentSubPixel[2] ;
-wire \video_transmitter/blue_tmds/currentSubPixel[1] ;
-wire \video_transmitter/blue_tmds/currentSubPixel[0] ;
-wire \video_transmitter/blue_tmds/encoderStage1[8] ;
-wire \video_transmitter/blue_tmds/encoderStage1[7] ;
-wire \video_transmitter/blue_tmds/encoderStage1[6] ;
-wire \video_transmitter/blue_tmds/encoderStage1[5] ;
-wire \video_transmitter/blue_tmds/encoderStage1[4] ;
-wire \video_transmitter/blue_tmds/encoderStage1[3] ;
-wire \video_transmitter/blue_tmds/encoderStage1[2] ;
-wire \video_transmitter/blue_tmds/encoderStage1[1] ;
-wire \video_transmitter/blue_tmds/encoderStage1[0] ;
+wire \video_transmitter/hSync ;
+wire \video_transmitter/vSync ;
+wire \video_transmitter/vPosCounter[9] ;
+wire \video_transmitter/vPosCounter[8] ;
+wire \video_transmitter/vPosCounter[7] ;
+wire \video_transmitter/vPosCounter[6] ;
+wire \video_transmitter/vPosCounter[5] ;
+wire \video_transmitter/vPosCounter[4] ;
+wire \video_transmitter/vPosCounter[3] ;
+wire \video_transmitter/vPosCounter[2] ;
+wire \video_transmitter/vPosCounter[1] ;
+wire \video_transmitter/vPosCounter[0] ;
+wire \video_transmitter/hPosCounter[10] ;
+wire \video_transmitter/hPosCounter[9] ;
+wire \video_transmitter/hPosCounter[8] ;
+wire \video_transmitter/hPosCounter[7] ;
+wire \video_transmitter/hPosCounter[6] ;
+wire \video_transmitter/hPosCounter[5] ;
+wire \video_transmitter/hPosCounter[4] ;
+wire \video_transmitter/hPosCounter[3] ;
+wire \video_transmitter/hPosCounter[2] ;
+wire \video_transmitter/hPosCounter[1] ;
+wire \video_transmitter/hPosCounter[0] ;
 wire \horizontalPix[9] ;
 wire \horizontalPix[8] ;
 wire \horizontalPix[7] ;
@@ -151,9 +111,7 @@ wire \horizontalPix[3] ;
 wire \horizontalPix[2] ;
 wire \horizontalPix[1] ;
 wire \horizontalPix[0] ;
-wire \video_transmitter/blue_tmds/stage1Ready ;
-wire \video_transmitter/blue_tmds/stage2Ready ;
-wire multiplierClkOut;
+wire crystalCLK;
 wire tms_pad_i;
 wire tck_pad_i;
 wire tdi_pad_i;
@@ -228,8 +186,8 @@ gw_con_top  u_icon_top(
 ao_top_0  u_la0_top(
     .control(control0[9:0]),
     .trig0_i({\horizontalPix[9] ,\horizontalPix[8] ,\horizontalPix[7] ,\horizontalPix[6] ,\horizontalPix[5] ,\horizontalPix[4] ,\horizontalPix[3] ,\horizontalPix[2] ,\horizontalPix[1] ,\horizontalPix[0] }),
-    .data_i({\video_transmitter/blue_tmds/tmdsCharacterOut[9] ,\video_transmitter/blue_tmds/tmdsCharacterOut[8] ,\video_transmitter/blue_tmds/tmdsCharacterOut[7] ,\video_transmitter/blue_tmds/tmdsCharacterOut[6] ,\video_transmitter/blue_tmds/tmdsCharacterOut[5] ,\video_transmitter/blue_tmds/tmdsCharacterOut[4] ,\video_transmitter/blue_tmds/tmdsCharacterOut[3] ,\video_transmitter/blue_tmds/tmdsCharacterOut[2] ,\video_transmitter/blue_tmds/tmdsCharacterOut[1] ,\video_transmitter/blue_tmds/tmdsCharacterOut[0] ,\video_transmitter/blue_tmds/pixelComponent[7] ,\video_transmitter/blue_tmds/pixelComponent[6] ,\video_transmitter/blue_tmds/pixelComponent[5] ,\video_transmitter/blue_tmds/pixelComponent[4] ,\video_transmitter/blue_tmds/pixelComponent[3] ,\video_transmitter/blue_tmds/pixelComponent[2] ,\video_transmitter/blue_tmds/pixelComponent[1] ,\video_transmitter/blue_tmds/pixelComponent[0] ,\video_transmitter/blue_tmds/currentSubPixel[7] ,\video_transmitter/blue_tmds/currentSubPixel[6] ,\video_transmitter/blue_tmds/currentSubPixel[5] ,\video_transmitter/blue_tmds/currentSubPixel[4] ,\video_transmitter/blue_tmds/currentSubPixel[3] ,\video_transmitter/blue_tmds/currentSubPixel[2] ,\video_transmitter/blue_tmds/currentSubPixel[1] ,\video_transmitter/blue_tmds/currentSubPixel[0] ,\video_transmitter/blue_tmds/encoderStage1[8] ,\video_transmitter/blue_tmds/encoderStage1[7] ,\video_transmitter/blue_tmds/encoderStage1[6] ,\video_transmitter/blue_tmds/encoderStage1[5] ,\video_transmitter/blue_tmds/encoderStage1[4] ,\video_transmitter/blue_tmds/encoderStage1[3] ,\video_transmitter/blue_tmds/encoderStage1[2] ,\video_transmitter/blue_tmds/encoderStage1[1] ,\video_transmitter/blue_tmds/encoderStage1[0] ,\horizontalPix[9] ,\horizontalPix[8] ,\horizontalPix[7] ,\horizontalPix[6] ,\horizontalPix[5] ,\horizontalPix[4] ,\horizontalPix[3] ,\horizontalPix[2] ,\horizontalPix[1] ,\horizontalPix[0] ,\video_transmitter/blue_tmds/stage1Ready ,\video_transmitter/blue_tmds/stage2Ready }),
-    .clk_i(multiplierClkOut)
+    .data_i({\video_transmitter/hSync ,\video_transmitter/vSync ,\video_transmitter/vPosCounter[9] ,\video_transmitter/vPosCounter[8] ,\video_transmitter/vPosCounter[7] ,\video_transmitter/vPosCounter[6] ,\video_transmitter/vPosCounter[5] ,\video_transmitter/vPosCounter[4] ,\video_transmitter/vPosCounter[3] ,\video_transmitter/vPosCounter[2] ,\video_transmitter/vPosCounter[1] ,\video_transmitter/vPosCounter[0] ,\video_transmitter/hPosCounter[10] ,\video_transmitter/hPosCounter[9] ,\video_transmitter/hPosCounter[8] ,\video_transmitter/hPosCounter[7] ,\video_transmitter/hPosCounter[6] ,\video_transmitter/hPosCounter[5] ,\video_transmitter/hPosCounter[4] ,\video_transmitter/hPosCounter[3] ,\video_transmitter/hPosCounter[2] ,\video_transmitter/hPosCounter[1] ,\video_transmitter/hPosCounter[0] }),
+    .clk_i(crystalCLK)
 );
 
 endmodule

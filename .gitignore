@@ -2,4 +2,6 @@
 /FPGADesign/nano4k_hdmi_tx/src/sim_result.vcd.bak
 /FPGADesign/nano4k_hdmi_tx/src/gtkwave_setup.gtkw
 /FPGADesign/nano4k_hdmi_tx/src/sim_result
-FPGADesign/nano4k_hdmi_tx/src/icarus_filelist.txt
+/FPGADesign/nano4k_hdmi_tx/src/icarus_filelist.txt
+/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer.v
+/FPGADesign/nano4k_hdmi_tx/src/encoder_serializer_tb.v

@@ -17,8 +17,8 @@ module bouncy_box_top(
 	localparam INDIGO = {8'd75   , 8'd0   , 8'd130   };
 
     reg[23:0] currentPixel; //{R8, G8, B8}
-    wire[9:0] verticalPix;
-    wire[9:0] horizontalPix;
+    wire signed [10:0] verticalPix;
+    wire signed [11:0] horizontalPix;
     wire displayEnable;
     wire multiplierClkOut;
 	
@@ -33,8 +33,6 @@ module bouncy_box_top(
         .redByte(currentPixel[23:16]),
         .greenByte(currentPixel[15:8]),
         .blueByte(currentPixel[7:0]),
-        .pcmSample(16'b0),
-        .inActiveDisplay(displayEnable),
         .hPosCounter(horizontalPix),
         .vPosCounter(verticalPix),
         .tmds_clk_p(tmdsClockChannel_p),
@@ -69,7 +67,7 @@ module bouncy_box_top(
 		end else begin
 			currentPixel <= CYAN;
 		end
-		if (verticalPix == 480 && horizontalPix == 720) begin
+		if (verticalPix == (480-1) && horizontalPix == (720-1)) begin
 			if (movingRight) begin
 				if (rightEdgeCoord >= 720) begin
 					boxHpos <= 720 - boxWidth - 1;
