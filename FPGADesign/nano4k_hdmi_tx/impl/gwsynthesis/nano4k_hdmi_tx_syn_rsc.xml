@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="bouncy_box_top" Register="27" Alu="25" Lut="132">
+<Module name="sram_frambuffer_test_top" Register="19" Lut="54">
+    <SubModule name="sramBuffer" Register="1" Lut="6" Bsram="9"/>
     <SubModule name="clock_5x"/>
-    <SubModule name="video_transmitter" Register="21" Alu="19" Lut="4">
-        <SubModule name="blue_tmds" Register="36" Alu="10" Lut="53">
+    <SubModule name="video_transmitter" Register="21" Alu="19" Lut="13">
+        <SubModule name="blue_tmds" Register="36" Alu="10" Lut="50">
             <SubModule name="ones_in_tmds_stage1" Alu="3" Lut="8"/>
         </SubModule>
-        <SubModule name="green_tmds" Register="20" Alu="10" Lut="28"/>
-        <SubModule name="red_tmds" Register="24" Alu="10" Lut="29"/>
+        <SubModule name="green_tmds" Register="35" Alu="10" Lut="42">
+            <SubModule name="ones_in_tmds_stage1" Alu="3" Lut="8"/>
+        </SubModule>
+        <SubModule name="red_tmds" Register="36" Alu="10" Lut="42">
+            <SubModule name="ones_in_tmds_stage1" Alu="3" Lut="8"/>
+        </SubModule>
     </SubModule>
 </Module>

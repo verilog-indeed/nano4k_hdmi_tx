@@ -1,117 +1,129 @@
 module gw_gao(
-    \video_transmitter/hSync ,
-    \video_transmitter/vSync ,
-    \video_transmitter/vPosCounter[9] ,
-    \video_transmitter/vPosCounter[8] ,
-    \video_transmitter/vPosCounter[7] ,
-    \video_transmitter/vPosCounter[6] ,
-    \video_transmitter/vPosCounter[5] ,
-    \video_transmitter/vPosCounter[4] ,
-    \video_transmitter/vPosCounter[3] ,
-    \video_transmitter/vPosCounter[2] ,
-    \video_transmitter/vPosCounter[1] ,
-    \video_transmitter/vPosCounter[0] ,
-    \video_transmitter/hPosCounter[10] ,
-    \video_transmitter/hPosCounter[9] ,
-    \video_transmitter/hPosCounter[8] ,
-    \video_transmitter/hPosCounter[7] ,
-    \video_transmitter/hPosCounter[6] ,
-    \video_transmitter/hPosCounter[5] ,
-    \video_transmitter/hPosCounter[4] ,
-    \video_transmitter/hPosCounter[3] ,
-    \video_transmitter/hPosCounter[2] ,
-    \video_transmitter/hPosCounter[1] ,
-    \video_transmitter/hPosCounter[0] ,
-    \horizontalPix[9] ,
-    \horizontalPix[8] ,
-    \horizontalPix[7] ,
-    \horizontalPix[6] ,
-    \horizontalPix[5] ,
-    \horizontalPix[4] ,
-    \horizontalPix[3] ,
-    \horizontalPix[2] ,
-    \horizontalPix[1] ,
-    \horizontalPix[0] ,
     crystalCLK,
+    \sramAddress[14] ,
+    \sramAddress[13] ,
+    \sramAddress[12] ,
+    \sramAddress[11] ,
+    \sramAddress[10] ,
+    \sramAddress[9] ,
+    \sramAddress[8] ,
+    \sramAddress[7] ,
+    \sramAddress[6] ,
+    \sramAddress[5] ,
+    \sramAddress[4] ,
+    \sramAddress[3] ,
+    \sramAddress[2] ,
+    \sramAddress[1] ,
+    \sramAddress[0] ,
+    \sramRdData[5] ,
+    \sramRdData[4] ,
+    \sramRdData[3] ,
+    \sramRdData[2] ,
+    \sramRdData[1] ,
+    \sramRdData[0] ,
+    \sramBuffer/ad[14] ,
+    \sramBuffer/ad[13] ,
+    \sramBuffer/ad[12] ,
+    \sramBuffer/ad[11] ,
+    \sramBuffer/ad[10] ,
+    \sramBuffer/ad[9] ,
+    \sramBuffer/ad[8] ,
+    \sramBuffer/ad[7] ,
+    \sramBuffer/ad[6] ,
+    \sramBuffer/ad[5] ,
+    \sramBuffer/ad[4] ,
+    \sramBuffer/ad[3] ,
+    \sramBuffer/ad[2] ,
+    \sramBuffer/ad[1] ,
+    \sramBuffer/ad[0] ,
+    multiplierClkOut,
     tms_pad_i,
     tck_pad_i,
     tdi_pad_i,
     tdo_pad_o
 );
 
-input \video_transmitter/hSync ;
-input \video_transmitter/vSync ;
-input \video_transmitter/vPosCounter[9] ;
-input \video_transmitter/vPosCounter[8] ;
-input \video_transmitter/vPosCounter[7] ;
-input \video_transmitter/vPosCounter[6] ;
-input \video_transmitter/vPosCounter[5] ;
-input \video_transmitter/vPosCounter[4] ;
-input \video_transmitter/vPosCounter[3] ;
-input \video_transmitter/vPosCounter[2] ;
-input \video_transmitter/vPosCounter[1] ;
-input \video_transmitter/vPosCounter[0] ;
-input \video_transmitter/hPosCounter[10] ;
-input \video_transmitter/hPosCounter[9] ;
-input \video_transmitter/hPosCounter[8] ;
-input \video_transmitter/hPosCounter[7] ;
-input \video_transmitter/hPosCounter[6] ;
-input \video_transmitter/hPosCounter[5] ;
-input \video_transmitter/hPosCounter[4] ;
-input \video_transmitter/hPosCounter[3] ;
-input \video_transmitter/hPosCounter[2] ;
-input \video_transmitter/hPosCounter[1] ;
-input \video_transmitter/hPosCounter[0] ;
-input \horizontalPix[9] ;
-input \horizontalPix[8] ;
-input \horizontalPix[7] ;
-input \horizontalPix[6] ;
-input \horizontalPix[5] ;
-input \horizontalPix[4] ;
-input \horizontalPix[3] ;
-input \horizontalPix[2] ;
-input \horizontalPix[1] ;
-input \horizontalPix[0] ;
 input crystalCLK;
+input \sramAddress[14] ;
+input \sramAddress[13] ;
+input \sramAddress[12] ;
+input \sramAddress[11] ;
+input \sramAddress[10] ;
+input \sramAddress[9] ;
+input \sramAddress[8] ;
+input \sramAddress[7] ;
+input \sramAddress[6] ;
+input \sramAddress[5] ;
+input \sramAddress[4] ;
+input \sramAddress[3] ;
+input \sramAddress[2] ;
+input \sramAddress[1] ;
+input \sramAddress[0] ;
+input \sramRdData[5] ;
+input \sramRdData[4] ;
+input \sramRdData[3] ;
+input \sramRdData[2] ;
+input \sramRdData[1] ;
+input \sramRdData[0] ;
+input \sramBuffer/ad[14] ;
+input \sramBuffer/ad[13] ;
+input \sramBuffer/ad[12] ;
+input \sramBuffer/ad[11] ;
+input \sramBuffer/ad[10] ;
+input \sramBuffer/ad[9] ;
+input \sramBuffer/ad[8] ;
+input \sramBuffer/ad[7] ;
+input \sramBuffer/ad[6] ;
+input \sramBuffer/ad[5] ;
+input \sramBuffer/ad[4] ;
+input \sramBuffer/ad[3] ;
+input \sramBuffer/ad[2] ;
+input \sramBuffer/ad[1] ;
+input \sramBuffer/ad[0] ;
+input multiplierClkOut;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
 output tdo_pad_o;
 
-wire \video_transmitter/hSync ;
-wire \video_transmitter/vSync ;
-wire \video_transmitter/vPosCounter[9] ;
-wire \video_transmitter/vPosCounter[8] ;
-wire \video_transmitter/vPosCounter[7] ;
-wire \video_transmitter/vPosCounter[6] ;
-wire \video_transmitter/vPosCounter[5] ;
-wire \video_transmitter/vPosCounter[4] ;
-wire \video_transmitter/vPosCounter[3] ;
-wire \video_transmitter/vPosCounter[2] ;
-wire \video_transmitter/vPosCounter[1] ;
-wire \video_transmitter/vPosCounter[0] ;
-wire \video_transmitter/hPosCounter[10] ;
-wire \video_transmitter/hPosCounter[9] ;
-wire \video_transmitter/hPosCounter[8] ;
-wire \video_transmitter/hPosCounter[7] ;
-wire \video_transmitter/hPosCounter[6] ;
-wire \video_transmitter/hPosCounter[5] ;
-wire \video_transmitter/hPosCounter[4] ;
-wire \video_transmitter/hPosCounter[3] ;
-wire \video_transmitter/hPosCounter[2] ;
-wire \video_transmitter/hPosCounter[1] ;
-wire \video_transmitter/hPosCounter[0] ;
-wire \horizontalPix[9] ;
-wire \horizontalPix[8] ;
-wire \horizontalPix[7] ;
-wire \horizontalPix[6] ;
-wire \horizontalPix[5] ;
-wire \horizontalPix[4] ;
-wire \horizontalPix[3] ;
-wire \horizontalPix[2] ;
-wire \horizontalPix[1] ;
-wire \horizontalPix[0] ;
 wire crystalCLK;
+wire \sramAddress[14] ;
+wire \sramAddress[13] ;
+wire \sramAddress[12] ;
+wire \sramAddress[11] ;
+wire \sramAddress[10] ;
+wire \sramAddress[9] ;
+wire \sramAddress[8] ;
+wire \sramAddress[7] ;
+wire \sramAddress[6] ;
+wire \sramAddress[5] ;
+wire \sramAddress[4] ;
+wire \sramAddress[3] ;
+wire \sramAddress[2] ;
+wire \sramAddress[1] ;
+wire \sramAddress[0] ;
+wire \sramRdData[5] ;
+wire \sramRdData[4] ;
+wire \sramRdData[3] ;
+wire \sramRdData[2] ;
+wire \sramRdData[1] ;
+wire \sramRdData[0] ;
+wire \sramBuffer/ad[14] ;
+wire \sramBuffer/ad[13] ;
+wire \sramBuffer/ad[12] ;
+wire \sramBuffer/ad[11] ;
+wire \sramBuffer/ad[10] ;
+wire \sramBuffer/ad[9] ;
+wire \sramBuffer/ad[8] ;
+wire \sramBuffer/ad[7] ;
+wire \sramBuffer/ad[6] ;
+wire \sramBuffer/ad[5] ;
+wire \sramBuffer/ad[4] ;
+wire \sramBuffer/ad[3] ;
+wire \sramBuffer/ad[2] ;
+wire \sramBuffer/ad[1] ;
+wire \sramBuffer/ad[0] ;
+wire multiplierClkOut;
 wire tms_pad_i;
 wire tck_pad_i;
 wire tdi_pad_i;
@@ -185,9 +197,9 @@ gw_con_top  u_icon_top(
 
 ao_top_0  u_la0_top(
     .control(control0[9:0]),
-    .trig0_i({\horizontalPix[9] ,\horizontalPix[8] ,\horizontalPix[7] ,\horizontalPix[6] ,\horizontalPix[5] ,\horizontalPix[4] ,\horizontalPix[3] ,\horizontalPix[2] ,\horizontalPix[1] ,\horizontalPix[0] }),
-    .data_i({\video_transmitter/hSync ,\video_transmitter/vSync ,\video_transmitter/vPosCounter[9] ,\video_transmitter/vPosCounter[8] ,\video_transmitter/vPosCounter[7] ,\video_transmitter/vPosCounter[6] ,\video_transmitter/vPosCounter[5] ,\video_transmitter/vPosCounter[4] ,\video_transmitter/vPosCounter[3] ,\video_transmitter/vPosCounter[2] ,\video_transmitter/vPosCounter[1] ,\video_transmitter/vPosCounter[0] ,\video_transmitter/hPosCounter[10] ,\video_transmitter/hPosCounter[9] ,\video_transmitter/hPosCounter[8] ,\video_transmitter/hPosCounter[7] ,\video_transmitter/hPosCounter[6] ,\video_transmitter/hPosCounter[5] ,\video_transmitter/hPosCounter[4] ,\video_transmitter/hPosCounter[3] ,\video_transmitter/hPosCounter[2] ,\video_transmitter/hPosCounter[1] ,\video_transmitter/hPosCounter[0] }),
-    .clk_i(crystalCLK)
+    .trig0_i({\sramBuffer/ad[14] ,\sramBuffer/ad[13] ,\sramBuffer/ad[12] ,\sramBuffer/ad[11] ,\sramBuffer/ad[10] ,\sramBuffer/ad[9] ,\sramBuffer/ad[8] ,\sramBuffer/ad[7] ,\sramBuffer/ad[6] ,\sramBuffer/ad[5] ,\sramBuffer/ad[4] ,\sramBuffer/ad[3] ,\sramBuffer/ad[2] ,\sramBuffer/ad[1] ,\sramBuffer/ad[0] }),
+    .data_i({crystalCLK,\sramAddress[14] ,\sramAddress[13] ,\sramAddress[12] ,\sramAddress[11] ,\sramAddress[10] ,\sramAddress[9] ,\sramAddress[8] ,\sramAddress[7] ,\sramAddress[6] ,\sramAddress[5] ,\sramAddress[4] ,\sramAddress[3] ,\sramAddress[2] ,\sramAddress[1] ,\sramAddress[0] ,\sramRdData[5] ,\sramRdData[4] ,\sramRdData[3] ,\sramRdData[2] ,\sramRdData[1] ,\sramRdData[0] }),
+    .clk_i(multiplierClkOut)
 );
 
 endmodule

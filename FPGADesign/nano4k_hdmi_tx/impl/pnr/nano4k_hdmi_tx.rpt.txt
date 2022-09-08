@@ -11,26 +11,26 @@
   <PnR Version>: V1.9.8.03 Education
   <Part Number>: GW1NSR-LV4CQN48PC6/I5
   <Device>: GW1NSR-4C
-  <Created Time>:Wed Aug 10 13:57:30 2022
+  <Created Time>:Thu Sep 08 02:10:16 2022
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.059s, Elapsed time = 0h 0m 0.059s
-    Placement Phase 1: CPU time = 0h 0m 0.19s, Elapsed time = 0h 0m 0.19s
-    Placement Phase 2: CPU time = 0h 0m 0.071s, Elapsed time = 0h 0m 0.071s
-    Placement Phase 3: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s
-    Total Placement: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s
+    Placement Phase 0: CPU time = 0h 0m 0.067s, Elapsed time = 0h 0m 0.066s
+    Placement Phase 1: CPU time = 0h 0m 0.149s, Elapsed time = 0h 0m 0.149s
+    Placement Phase 2: CPU time = 0h 0m 0.059s, Elapsed time = 0h 0m 0.06s
+    Placement Phase 3: CPU time = 0h 0m 6s, Elapsed time = 0h 0m 6s
+    Total Placement: CPU time = 0h 0m 6s, Elapsed time = 0h 0m 6s
  Running routing:
-    Routing Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0s
-    Routing Phase 1: CPU time = 0h 0m 0.156s, Elapsed time = 0h 0m 0.156s
-    Routing Phase 2: CPU time = 0h 0m 0.572s, Elapsed time = 0h 0m 0.573s
-    Total Routing: CPU time = 0h 0m 0.729s, Elapsed time = 0h 0m 0.729s
+    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
+    Routing Phase 1: CPU time = 0h 0m 0.168s, Elapsed time = 0h 0m 0.167s
+    Routing Phase 2: CPU time = 0h 0m 0.485s, Elapsed time = 0h 0m 0.485s
+    Total Routing: CPU time = 0h 0m 0.653s, Elapsed time = 0h 0m 0.652s
  Generate output files:
     CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s
 
- Total Time and Memory Usage: CPU time = 0h 0m 6s, Elapsed time = 0h 0m 6s, Peak memory usage = 125MB
+ Total Time and Memory Usage: CPU time = 0h 0m 9s, Elapsed time = 0h 0m 9s, Peak memory usage = 145MB
 
 
 3. Resource Usage Summary
@@ -38,15 +38,15 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 343/4608  7%
-    --LUT,ALU,ROM16           | 343(250 LUT, 93 ALU, 0 ROM16)
+  Logic                       | 341/4608  7%
+    --LUT,ALU,ROM16           | 341(269 LUT, 72 ALU, 0 ROM16)
     --SSRAM(RAM16)            | 0
-  Register                    | 128/3570  3%
+  Register                    | 181/3570  5%
     --Logic Register as Latch | 0/3456  0%
-    --Logic Register as FF    | 128/3456  3%
+    --Logic Register as FF    | 181/3456  5%
     --I/O Register as Latch   | 0/114  0%
     --I/O Register as FF      | 0/114  0%
-  CLS                         | 212/2304  9%
+  CLS                         | 215/2304  9%
   I/O Port                    | 9
   I/O Buf                     | 5
     --Input Buf               | 1
@@ -54,7 +54,8 @@
     --Inout Buf               | 0
   IOLOGIC                     | 15%
     --OSER10                  | 4
-  BSRAM                       | 0%
+  BSRAM                       | 90%
+    --SP                      | 9
   DSP                         | 0%
   PLL                         | 1/2  50%
   DCS                         | 0/4  0%
@@ -99,7 +100,7 @@
   Signal         | Global Clock   | Location
   -------------------------------------------
   crystalCLK_d   | PRIMARY        |  LEFT RIGHT
-  multiplierClkOut| PRIMARY        |  RIGHT
+  multiplierClkOut| PRIMARY        |  LEFT RIGHT
   displayEnable  | SECONDARY      |  -
   multiplierClkOut| HCLK           | RIGHT[1]
   ===========================================

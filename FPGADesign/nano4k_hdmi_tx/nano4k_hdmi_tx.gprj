@@ -6,14 +6,18 @@
     <Device name="GW1NSR-4C" pn="GW1NSR-LV4CQN48PC6/I5">gw1nsr4c-000</Device>
     <FileList>
         <File path="src/bouncy_box_top.v" type="file.verilog" enable="1"/>
+        <File path="src/color_converters.v" type="file.verilog" enable="1"/>
         <File path="src/encoder_serializer.v" type="file.verilog" enable="0"/>
         <File path="src/gowin_pllvr/gowin_pllvr.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_sp/sp_framebuffer.v" type="file.verilog" enable="1"/>
         <File path="src/hdmi_tx.v" type="file.verilog" enable="1"/>
         <File path="src/num_of_ones.v" type="file.verilog" enable="1"/>
         <File path="src/pattern_generator_top.v" type="file.verilog" enable="0"/>
+        <File path="src/sram_framebuffer_test_top.v" type="file.verilog" enable="1"/>
         <File path="src/synchronous_encoder_serializer.v" type="file.verilog" enable="1"/>
         <File path="src/nano4k_hdmi_tx.cst" type="file.cst" enable="1"/>
         <File path="src/nano4k_hdmi_tx.sdc" type="file.sdc" enable="1"/>
+        <File path="src/nano4k_hdmi_tx_sram_fb_test.rao" type="file.gao" enable="0"/>
         <File path="src/nano4k_hdmi_tx_std.rao" type="file.gao" enable="0"/>
     </FileList>
 </Project>

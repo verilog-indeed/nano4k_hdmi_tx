@@ -5,7 +5,15 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/color_converters.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/gowin_pllvr/gowin_pllvr.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/gowin_sp/sp_framebuffer.v",
    "Type" : "verilog"
   },
   {
@@ -14,6 +22,10 @@
   },
   {
    "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/num_of_ones.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/src/sram_framebuffer_test_top.v",
    "Type" : "verilog"
   },
   {
@@ -26,7 +38,7 @@
  ],
  "LoopLimit" : 2000,
  "ResultFile" : "D:/Nano4KProjects/nano4k_hdmi_tx/FPGADesign/nano4k_hdmi_tx/impl/temp/rtl_parser.result",
- "Top" : "",
+ "Top" : "sram_frambuffer_test_top",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"
 }

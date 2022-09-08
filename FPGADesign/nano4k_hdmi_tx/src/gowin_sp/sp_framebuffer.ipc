@@ -1,0 +1,17 @@
+[General]
+ipc_version=4
+file=sp_framebuffer
+module=sp_framebuffer
+target_device=gw1nsr4c-000
+type=ram_sp
+version=3.0
+
+[Config]
+BYTE_SIZE=0
+DEPTH=21600
+LANG=0
+MEM_FILE=../image1.mi
+READ=0
+RESET_MODE=true
+WIDTH=6
+WRITE=0

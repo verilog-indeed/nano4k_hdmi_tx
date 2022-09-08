@@ -5,9 +5,12 @@
     <Device id="GW1NSR-4C" package="QFN48P" speed="6" partNumber="GW1NSR-LV4CQN48PC6/I5"/>
     <FileList>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\bouncy_box_top.v" type="verilog"/>
+        <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\color_converters.v" type="verilog"/>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\gowin_pllvr\gowin_pllvr.v" type="verilog"/>
+        <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\gowin_sp\sp_framebuffer.v" type="verilog"/>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\hdmi_tx.v" type="verilog"/>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\num_of_ones.v" type="verilog"/>
+        <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\sram_framebuffer_test_top.v" type="verilog"/>
         <File path="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\src\synchronous_encoder_serializer.v" type="verilog"/>
     </FileList>
     <OptionList>
@@ -17,6 +20,7 @@
         <Option type="output_file" value="D:\Nano4KProjects\nano4k_hdmi_tx\FPGADesign\nano4k_hdmi_tx\impl\gwsynthesis\nano4k_hdmi_tx.vg"/>
         <Option type="print_all_synthesis_warning" value="0"/>
         <Option type="ram_rw_check" value="1"/>
+        <Option type="top_module" value="sram_frambuffer_test_top"/>
         <Option type="verilog_language" value="verilog-2001"/>
         <Option type="vhdl_language" value="vhdl-1993"/>
     </OptionList>
